@@ -8,23 +8,24 @@
 
 1. Go to https://colab.research.google.com and choose **File > New notebook**.
 2. Choose **Runtime > Change runtime type**, pick **L4 GPU** or **A100 GPU**, then click **Save**. (These need Colab Pro, about $10 a month.)
-3. Paste each block below into a cell and press the play button.
+3. Upload the project. Click the folder icon on the left, then the upload icon (a page with an up arrow), and choose `egc-repo-v0.1.0.zip`. Wait until it appears in the file list (about 1 minute).
+4. Paste each block below into a cell and press the play button.
 
 ```bash
-!git clone https://github.com/toakinrele/evidence-grounded-confidence.git
-%cd evidence-grounded-confidence
+!unzip -q egc-repo-v0.1.0.zip
+%cd egc
 !pip install -q -r requirements.txt
 !python code/01_fetch.py
 !python code/02_build_suite.py
 ```
-You should see **9 lines ending in PASS** at the bottom. If any says FAIL, stop and send Claude the output.
+You should see **9 lines starting with PASS** at the bottom. If any says FAIL, stop and send Claude the output.
 
-4. Sign in to Hugging Face for the gated models. Create a **read** token at https://huggingface.co/settings/tokens. Then run the cell below and paste the token when asked. The token is not saved in the project.
+5. Sign in to Hugging Face for the gated models. Create a **read** token at https://huggingface.co/settings/tokens. Then run the cell below and paste the token when asked. The token is not saved in the project.
 ```python
 from huggingface_hub import login; login()
 ```
 
-5. Run one model at a time. Each run saves as it goes, so if Colab disconnects, run the same line again and it picks up where it stopped.
+6. Run one model at a time. Each run saves as it goes, so if Colab disconnects, run the same line again and it picks up where it stopped.
 ```bash
 !python code/04_run_model.py configs/qwen2_5_vl_7b.yaml
 !python code/04_run_model.py configs/lingshu_7b.yaml
@@ -34,13 +35,13 @@ from huggingface_hub import login; login()
 !python code/04_run_model.py configs/llavamed15_mistral_7b.yaml
 ```
 
-6. Score and draw the figures:
+7. Score and draw the figures:
 ```bash
 !python code/05_score.py
 !python code/06_figures.py
 ```
 
-7. Save the results. Run the cell below, then download `results_bundle.zip` from the Files panel on the left (folder icon).
+8. Save the results. Run the cell below, then download `results_bundle.zip` from the Files panel on the left (folder icon).
 ```bash
 !zip -r results_bundle.zip results paper
 ```
@@ -50,6 +51,8 @@ Send that zip to Claude in a new message. It is everything needed for the verifi
 `!python code/04_run_model.py configs/qwen2_5_vl_7b.yaml --limit 20`. Then delete the `results/qwen2_5_vl_7b` folder before the full run, so the test answers are not mixed in.
 
 ## Option B: The University of Alabama research computing cluster
+
+Copy `egc-repo-v0.1.0.zip` to the cluster (for example with `scp egc-repo-v0.1.0.zip <your username>@<cluster address>:~`), then log in and run `unzip egc-repo-v0.1.0.zip && cd egc && pip install --user -r requirements.txt && python code/01_fetch.py && python code/02_build_suite.py`.
 
 If you have an account with UA's research computing (Office of Information Technology), the job file below works on most clusters that use the Slurm scheduler. Ask the help desk which **partition** and **module** names to use. They differ by cluster.
 
@@ -61,7 +64,7 @@ If you have an account with UA's research computing (Office of Information Techn
 #SBATCH --time=24:00:00
 #SBATCH --partition=<GPU partition name from the help desk>
 module load <python or cuda module from the help desk>
-cd $HOME/evidence-grounded-confidence
+cd $HOME/egc
 for c in qwen2_5_vl_7b lingshu_7b gemma3_4b medgemma_4b llava16_mistral_7b llavamed15_mistral_7b; do
   python code/04_run_model.py configs/$c.yaml
 done
