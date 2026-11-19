@@ -8,12 +8,14 @@
 
 1. Go to https://colab.research.google.com and choose **File > New notebook**.
 2. Choose **Runtime > Change runtime type**, pick **L4 GPU** or **A100 GPU**, then click **Save**. (These need Colab Pro, about $10 a month.)
-3. Upload the project. Click the folder icon on the left, then the upload icon (a page with an up arrow), and choose `egc-repo-v0.1.0.zip`. Wait until it appears in the file list (about 1 minute).
+3. Give Colab a key to your private repository (one time, 3 min). Create a read-only key at https://github.com/settings/personal-access-tokens/new: name it "colab read", choose **Only select repositories** and pick `evidence-grounded-confidence`, under **Repository permissions** set **Contents** to **Read-only**, then click **Generate token** and copy it. In Colab, click the key icon on the left (**Secrets**), click **Add new secret**, name it `GH_READ`, paste the key as the value, and switch on **Notebook access**. The key stays in Colab's secrets, never in the project.
 4. Paste each block below into a cell and press the play button.
 
-```bash
-!unzip -q egc-repo-v0.1.0.zip
-%cd egc
+```python
+from google.colab import userdata
+gh_read = userdata.get("GH_READ")
+!git clone https://{gh_read}@github.com/Racta-1/evidence-grounded-confidence.git
+%cd evidence-grounded-confidence
 !pip install -q -r requirements.txt
 !python code/01_fetch.py
 !python code/02_build_suite.py
@@ -52,7 +54,9 @@ Send that zip to Claude in a new message. It is everything needed for the verifi
 
 ## Option B: The University of Alabama research computing cluster
 
-Copy `egc-repo-v0.1.0.zip` to the cluster (for example with `scp egc-repo-v0.1.0.zip <your username>@<cluster address>:~`), then log in and run `unzip egc-repo-v0.1.0.zip && cd egc && pip install --user -r requirements.txt && python code/01_fetch.py && python code/02_build_suite.py`.
+Log in to the cluster and run `git clone https://github.com/Racta-1/evidence-grounded-confidence.git` (when asked for a password, paste the read-only key from step 3 of Option A), then `cd evidence-grounded-confidence && pip install --user -r requirements.txt && python code/01_fetch.py && python code/02_build_suite.py`.
+
+To get later updates on either machine: `git pull` inside the project folder.
 
 If you have an account with UA's research computing (Office of Information Technology), the job file below works on most clusters that use the Slurm scheduler. Ask the help desk which **partition** and **module** names to use. They differ by cluster.
 
@@ -64,7 +68,7 @@ If you have an account with UA's research computing (Office of Information Techn
 #SBATCH --time=24:00:00
 #SBATCH --partition=<GPU partition name from the help desk>
 module load <python or cuda module from the help desk>
-cd $HOME/egc
+cd $HOME/evidence-grounded-confidence
 for c in qwen2_5_vl_7b lingshu_7b gemma3_4b medgemma_4b llava16_mistral_7b llavamed15_mistral_7b; do
   python code/04_run_model.py configs/$c.yaml
 done

@@ -16,7 +16,7 @@ import os
 import zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-REPO = "https://github.com/toakinrele/evidence-grounded-confidence"
+REPO = "https://github.com/Racta-1/evidence-grounded-confidence"
 
 SUITE_FILES = ["data/suite/items.csv", "data/suite/variants.csv", "data/suite/qa_report.txt",
                "data/raw/PROVENANCE.txt", "docs/CODEBOOK.md", "docs/LIMITATIONS.md", "LICENSE-DATA.md",

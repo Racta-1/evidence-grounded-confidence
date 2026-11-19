@@ -31,7 +31,7 @@ All sources are free and public. Nothing here needs special permission. The proj
 - [ ] **Evidence Perturbation Suite v1.0.** The test kit: every question with its altered versions, the masks, a codebook and the source log. It gets its own permanent citation number (a DOI) from Zenodo.
 - [ ] **Method code and configurations v1.0.** The software, with settings for six open AI models. It gets its own DOI.
 - [ ] **Results across open-weight general and medical models.** Three matched pairs, each a general model and its medical version built on the same base: Qwen2.5-VL-7B vs Lingshu-7B, Gemma-3-4B vs MedGemma-4B, and LLaVA-1.6-Mistral-7B vs LLaVA-Med-1.5-Mistral-7B. These come out with the method.
-- [ ] **A public project page on GitHub:** https://github.com/toakinrele/evidence-grounded-confidence (after you approve publishing)
+- [ ] **A public project page on GitHub:** https://github.com/Racta-1/evidence-grounded-confidence (after you approve publishing)
 
 ## How it connects to your work
 

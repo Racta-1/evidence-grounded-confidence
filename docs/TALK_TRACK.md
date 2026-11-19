@@ -12,7 +12,7 @@
 
 **Who can use it:** AI developers, hospital AI evaluation teams, regulators' and standards bodies' technical staff, and researchers.
 
-**Where it is:** GitHub, github.com/toakinrele/evidence-grounded-confidence, with two permanent Zenodo records, one for the test kit and one for the code. (DOIs added after release.)
+**Where it is:** GitHub, github.com/Racta-1/evidence-grounded-confidence, with two permanent Zenodo records, one for the test kit and one for the code. (DOIs added after release.)
 
 ## Two-sentence version
 

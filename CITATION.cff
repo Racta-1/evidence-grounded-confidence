@@ -4,7 +4,7 @@ title: "EGC: Evidence-Grounded Confidence for Clinical Vision-Language Models, w
 version: 0.1.0
 date-released: 2026-11-19
 license: MIT
-repository-code: "https://github.com/toakinrele/evidence-grounded-confidence"
+repository-code: "https://github.com/Racta-1/evidence-grounded-confidence"
 type: software
 authors:
   - family-names: Akinrele

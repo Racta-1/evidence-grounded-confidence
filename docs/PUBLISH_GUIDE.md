@@ -28,7 +28,7 @@ Descriptions: copy the `description` field from `dist/zenodo_suite.json` and `di
 1. Go to https://github.com/new. Repository name: `evidence-grounded-confidence`. Choose **Public**. Leave "Add a README" **unticked** (the project has one). Click **Create repository**.
 2. In a terminal inside the project folder, paste:
    ```
-   git remote add origin https://github.com/toakinrele/evidence-grounded-confidence.git
+   git remote add origin https://github.com/Racta-1/evidence-grounded-confidence.git
    git push -u origin main
    ```
    (The project already has its first commit.) Refresh the GitHub page. You should see the README displayed under the file list.
