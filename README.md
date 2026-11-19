@@ -36,7 +36,7 @@ python code/04_run_model.py configs/qwen2_5_vl_7b.yaml     # GPU; repeat per con
 python code/05_score.py            # per-item scores, metrics, paper/stats.json
 python code/06_figures.py          # figures
 ```
-CPU-only check of the whole pipeline: `python code/04_run_model.py configs/pilot_smolvlm_cpu.yaml` (about 40 minutes on 2 cores). GPU instructions: [docs/GPU_RUN_GUIDE.md](docs/GPU_RUN_GUIDE.md).
+CPU-only check of the whole pipeline (first `pip install num2words`): `python code/04_run_model.py configs/pilot_smolvlm_cpu.yaml` (about 40 minutes on 2 cores). GPU instructions: [docs/GPU_RUN_GUIDE.md](docs/GPU_RUN_GUIDE.md).
 
 ## Sources
 

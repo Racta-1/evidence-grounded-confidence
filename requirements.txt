@@ -12,4 +12,6 @@ pytest>=8.0
 torch>=2.4
 transformers>=4.50
 accelerate>=0.30
-num2words  # needed by SmolVLM's processor
+# optional, only for the CPU pilot (configs/pilot_smolvlm_cpu.yaml):
+#   pip install num2words
+#   (if that fails with 'setuptools is not available': pip install --no-build-isolation docopt num2words)
