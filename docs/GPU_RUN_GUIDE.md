@@ -75,7 +75,7 @@ Choose a GPU with near-zero memory used and 0% utilization (say GPU 4), and put 
 ```
 CUDA_VISIBLE_DEVICES=4 python code/04_run_model.py configs/qwen2_5_vl_7b.yaml
 ```
-The machine's driver supports CUDA up to the version `nvidia-smi` shows at the top right. For CUDA 12.x, install PyTorch with `python -m pip install --user torch --index-url https://download.pytorch.org/whl/cu126`.
+The machine's driver supports CUDA up to the version `nvidia-smi` shows at the top right. For CUDA 12.x, install PyTorch with `python -m pip install --user torch torchvision --index-url https://download.pytorch.org/whl/cu126`.
 
 ## Option B: The University of Alabama research computing cluster
 

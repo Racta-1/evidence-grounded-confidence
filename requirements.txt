@@ -10,6 +10,7 @@ pyyaml>=6.0
 pytest>=8.0
 # model runs (GPU recommended): install torch for your CUDA version from https://pytorch.org
 torch>=2.4
+torchvision        # needed by Qwen2.5-VL and Lingshu image processors; install from the same index as torch
 transformers>=4.50
 accelerate>=0.30
 # optional, only for the CPU pilot (configs/pilot_smolvlm_cpu.yaml):
