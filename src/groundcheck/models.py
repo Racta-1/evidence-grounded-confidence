@@ -155,7 +155,7 @@ class MockAdapter(VLMAdapter):
     """Deterministic fake model for tests. Its confidence depends on how much of
     the image differs from a stored 'evidence fingerprint', so hiding or swapping
     the image changes its confidence in a predictable way. `blind=True` makes a
-    model that ignores the image entirely (the case EGC is built to flag)."""
+    model that ignores the image entirely (the case GroundCheck is built to flag)."""
 
     name = "mock"
 

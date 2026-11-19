@@ -19,7 +19,11 @@ VARS = ("original", "mask_region", "mask_control", "swap_image", "remove_text")
 
 
 def item_frame(raw_path: str, suite: Suite) -> pd.DataFrame:
-    recs = [json.loads(l) for l in open(raw_path)]
+    import os
+    recs = []
+    for p in (raw_path, raw_path.replace("raw.jsonl", "raw_private.jsonl")):
+        if os.path.exists(p):
+            recs += [json.loads(l) for l in open(p)]
     by = {}
     for r in recs:
         by.setdefault(r["item_id"], {})[r["variant"]] = r
@@ -68,26 +72,26 @@ def score(df: pd.DataFrame, agg: str = M.DEFAULT_AGG, seed: int = 0) -> tuple[pd
     fitted = {}
     # per-dataset fitting: models and datasets differ too much to share one lambda
     df["conf_platt"] = np.nan
-    df["conf_egc"] = np.nan
-    df["conf_egc_logistic"] = np.nan
+    df["conf_groundcheck"] = np.nan
+    df["conf_groundcheck_logistic"] = np.nan
     for ds in df.dataset.unique():
         c = cal[cal.dataset == ds]
         idx = df.dataset == ds
         lam = M.fit_lambda(c.conf_token, c.u, c.correct) if len(c) else 0.0
-        df.loc[idx, "conf_egc"] = M.egc_simple(df.loc[idx, "conf_token"], df.loc[idx, "u"], lam)
+        df.loc[idx, "conf_groundcheck"] = M.groundcheck_adjust(df.loc[idx, "conf_token"], df.loc[idx, "u"], lam)
         pl = _safe_fit(M.Platt(), c.conf_token.values, c.correct.astype(int).values)
         if pl is not None:
             df.loc[idx, "conf_platt"] = pl.predict(df.loc[idx, "conf_token"].values)
-            # EGC on top of Platt: recalibrate, then apply the evidence adjustment
-        lg = _safe_fit(M.EGCLogistic(), c, c.correct.astype(int).values)
+            # GroundCheck on top of Platt: recalibrate, then apply the evidence adjustment
+        lg = _safe_fit(M.GroundCheckLogistic(), c, c.correct.astype(int).values)
         if lg is not None:
-            df.loc[idx, "conf_egc_logistic"] = lg.predict(df[idx])
+            df.loc[idx, "conf_groundcheck_logistic"] = lg.predict(df[idx])
         fitted[ds] = dict(lambda_=lam, n_cal=int(len(c)), platt=pl is not None, logistic=lg is not None)
     df["flag"] = M.flag(df.conf_token, df.u)
     test = df[df.split == "test"]
     methods = {"Token probability": "conf_token", "Verbalized": "conf_verbal",
                "Sampling consistency": "conf_consistency", "Platt-scaled token prob.": "conf_platt",
-               "EGC (evidence-adjusted)": "conf_egc", "EGC-logistic": "conf_egc_logistic"}
+               "GroundCheck (evidence-adjusted)": "conf_groundcheck", "GroundCheck-logistic": "conf_groundcheck_logistic"}
     out = {"fitted": fitted, "aggregation": agg, "by_dataset": {}}
     for ds in sorted(test.dataset.unique()):
         t = test[test.dataset == ds]

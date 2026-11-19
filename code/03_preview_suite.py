@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "src"))
-from egc.suite import Suite  # noqa: E402
+from groundcheck.suite import Suite  # noqa: E402
 
 # Fixed examples chosen to span rules: named organ (CT pixel mask), named organ
 # with lesion, abnormality via X-ray bounding box, brain MRI lesion.

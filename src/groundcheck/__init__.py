@@ -1,4 +1,4 @@
-"""EGC: Evidence-Grounded Confidence for clinical vision-language models.
+"""GroundCheck: Evidence-Grounded Confidence for clinical vision-language models.
 
 Working name; the author may rename the method before v1.0.
 """

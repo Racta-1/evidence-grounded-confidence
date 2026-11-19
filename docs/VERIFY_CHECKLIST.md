@@ -14,23 +14,25 @@ Pick one:
   python code/02_build_suite.py
   python -m pytest -q tests
   ```
-  You should see, near the end of the second command: `SLAKE 584 477`, `VQA-RAD 244 207`, `MedXpertQA-MM 823 758` (calibration and test counts), then **9 lines starting with PASS**. The last command should end with **16 passed**.
-- [ ] **Option B, ask Claude.** In a new chat with Opus 5.5 or Fable 5, upload the project zip and say: "Re-run code/01_fetch.py and code/02_build_suite.py from scratch and give me the item counts per dataset and the number of ok variants per type." Compare them to these: 3,093 items (SLAKE 1,061; VQA-RAD 451; MedXpertQA 1,581); hidden region 392; control patch 353; swapped image 3,093; text removed 1,260.
+  You should see, near the end of the second command: `MedXpertQA-MM 823 758`, `PathVQA 3468 3251`, `SLAKE 584 477`, `VQA-RAD 244 207` (tuning and grading counts), then **9 lines starting with PASS**. The last command should end with **18 passed**.
+- [ ] **Option B, ask Claude.** In a new chat with Opus 5.5 or Fable 5, upload the project zip and say: "Re-run code/01_fetch.py and code/02_build_suite.py from scratch and give me the item counts per dataset and the number of ok variants per type." Compare them to these: 9,812 items (SLAKE 1,061; VQA-RAD 451; PathVQA 6,719; MedXpertQA 1,581); hidden region 392; control patch 353; swapped image 9,812; text removed 1,260.
 
 Then:
-- [ ] Open `data/raw/PROVENANCE.txt`. There should be 10 lines, one per downloaded file, each with a date, size, fingerprint (sha256) and link.
+- [ ] Open `data/raw/PROVENANCE.txt`. There should be 13 lines, one per downloaded file, each with a date, size, fingerprint (sha256) and link. When you ran `01_fetch.py` on your cluster, it printed "fingerprint matches the logged record" for each file. That means your download is byte-identical to the one logged here.
 
 ## Part 2: Check the sources and their licenses (15 min)
 
 Open each page and confirm it loads, is free, and the license matches.
 - [ ] SLAKE: https://huggingface.co/datasets/BoKelvin/SLAKE says **CC BY 4.0**. Also open the original project page, https://www.med-vqa.com/slake/, and confirm it does not state a stricter license. If it does, tell Claude: this changes what the suite may redistribute.
 - [ ] VQA-RAD: https://huggingface.co/datasets/flaviagiammarino/vqa-rad says **CC0 1.0**. The original record is at https://osf.io/89kps/.
+- [ ] PathVQA: https://huggingface.co/datasets/flaviagiammarino/path-vqa says **MIT**. Also check the original, https://github.com/UCSD-AI4H/PathVQA.
+- [ ] MIMIC-CXR: you accepted the data use agreement on https://physionet.org/content/mimic-ext-mimic-cxr-vqa/1.0.0/ and https://physionet.org/content/mimic-cxr-jpg/2.1.0/. Confirm that `git status` on your cluster never lists anything under `data/raw/mimic`, `data/suite_private`, or any `*_private*` file.
 - [ ] MedXpertQA: https://huggingface.co/datasets/TsinghuaC3I/MedXpertQA says **MIT**. Also check https://github.com/TsinghuaC3I/MedXpertQA.
 - [ ] The FDA figure in START_HERE: open https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices and confirm the list's update date and count (1,614 entries, September 2026 update). If the page shows a newer count, tell Claude.
 
 ## Part 3: Check items by eye and against the source (40 to 50 min)
 
-There are 20 pictures in `docs/spot_checks/`. The list is `docs/spot_checks/spot_checks.csv` (open it in Excel or Google Sheets). For each one:
+There are 21 pictures in `docs/spot_checks/`. The list is `docs/spot_checks/spot_checks.csv` (open it in Excel or Google Sheets). For each one:
 1. Open the picture. Read the question and answer at the bottom.
 2. **Does the orange outline cover what the question is about?** (For example, for "What is the largest organ?" with answer Liver, the outline should be on the liver.) Does the green control patch avoid the orange area?
 3. **Is the swapped image clearly unrelated** to the question?
@@ -52,16 +54,19 @@ There are 20 pictures in `docs/spot_checks/`. The list is `docs/spot_checks/spot
 | 12 | slake-12628 | abnormality | ___ | ___ | ___ |
 | 13 | slake-12409 | swap (SLAKE) | ___ | ___ | ___ |
 | 14 | vqarad-test-0421 | swap (VQA-RAD) | n/a | ___ | ___ |
-| 15 | mxq-MM-730 | swap (MedXpertQA) | n/a | ___ | ___ |
-| 16 | mxq-MM-779 | text removal | n/a | ___ | ___ |
-| 17 | mxq-MM-1922 | text removal | n/a | ___ | ___ |
-| 18 | mxq-MM-1221 | text removal | n/a | ___ | ___ |
-| 19 | slake-12087 | no region made | see note | ___ | ___ |
-| 20 | slake-12279 | no region made | n/a | ___ | ___ |
+| 15 | pathvqa-test-5203 | swap (PathVQA) | n/a | ___ | ___ |
+| 16 | mxq-MM-730 | swap (MedXpertQA-MM) | n/a | ___ | ___ |
+| 17 | mxq-MM-779 | text removal | n/a | ___ | ___ |
+| 18 | mxq-MM-1922 | text removal | n/a | ___ | ___ |
+| 19 | mxq-MM-1221 | text removal | n/a | ___ | ___ |
+| 20 | slake-12087 | SLAKE item with no region (should be a whole-image question) | see note | ___ | ___ |
+| 21 | slake-12279 | SLAKE item with no region (should be a whole-image question) | n/a | ___ | ___ |
 
-For **16 to 18** (text removal), also read the `text_after_removal` column in the CSV. Is the patient story gone, with the actual question and all five choices still there?
+For **17 to 19** (text removal), also read the `text_after_removal` column in the CSV. Is the patient story gone, with the actual question and all five choices still there?
 
-Note on **19**: the answer is "Left Kidney", but the dataset outlined only the liver on that image. With no kidney outline, there is nothing to hide, so "no region" is the correct result. Confirm that this matches what you see.
+Note on **20**: the answer is "Left Kidney", but the dataset outlined only the liver on that image. With no kidney outline, there is nothing to hide, so "no region" is the correct result. Confirm that this matches what you see.
+
+**MIMIC-CXR (on your cluster only, 10 min).** Open `data/suite_private/qa_report.txt` and confirm its PASS lines. Open `data/suite_private/items.csv` in a spreadsheet, pick 5 rows, and confirm that each question and answer matches the MIMIC test file in `data/raw/mimic/vqa/`. Also read `data/suite_private/skipped.txt`: it says how many MIMIC questions were left out and why. Do not copy any of these rows into email, chat or documents.
 
 Also open `paper/figures/fig1_suite_examples.png`. In row 4 (MRI, "Is there any abnormality in the spleen?"), does the hidden area sit on the spleen? Your eye for anatomy is the check here.
 
@@ -69,7 +74,7 @@ Also open `paper/figures/fig1_suite_examples.png`. In row 4 (MRI, "Is there any 
 
 The build made these choices provisionally. Agree or change each one. Changing D1 to D5 means re-running `code/02_build_suite.py` (2 minutes). D6 to D8 change only the scoring step.
 
-- [ ] **D0 Method name.** Keep the working name "EGC (Evidence-Grounded Confidence)", or choose another? Recommended: decide now, because the name goes into both DOIs. Your choice: ___
+- [x] **D0 Method name.** GroundCheck (decided 2026-11-19).
 - [ ] **D1 How far to grow the hidden region past the outline.** 3% of image width (recommended: covers the organ's edges) or 0% (exact outline; edges may give the organ away). Your choice: ___
 - [ ] **D2 What to paint the hidden region with.** Body's median gray (recommended: least eye-catching), black (stands out, may itself change answers), or blur (keeps rough shape, removes less evidence). Your choice: ___
 - [ ] **D3 Where the control patch may go.** At least half on the body (recommended), or anywhere in the image. "Anywhere" makes more controls possible (39 are currently unavailable) but some would sit on empty background, which is a weaker control. Your choice: ___
@@ -79,6 +84,9 @@ The build made these choices provisionally. Agree or change each one. Changing D
 - [ ] **D7 Flag thresholds.** Flag an answer when confidence is at least 0.80 and at least 80% of it survives without the evidence. Keep (recommended), or set other numbers. Your choice: ___
 - [ ] **D8 Tuning and grading halves.** 50/50 split by image, fixed seed (recommended), or 30% tuning and 70% grading (more grading data, noisier tuning). Your choice: ___
 - [ ] **D9 Model list.** Three matched pairs: Qwen2.5-VL-7B / Lingshu-7B, Gemma-3-4B / MedGemma-4B, LLaVA-1.6-Mistral-7B / LLaVA-Med-1.5-Mistral-7B. The LLaVA-Med entry uses a community conversion. Keep it with a spot check against Microsoft's original on 20 questions (recommended), drop that pair, or swap in another medical model (for example HuatuoGPT-Vision). Your choice: ___
+- [ ] **D10 Swapped image for MIMIC chest X-rays.** All MIMIC images are chest X-rays, so the swap uses an unrelated non-chest CT or MRI from SLAKE (recommended: clearly unrelated, same as the other datasets), or another patient's chest X-ray (a harder test; the answer may truly be the same). Your choice: ___
+- [ ] **D11 Which MIMIC questions to keep.** Only questions with a single answer (recommended: they can be scored right or wrong), or also list-answer questions ("list all findings"), which need partial-credit scoring. Your choice: ___
+- [ ] **D12 PathVQA size.** All 6,719 test questions (recommended: the full test set), or a fixed random 2,000 (cuts PathVQA's GPU time by about 70%; Claude adds the setting if you choose it). Your choice: ___
 
 ## Part 5: Before it goes public (15 to 30 min)
 

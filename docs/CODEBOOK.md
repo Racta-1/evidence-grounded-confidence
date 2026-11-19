@@ -6,8 +6,8 @@
 
 | Column | Meaning | Source / transformation |
 |---|---|---|
-| `item_id` | Unique ID. `slake-<qid>`, `vqarad-test-<row>`, `mxq-<id>` | Built from the source ID |
-| `dataset` | `SLAKE`, `VQA-RAD`, or `MedXpertQA-MM` | |
+| `item_id` | Unique ID. `slake-<qid>`, `vqarad-test-<row>`, `pathvqa-test-<row>`, `mxq-<id>`, `mimic-<idx>` | Built from the source ID |
+| `dataset` | `SLAKE`, `VQA-RAD`, `PathVQA`, `MedXpertQA-MM`, or `MIMIC-CXR-VQA` (private) | |
 | `source_id` | ID in the original dataset (SLAKE `qid`; VQA-RAD `test:<row index>` in the pinned parquet; MedXpertQA `id`) | Source |
 | `split` | `cal` (tuning half) or `test` (grading half) | Seeded hash of the image, so all questions on one image share a split |
 | `image_key` | Image identifier (SLAKE folder `xmlabN`; VQA-RAD first 12 hex of the image's SHA-256; MedXpertQA file name) | |
@@ -47,9 +47,15 @@
 | `S1_same_modality_other_region` | SLAKE: swapped image has the same modality (CT/MRI/X-ray) but a different body region. |
 | `S1b_other_region_any_modality` | SLAKE: no same-modality image of another region exists (all SLAKE X-rays are chest), so a different body region of any modality is used. |
 | `S2_random_other_image` | VQA-RAD: a different image, chosen at random (VQA-RAD has no body-region labels). |
+| `S2_random_other_image` (PathVQA) | Same as VQA-RAD: a different image chosen at random (no organ or body-region labels). |
+| `S5_unrelated_nonchest_slake` | MIMIC-CXR: an unrelated non-chest CT or MRI image from SLAKE (decision D10). |
 | `S3_other_body_system` | MedXpertQA: an image from a case in a different body system. |
 | `T1_final_question_only` | MedXpertQA: the patient story is removed; only the final question sentence and the answer choices remain. |
 | `T0_no_context` | Nothing separable to remove (the question is one sentence). |
+
+## Private files (MIMIC-CXR, on the credentialed user's machine only)
+
+`data/suite_private/items.csv` and `variants.csv` use the same columns as above; `qa_report.txt` and `skipped.txt` describe them. Only MIMIC questions with exactly one answer are kept (D11). The split is by patient. Model outputs on these items are written to `results/<run>/raw_private.jsonl` and `item_scores_private.csv`. Git and the release packager exclude all of them.
 
 ## `results/<run>/raw.jsonl`: one line per question per variant shown to the model
 
@@ -69,8 +75,8 @@
 | `u__<variant>` | Survival: share of above-chance confidence that remained (0 to 1) |
 | `u` | Mean survival over the variants that remove evidence (decision D6) |
 | `conf_platt` | Token confidence after Platt recalibration (fit on `cal`) |
-| `conf_egc` | **The method's adjusted confidence** |
-| `conf_egc_logistic` | The learned variant of the method |
+| `conf_groundcheck` | **The method's adjusted confidence** |
+| `conf_groundcheck_logistic` | The learned variant of the method |
 | `flag` | Confident (at least 0.8) and kept at least 80% of that confidence without its evidence (D7) |
 
 ## `paper/stats.json`

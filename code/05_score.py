@@ -22,8 +22,8 @@ import pandas as pd
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "src"))
-from egc.score import item_frame, score  # noqa: E402
-from egc.suite import Suite  # noqa: E402
+from groundcheck.score import item_frame, score  # noqa: E402
+from groundcheck.suite import Suite, is_private  # noqa: E402
 
 
 def clean(o):
@@ -44,6 +44,7 @@ def main():
     a = ap.parse_args()
     suite = Suite(ROOT)
     stats = {"suite": suite_stats(suite), "runs": {}}
+    # summary counts and metrics on MIMIC are shareable; its rows and text are not
     rows = []
     for raw in sorted(glob.glob(os.path.join(ROOT, "results", "*", "raw.jsonl"))):
         run = os.path.basename(os.path.dirname(raw))
@@ -52,7 +53,10 @@ def main():
         if df.empty:
             continue
         df, res = score(df, agg=a.agg)
-        df.to_csv(os.path.join(os.path.dirname(raw), "item_scores.csv"), index=False)
+        priv = df.item_id.map(is_private)
+        df[~priv].to_csv(os.path.join(os.path.dirname(raw), "item_scores.csv"), index=False)
+        if priv.any():  # MIMIC rows stay on this machine (data use agreement)
+            df[priv].to_csv(os.path.join(os.path.dirname(raw), "item_scores_private.csv"), index=False)
         res["model_id"] = meta["config"].get("model_id")
         res["n_items_scored"] = int(len(df))
         res["n_items_planned"] = meta["n_items"]

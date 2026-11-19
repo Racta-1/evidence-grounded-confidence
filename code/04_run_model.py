@@ -18,9 +18,9 @@ import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "src"))
-from egc.models import load_adapter  # noqa: E402
-from egc.run import run_items, select_items  # noqa: E402
-from egc.suite import Suite  # noqa: E402
+from groundcheck.models import load_adapter  # noqa: E402
+from groundcheck.run import run_items, select_items  # noqa: E402
+from groundcheck.suite import Suite  # noqa: E402
 
 
 def main():
@@ -32,7 +32,7 @@ def main():
     if a.limit:
         cfg["limit_per_dataset"] = a.limit
     suite = Suite(ROOT)
-    ids = select_items(suite, cfg.get("datasets", ["SLAKE", "VQA-RAD", "MedXpertQA-MM"]),
+    ids = select_items(suite, cfg.get("datasets", ["SLAKE", "VQA-RAD", "PathVQA", "MIMIC-CXR-VQA", "MedXpertQA-MM"]),
                        cfg.get("splits", ["cal", "test"]), cfg.get("limit_per_dataset"),
                        cfg.get("require_variant"))
     out = os.path.join(ROOT, "results", cfg["run_name"])

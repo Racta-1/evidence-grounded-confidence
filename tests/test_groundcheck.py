@@ -16,10 +16,10 @@ import pytest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "src"))
 
-from egc import method as M  # noqa: E402
-from egc import metrics as MT  # noqa: E402
-from egc import perturb as P  # noqa: E402
-from egc import prompts as PR  # noqa: E402
+from groundcheck import method as M  # noqa: E402
+from groundcheck import metrics as MT  # noqa: E402
+from groundcheck import perturb as P  # noqa: E402
+from groundcheck import prompts as PR  # noqa: E402
 
 
 # --- region targeting --------------------------------------------------------
@@ -109,8 +109,8 @@ def test_control_used_as_reference():
     assert abs(M.survival_per_variant(row)["mask_region"] - 0.5) < 1e-9
 
 
-def test_egc_lowers_only_surviving_confidence():
-    out = M.egc_simple([0.9, 0.9], [1.0, 0.0], lam=0.5)
+def test_groundcheck_lowers_only_surviving_confidence():
+    out = M.groundcheck_adjust([0.9, 0.9], [1.0, 0.0], lam=0.5)
     assert out[0] == pytest.approx(0.45) and out[1] == pytest.approx(0.9)
 
 
@@ -128,10 +128,10 @@ HAVE_SUITE = os.path.exists(os.path.join(ROOT, "data", "suite", "items.csv"))
 @pytest.mark.skipif(not HAVE_SUITE, reason="suite not built; run code/01 and code/02 first")
 @pytest.mark.parametrize("blind", [False, True])
 def test_end_to_end_blind_model_is_flagged(tmp_path, blind):
-    from egc.models import MockAdapter
-    from egc.run import run_items, select_items
-    from egc.score import item_frame, score
-    from egc.suite import Suite
+    from groundcheck.models import MockAdapter
+    from groundcheck.run import run_items, select_items
+    from groundcheck.score import item_frame, score
+    from groundcheck.suite import Suite
     s = Suite(ROOT)
     ids = select_items(s, ["SLAKE"], ["cal", "test"], 30, ["mask_region"])
     out = tmp_path / "raw.jsonl"
@@ -145,3 +145,35 @@ def test_end_to_end_blind_model_is_flagged(tmp_path, blind):
     else:
         # the fake sighted model compares whole pictures, so it is tested on swaps only
         assert u < 0.4 and (df.conf_token.ge(0.8) & df["u__swap_image"].ge(0.8)).mean() <= 0.15
+
+
+# --- MIMIC reader (synthetic entries; real data never enters the repository) ---------
+def test_mimic_reader(tmp_path):
+    from groundcheck import mimic as MM
+    d = tmp_path / "vqa" / "dataset"
+    d.mkdir(parents=True)
+    entries = [
+        {"idx": 1, "question": "Is there effusion?", "answer": ["yes"], "subject_id": 10000032,
+         "image_path": "p10/p10000032/s50414267/abc.jpg"},
+        {"idx": 2, "question": "List all findings.", "answer": ["a", "b"],
+         "image_path": "files/p11/p11000001/s1/def.jpg"},
+        {"idx": 3, "question": "Gender?", "answer": "female", "subject_id": 11, "study_id": 22, "image_id": "ghi"},
+    ]
+    (d / "test.json").write_text(json.dumps(entries))
+    tj = MM.find_test_json(str(tmp_path / "vqa"))
+    assert tj.endswith("test.json")
+    es = MM.load_entries(tj)
+    assert MM.image_rel_path(es[0]) == "files/p10/p10000032/s50414267/abc.jpg"
+    assert MM.image_rel_path(es[1]) == "files/p11/p11000001/s1/def.jpg"
+    assert MM.image_rel_path(es[2]) == "files/p11/p11/s22/ghi.jpg"
+    assert MM.normalize_answer(es[0]["answer"]) == "yes"
+    assert MM.normalize_answer(es[1]["answer"]) is None      # multi-answer questions excluded (D11)
+    assert MM.normalize_answer(es[2]["answer"]) == "female"
+    assert MM.patient_id(es[1], MM.image_rel_path(es[1])) == "p11000001"
+
+
+def test_private_items_are_routed_to_private_file():
+    from groundcheck.run import private_path
+    from groundcheck.suite import is_private
+    assert is_private("mimic-123") and not is_private("slake-1")
+    assert private_path("results/x/raw.jsonl") == "results/x/raw_private.jsonl"

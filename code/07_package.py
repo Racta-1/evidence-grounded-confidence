@@ -2,8 +2,8 @@
 
 Plain-language summary: your plan has two separate citable releases, each with
 its own DOI. This script builds both:
-  dist/egc-perturbation-suite-v<version>.zip   (dataset: the suite, codebook, source log)
-  dist/egc-method-v<version>.zip               (software: code, configs, results)
+  dist/groundcheck-perturbation-suite-v<version>.zip   (dataset: the suite, codebook, source log)
+  dist/groundcheck-method-v<version>.zip               (software: code, configs, results)
 plus dist/zenodo_suite.json and dist/zenodo_method.json, the title, authors,
 description and license each Zenodo record will show. Author details come from
 AUTHORS.json only.
@@ -20,11 +20,12 @@ REPO = "https://github.com/Racta-1/evidence-grounded-confidence"
 
 SUITE_FILES = ["data/suite/items.csv", "data/suite/variants.csv", "data/suite/qa_report.txt",
                "data/raw/PROVENANCE.txt", "docs/CODEBOOK.md", "docs/LIMITATIONS.md", "LICENSE-DATA.md",
-               "code/01_fetch.py", "code/02_build_suite.py", "code/03_preview_suite.py", "code/provenance.py",
-               "src/egc/__init__.py", "src/egc/perturb.py", "src/egc/suite.py",
+               "code/01_fetch.py", "code/01b_fetch_mimic.py", "code/02_build_suite.py", "code/03_preview_suite.py", "code/provenance.py",
+               "src/groundcheck/__init__.py", "src/groundcheck/perturb.py", "src/groundcheck/suite.py", "src/groundcheck/mimic.py",
                "paper/figures/fig1_suite_examples.png", "paper/figures/text_removal_example.txt",
                "requirements.txt", "AUTHORS.json", "CITATION.cff"]
-SKIP_DIRS = {"data/raw", "data/interim", "dist", ".git", "__pycache__", ".pytest_cache"}
+SKIP_DIRS = {"data/raw", "data/interim", "data/suite_private", "dist", ".git", "__pycache__", ".pytest_cache"}
+PRIVATE_FILES = ("raw_private.jsonl", "item_scores_private.csv")  # MIMIC: never packaged
 
 
 def creators():
@@ -50,6 +51,8 @@ def all_repo_files():
         rel = os.path.relpath(dp, ROOT)
         dns[:] = [d for d in dns if os.path.normpath(os.path.join(rel, d)) not in SKIP_DIRS and d not in SKIP_DIRS]
         for fn in fns:
+            if fn in PRIVATE_FILES:
+                continue
             files.append(os.path.normpath(os.path.join(rel, fn)))
     files.append("data/raw/PROVENANCE.txt")
     return sorted(set(files))
@@ -63,10 +66,10 @@ def main():
     dist = os.path.join(ROOT, "dist")
     os.makedirs(dist, exist_ok=True)
     masks = sorted("data/suite/masks/" + m for m in os.listdir(os.path.join(ROOT, "data/suite/masks")))
-    sp = os.path.join(dist, f"egc-perturbation-suite-v{v}.zip")
-    zip_files(sp, SUITE_FILES + masks, f"egc-perturbation-suite-v{v}")
-    mp = os.path.join(dist, f"egc-method-v{v}.zip")
-    zip_files(mp, all_repo_files(), f"egc-method-v{v}")
+    sp = os.path.join(dist, f"groundcheck-perturbation-suite-v{v}.zip")
+    zip_files(sp, SUITE_FILES + masks, f"groundcheck-perturbation-suite-v{v}")
+    mp = os.path.join(dist, f"groundcheck-method-v{v}.zip")
+    zip_files(mp, all_repo_files(), f"groundcheck-method-v{v}")
     stats = json.load(open(os.path.join(ROOT, "paper", "stats.json")))["suite"]
     by = stats["items_by_dataset"]
     vo = stats["variants_ok"]
@@ -77,8 +80,9 @@ def main():
         "description": (
             "<p>A test suite for checking whether a vision-language model's confidence in an answer depends on "
             "the evidence behind it. For each of "
-            f"{stats['n_items']:,} questions from three public medical visual question answering datasets "
-            f"(SLAKE {by.get('SLAKE', 0):,}; VQA-RAD {by.get('VQA-RAD', 0):,}; MedXpertQA multimodal {by.get('MedXpertQA-MM', 0):,}), "
+            f"{stats['n_items']:,} questions from four public medical visual question answering datasets "
+            f"(SLAKE {by.get('SLAKE', 0):,}; VQA-RAD {by.get('VQA-RAD', 0):,}; PathVQA {by.get('PathVQA', 0):,}; "
+            f"MedXpertQA multimodal {by.get('MedXpertQA-MM', 0):,}), "
             "the suite defines up to four evidence perturbations: the image region the question depends on is hidden "
             f"({vo.get('SLAKE|mask_region', 0):,} items), an equal-size control patch is hidden elsewhere "
             f"({vo.get('SLAKE|mask_control', 0):,}), the image is swapped for an unrelated one "
@@ -87,17 +91,19 @@ def main():
             "<p>The release contains the item and variant tables, region and control masks, the codebook, the "
             "quality report, the provenance log (source URLs, pinned versions, SHA-256 fingerprints, access dates, "
             "licenses), and the scripts that rebuild every perturbed image from the original sources. "
-            "Source images are not redistributed; they are downloaded from their original hosts.</p>"),
+            "Source images are not redistributed; they are downloaded from their original hosts. The release also "
+            "includes the script that builds MIMIC-CXR items locally for users with credentialed PhysioNet access; "
+            "no MIMIC data is included.</p>"),
         "access_right": "open",
         "license": "cc-by-4.0",
         "version": v,
         "keywords": ["medical visual question answering", "uncertainty estimation", "evidence perturbation",
-                     "vision-language models", "calibration", "benchmark", "SLAKE", "VQA-RAD", "MedXpertQA"],
+                     "vision-language models", "calibration", "benchmark", "SLAKE", "VQA-RAD", "PathVQA", "MedXpertQA", "MIMIC-CXR"],
         "related_identifiers": [{"identifier": REPO, "relation": "isSupplementedBy", "resource_type": "software"}],
     }}
     method_meta = {"metadata": {
         "upload_type": "software",
-        "title": f"EGC: Evidence-Grounded Confidence for clinical vision-language models, code and configurations v{v}",
+        "title": f"GroundCheck: Evidence-Grounded Confidence for clinical vision-language models, code and configurations v{v}",
         "creators": creators(),
         "description": (
             "<p>Code and configurations for an evidence-grounded confidence method. The method measures whether a "

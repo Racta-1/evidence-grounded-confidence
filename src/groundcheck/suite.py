@@ -19,6 +19,11 @@ from . import perturb as P
 
 VARIANTS = ("original", "mask_region", "mask_control", "swap_image", "remove_text")
 EVIDENCE_REMOVING = ("mask_region", "swap_image", "remove_text")
+PRIVATE_DATASETS = ("MIMIC-CXR-VQA",)  # outputs on these items never leave the author's machine
+
+
+def is_private(item_id: str) -> bool:
+    return item_id.startswith("mimic-")
 
 
 @dataclass
@@ -32,9 +37,13 @@ class Rendered:
 class Suite:
     def __init__(self, root: str):
         self.root = root
-        d = os.path.join(root, "data", "suite")
-        self.items = pd.read_csv(os.path.join(d, "items.csv"), keep_default_na=False, dtype=str)
-        self.variants = pd.read_csv(os.path.join(d, "variants.csv"), keep_default_na=False, dtype=str)
+        parts = [os.path.join(root, "data", "suite")]
+        priv = os.path.join(root, "data", "suite_private")
+        if os.path.exists(os.path.join(priv, "items.csv")):
+            parts.append(priv)  # MIMIC-CXR, credentialed: present only on the author's machine
+        rd = lambda d, f: pd.read_csv(os.path.join(d, f), keep_default_na=False, dtype=str)
+        self.items = pd.concat([rd(d, "items.csv") for d in parts], ignore_index=True)
+        self.variants = pd.concat([rd(d, "variants.csv") for d in parts], ignore_index=True)
         self._v = {(r.item_id, r.variant): r for r in self.variants.itertuples(index=False)}
         self._i = {r.item_id: r for r in self.items.itertuples(index=False)}
 

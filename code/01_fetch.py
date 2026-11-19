@@ -1,9 +1,11 @@
 """01_fetch.py: download the source datasets and log where each file came from.
 
-Plain-language summary: this script downloads two free, public medical image
-question sets (SLAKE and VQA-RAD) from Hugging Face, pinned to an exact version,
+Plain-language summary: this script downloads four free, public medical image
+question sets (SLAKE, VQA-RAD, PathVQA, MedXpertQA) from Hugging Face, pinned to an exact version,
 and writes one line per file to data/raw/PROVENANCE.txt (date, size, fingerprint,
 source link, license). You do not need to open this file; run it once.
+
+MIMIC-CXR is credentialed and is downloaded separately by code/01b_fetch_mimic.py.
 
 Run:  python code/01_fetch.py
 """
@@ -36,6 +38,15 @@ SOURCES = [
                   "data/train-00000-of-00001-eb8844602202be60.parquet"],
     },
     {
+        "name": "pathvqa",
+        "repo": "flaviagiammarino/path-vqa",
+        "rev": "1685832883334b5bb5beaf4e4b333fdeecaa4ad9",
+        "license": "MIT (per Hugging Face dataset card; original: He et al., arXiv:2003.10286, https://github.com/UCSD-AI4H/PathVQA)",
+        "files": ["data/test-00000-of-00003-e9adadb4799f44d3.parquet",
+                  "data/test-00001-of-00003-7ea98873fc919813.parquet",
+                  "data/test-00002-of-00003-1628308435019820.parquet"],
+    },
+    {
         "name": "medxpertqa",
         "repo": "TsinghuaC3I/MedXpertQA",
         "rev": "7e7c465a68eb2b866926bfa59c8c9d17a8daba65",
@@ -45,7 +56,28 @@ SOURCES = [
 ]
 
 
+def logged_fingerprints():
+    """name -> sha256 already recorded in PROVENANCE.txt (the committed record)."""
+    out = {}
+    if os.path.exists(LOG):
+        for line in open(LOG):
+            parts = [x.strip() for x in line.split("|")]
+            if len(parts) > 3 and parts[3].startswith("sha256:"):
+                out.setdefault(parts[1], set()).add(parts[3][7:])
+    return out
+
+
+def sha256(path):
+    import hashlib
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
 def fetch(src):
+    known = logged_fingerprints()
     outdir = os.path.join(RAW, src["name"])
     os.makedirs(outdir, exist_ok=True)
     for f in src["files"]:
@@ -56,6 +88,15 @@ def fetch(src):
             continue
         print("downloading", url)
         urllib.request.urlretrieve(url, dest)
+        name = os.path.basename(dest)
+        if name in known:
+            # already in the committed record: check the download is byte-identical instead of re-logging
+            if sha256(dest) in known[name]:
+                print(f"  fingerprint matches the logged record: {name}")
+            else:
+                sys.exit(f"FINGERPRINT MISMATCH for {name}: the source changed since it was logged. "
+                         "Stop and tell Claude; results would not be comparable.")
+            continue
         subprocess.run([sys.executable, PROV, dest, url, "--log", LOG,
                         "--note", f"license: {src['license']}; pinned commit {src['rev']}"], check=True)
     unzip = {"slake": ("imgs.zip", "imgs"), "medxpertqa": ("images.zip", "images")}

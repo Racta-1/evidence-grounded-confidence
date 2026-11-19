@@ -1,7 +1,8 @@
 {
   "suite": {
-    "n_items": 3093,
+    "n_items": 9812,
     "items_by_dataset": {
+      "PathVQA": 6719,
       "MedXpertQA-MM": 1581,
       "SLAKE": 1061,
       "VQA-RAD": 451
@@ -10,6 +11,8 @@
       "MedXpertQA-MM|original": 1581,
       "MedXpertQA-MM|remove_text": 1260,
       "MedXpertQA-MM|swap_image": 1581,
+      "PathVQA|original": 6719,
+      "PathVQA|swap_image": 6719,
       "SLAKE|mask_control": 353,
       "SLAKE|mask_region": 392,
       "SLAKE|original": 1061,
@@ -17,7 +20,7 @@
       "VQA-RAD|original": 451,
       "VQA-RAD|swap_image": 451
     },
-    "n_variant_renderings": 8191
+    "n_variant_renderings": 21629
   },
   "runs": {
     "pilot_smolvlm256m_cpu": {
@@ -115,7 +118,7 @@
                 0.8224
               ]
             },
-            "EGC (evidence-adjusted)": {
+            "GroundCheck (evidence-adjusted)": {
               "n": 18,
               "accuracy": 0.1111,
               "mean_conf": 0.2138,
@@ -132,7 +135,7 @@
                 0.4706
               ]
             },
-            "EGC-logistic": {
+            "GroundCheck-logistic": {
               "n": 18,
               "accuracy": 0.1111,
               "mean_conf": 0.1636,
@@ -264,7 +267,7 @@
                 1.0
               ]
             },
-            "EGC (evidence-adjusted)": {
+            "GroundCheck (evidence-adjusted)": {
               "n": 13,
               "accuracy": 0.2308,
               "mean_conf": 0.2123,
@@ -281,7 +284,7 @@
                 1.0
               ]
             },
-            "EGC-logistic": {
+            "GroundCheck-logistic": {
               "n": 13,
               "accuracy": 0.2308,
               "mean_conf": 0.0962,
@@ -425,7 +428,7 @@
                 null
               ]
             },
-            "EGC (evidence-adjusted)": {
+            "GroundCheck (evidence-adjusted)": {
               "n": 9,
               "accuracy": 0.5556,
               "mean_conf": 0.3198,
@@ -442,7 +445,7 @@
                 null
               ]
             },
-            "EGC-logistic": {
+            "GroundCheck-logistic": {
               "n": 9,
               "accuracy": 0.5556,
               "mean_conf": 0.1504,

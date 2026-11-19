@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software or the Evidence Perturbation Suite, please cite it as below."
-title: "EGC: Evidence-Grounded Confidence for Clinical Vision-Language Models, with the Evidence Perturbation Suite"
+title: "GroundCheck: Evidence-Grounded Confidence for Clinical Vision-Language Models, with the Evidence Perturbation Suite"
 version: 0.1.0
 date-released: 2026-11-19
 license: MIT
@@ -28,6 +28,14 @@ references:
     title: "A dataset of clinically generated visual questions and answers about radiology images (VQA-RAD)"
     authors: [{family-names: Lau, given-names: Jason J.}]
     year: 2018
+  - type: dataset
+    title: "PathVQA: 30000+ Questions for Medical Visual Question Answering"
+    authors: [{family-names: He, given-names: Xuehai}]
+    year: 2020
+  - type: dataset
+    title: "MIMIC-Ext-MIMIC-CXR-VQA (used locally under credentialed access; not redistributed)"
+    authors: [{family-names: Bae, given-names: Seongsu}]
+    year: 2024
   - type: dataset
     title: "MedXpertQA: Benchmarking Expert-Level Medical Reasoning and Understanding"
     authors: [{family-names: Zuo, given-names: Yuxin}]

@@ -24,11 +24,13 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "src"))
-from egc import perturb as P  # noqa: E402
+from groundcheck import mimic as MM  # noqa: E402
+from groundcheck import perturb as P  # noqa: E402
 
 RAW = os.path.join(ROOT, "data", "raw")
 OUT = os.path.join(ROOT, "data", "suite")
 MASKS = os.path.join(OUT, "masks")
+PRIVATE = os.path.join(ROOT, "data", "suite_private")  # MIMIC: credentialed, never pushed or released
 INTERIM = os.path.join(ROOT, "data", "interim")
 
 
@@ -124,11 +126,13 @@ def build_slake(items, variants):
 
 
 # ---------------------------------------------------------------------------
-def build_vqarad(items, variants):
-    base = os.path.join(RAW, "vqa_rad")
-    imgdir = os.path.join(INTERIM, "vqa_rad_images")
+def build_parquet_set(items, variants, name, label, prefix, pattern, rule):
+    """VQA-RAD and PathVQA: image bytes inside parquet files, no region labels."""
+    base = os.path.join(RAW, name)
+    imgdir = os.path.join(INTERIM, f"{name}_images")
     os.makedirs(imgdir, exist_ok=True)
-    df = pd.read_parquet(glob.glob(os.path.join(base, "test-*.parquet"))[0])
+    df = pd.concat([pd.read_parquet(f) for f in sorted(glob.glob(os.path.join(base, pattern)))],
+                   ignore_index=True)
     keys = []
     for i, r in df.iterrows():
         b = r["image"]["bytes"]
@@ -140,22 +144,30 @@ def build_vqarad(items, variants):
     cands = [(k, {}) for k in sorted(set(keys))]
     for i, r in df.iterrows():
         k = keys[i]
-        iid = f"vqarad-test-{i:04d}"
+        iid = f"{prefix}-test-{i:04d}"
         ans = str(r["answer"])
         closed = ans.lower() in ("yes", "no")
-        items.append(dict(item_id=iid, dataset="VQA-RAD", source_id=f"test:{i}", split=split_for("vqarad/" + k),
+        items.append(dict(item_id=iid, dataset=label, source_id=f"test:{i}", split=split_for(f"{prefix}/" + k),
                           image_key=k, image_path=os.path.relpath(os.path.join(imgdir, f"{k}.png"), ROOT),
                           question=r["question"], answer=ans, answer_type="closed" if closed else "open",
                           options=json.dumps(["yes", "no"]) if closed else "", content_type="", modality="", location=""))
         variants.append(dict(item_id=iid, variant="original", status="ok"))
         for v in ("mask_region", "mask_control"):
             variants.append(dict(item_id=iid, variant=v, status="not_applicable", rule="R0_none",
-                                 detail="VQA-RAD has no region annotations"))
+                                 detail=f"{label} has no region annotations"))
         sk, _ = P.pick_swap(iid, cands, {"image_key": k}, must_differ=(), must_match=())
         variants.append(dict(item_id=iid, variant="swap_image", status="ok" if sk else "unavailable",
-                             rule="S2_random_other_image", detail=json.dumps({"swap_image_key": sk}),
+                             rule=rule, detail=json.dumps({"swap_image_key": sk}),
                              swap_image_path=os.path.relpath(os.path.join(imgdir, f"{sk}.png"), ROOT) if sk else ""))
         variants.append(dict(item_id=iid, variant="remove_text", status="not_applicable", rule="T0_no_context"))
+
+
+def build_vqarad(items, variants):
+    build_parquet_set(items, variants, "vqa_rad", "VQA-RAD", "vqarad", "test-*.parquet", "S2_random_other_image")
+
+
+def build_pathvqa(items, variants):
+    build_parquet_set(items, variants, "pathvqa", "PathVQA", "pathvqa", "test-*.parquet", "S2_random_other_image")
 
 
 # ---------------------------------------------------------------------------
@@ -189,8 +201,58 @@ def build_medxpertqa(items, variants):
 
 
 # ---------------------------------------------------------------------------
-def qa_report(items: pd.DataFrame, var: pd.DataFrame) -> str:
-    L = ["EVIDENCE PERTURBATION SUITE: QUALITY REPORT", "=" * 44,
+def build_mimic(items, variants) -> bool:
+    """MIMIC-Ext-MIMIC-CXR-VQA test split. Runs only if code/01b_fetch_mimic.py has been run.
+    Swap rule S5: an unrelated non-chest SLAKE CT/MRI image (decision D10)."""
+    base = os.path.join(RAW, "mimic")
+    tj = MM.find_test_json(os.path.join(base, "vqa"))
+    if not tj:
+        return False
+    img_root = os.path.join(base, "mimic-cxr-jpg")
+    slake = [q for q in json.load(open(os.path.join(RAW, "slake", "test.json"))) if q["q_lang"] == "en"]
+    swap_pool = sorted({q["img_name"].split("/")[0] for q in slake if q["location"] != "Chest"})
+    skipped = Counter()
+    for e in MM.load_entries(tj):
+        rel = MM.image_rel_path(e)
+        ans = MM.normalize_answer(e.get("answer"))
+        if rel is None:
+            skipped["no image path"] += 1
+            continue
+        if ans is None:
+            skipped["not a single answer"] += 1
+            continue
+        path = os.path.join(img_root, rel)
+        if not os.path.exists(path):
+            skipped["image not downloaded"] += 1
+            continue
+        idx = str(e.get("idx", e.get("id", len(items))))
+        iid = f"mimic-{idx}"
+        pid = MM.patient_id(e, rel)
+        closed = ans.lower() in ("yes", "no")
+        items.append(dict(item_id=iid, dataset="MIMIC-CXR-VQA", source_id=idx, split=split_for("mimic/" + pid),
+                          image_key=rel, image_path=os.path.relpath(path, ROOT), question=e["question"],
+                          answer=ans, answer_type="closed" if closed else "open",
+                          options=json.dumps(["yes", "no"]) if closed else "",
+                          content_type=str(e.get("content_type", "")), modality="X-Ray", location="Chest"))
+        variants.append(dict(item_id=iid, variant="original", status="ok"))
+        for v in ("mask_region", "mask_control"):
+            variants.append(dict(item_id=iid, variant=v, status="not_applicable", rule="R0_none",
+                                 detail="region boxes (Chest ImaGenome) not used in v1"))
+        rng = np.random.default_rng(P.seed_for(iid, "swap"))
+        sk = swap_pool[int(rng.integers(len(swap_pool)))]
+        variants.append(dict(item_id=iid, variant="swap_image", status="ok", rule="S5_unrelated_nonchest_slake",
+                             detail=json.dumps({"swap_image_key": sk}),
+                             swap_image_path=os.path.relpath(os.path.join(RAW, "slake", "imgs", sk, "source.jpg"), ROOT)))
+        variants.append(dict(item_id=iid, variant="remove_text", status="not_applicable", rule="T0_no_context"))
+    with open(os.path.join(PRIVATE, "skipped.txt"), "w") as f:
+        f.write("\n".join(f"{k}: {v}" for k, v in skipped.items()) + "\n")
+    return True
+
+
+# ---------------------------------------------------------------------------
+def qa_report(items: pd.DataFrame, var: pd.DataFrame, private: bool = False) -> str:
+    title = "PRIVATE (MIMIC-CXR, credentialed; do not share)" if private else "EVIDENCE PERTURBATION SUITE"
+    L = [f"{title}: QUALITY REPORT", "=" * 44,
          "Plain-language summary: counts of questions and altered versions, how many",
          "could be made, and checks that the files are consistent. Read the 'CHECKS'",
          "section first; every line should say PASS.", ""]
@@ -209,12 +271,14 @@ def qa_report(items: pd.DataFrame, var: pd.DataFrame) -> str:
     L.append("")
     L.append("REGION RULES USED (SLAKE mask_region)")
     sr = m[(m.dataset == "SLAKE") & (m.variant == "mask_region")]
-    L.append(sr.groupby(["rule", "status"]).size().unstack(fill_value=0).to_string())
+    if len(sr):
+        L.append(sr.groupby(["rule", "status"]).size().unstack(fill_value=0).to_string())
     ok = sr[sr.status.str.startswith("ok")]
     fr = ok.detail.map(lambda d: json.loads(d)["region_frac"])
     src = ok.detail.map(lambda d: json.loads(d)["source"])
-    L.append(f"region size (share of image): min {fr.min():.3f}, median {fr.median():.3f}, max {fr.max():.3f}")
-    L.append("region source: " + ", ".join(f"{k}={v}" for k, v in Counter(src).items()))
+    if len(ok):
+        L.append(f"region size (share of image): min {fr.min():.3f}, median {fr.median():.3f}, max {fr.max():.3f}")
+        L.append("region source: " + ", ".join(f"{k}={v}" for k, v in Counter(src).items()))
     L.append("")
     tr = m[(m.dataset == "MedXpertQA-MM") & (m.variant == "remove_text") & (m.status == "ok")]
     if len(tr):
@@ -235,7 +299,8 @@ def qa_report(items: pd.DataFrame, var: pd.DataFrame) -> str:
     mk = var[var.mask_file.fillna("") != ""]
     on_disk = set(os.listdir(MASKS))
     referenced = {os.path.basename(p) for p in var.mask_file if p}
-    checks.append(("no leftover mask files from older builds", on_disk == referenced))
+    if not private:
+        checks.append(("no leftover mask files from older builds", on_disk == referenced))
     checks.append(("every mask file exists", mk.mask_file.map(lambda p: os.path.exists(os.path.join(ROOT, p))).all()))
     # region and control never overlap
     overlap_bad = 0
@@ -257,6 +322,16 @@ def qa_report(items: pd.DataFrame, var: pd.DataFrame) -> str:
     return "\n".join(L), all(c[1] for c in checks)
 
 
+def tidy(items, variants):
+    it = pd.DataFrame(items)
+    va = pd.DataFrame(variants)
+    for c in ("rule", "detail", "mask_file", "swap_image_path", "text"):
+        if c not in va:
+            va[c] = ""
+    va = va[["item_id", "variant", "status", "rule", "detail", "mask_file", "swap_image_path", "text"]].fillna("")
+    return it, va
+
+
 def main():
     import shutil
     shutil.rmtree(MASKS, ignore_errors=True)  # never leave masks from an older build behind
@@ -264,20 +339,33 @@ def main():
     items, variants = [], []
     build_slake(items, variants)
     build_vqarad(items, variants)
+    build_pathvqa(items, variants)
     build_medxpertqa(items, variants)
-    it = pd.DataFrame(items)
-    va = pd.DataFrame(variants)
-    for c in ("rule", "detail", "mask_file", "swap_image_path", "text"):
-        if c not in va:
-            va[c] = ""
-    va = va[["item_id", "variant", "status", "rule", "detail", "mask_file", "swap_image_path", "text"]].fillna("")
+    it, va = tidy(items, variants)
     it.to_csv(os.path.join(OUT, "items.csv"), index=False)
     va.to_csv(os.path.join(OUT, "variants.csv"), index=False)
     rep, passed = qa_report(it, va)
     open(os.path.join(OUT, "qa_report.txt"), "w").write(rep)
     print(rep)
+    # MIMIC (private): only when the credentialed download exists on this machine
+    os.makedirs(PRIVATE, exist_ok=True)
+    mi, mv = [], []
+    if build_mimic(mi, mv) and mi:
+        pit, pva = tidy(mi, mv)
+        pit.to_csv(os.path.join(PRIVATE, "items.csv"), index=False)
+        pva.to_csv(os.path.join(PRIVATE, "variants.csv"), index=False)
+        prep, ppass = qa_report(pit, pva, private=True)
+        open(os.path.join(PRIVATE, "qa_report.txt"), "w").write(prep)
+        print(prep)
+        print("skipped MIMIC entries:", open(os.path.join(PRIVATE, "skipped.txt")).read())
+        passed = passed and ppass
+    else:
+        for f in ("items.csv", "variants.csv"):
+            if os.path.exists(os.path.join(PRIVATE, f)):
+                os.remove(os.path.join(PRIVATE, f))
+        print("MIMIC-CXR: not built (run code/01b_fetch_mimic.py first on a credentialed machine).")
     if not passed:
-        sys.exit("QA FAILED: see data/suite/qa_report.txt")
+        sys.exit("QA FAILED: see the qa_report.txt files")
 
 
 if __name__ == "__main__":

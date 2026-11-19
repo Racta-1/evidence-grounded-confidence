@@ -14,4 +14,8 @@
 10. **These are benchmark questions, not clinical deployment.** Results show how models behave on public research datasets. They do not show how they would behave on a hospital's own images or patients.
 11. **The CPU pilot uses a tiny general model (SmolVLM-256M) on 90 questions.** It shows only that the pipeline works. Its numbers are not findings about clinical models.
 12. **One community conversion.** The LLaVA-Med configuration uses a community conversion to the Hugging Face format, not Microsoft's original code. Its outputs should be spot-checked against the original (decision D9).
-13. **License statements come from the Hugging Face dataset cards.** Confirm them on the original project pages before release (checklist Part 2).
+13. **MIMIC-CXR results cannot be checked by outsiders row by row.** The data use agreement keeps MIMIC questions and outputs private. Others can reproduce them only with their own credentialed access, using the same scripts.
+14. **MIMIC-CXR: single-answer questions only, and no region hiding yet.** List-answer questions are left out (D11). The Chest ImaGenome boxes that could support region hiding on MIMIC are not used in this version.
+15. **The MIMIC reader was written before seeing the real file.** Field names follow the dataset's documentation. The first real run on the author's machine is the check, and the reader reports clearly if a field is missing.
+16. **PathVQA dominates the item count** (6,719 of 9,812 public items). Results are reported per dataset, never pooled, so it does not swamp the others.
+17. **License statements come from the Hugging Face dataset cards.** Confirm them on the original project pages before release (checklist Part 2).

@@ -10,3 +10,7 @@ __pycache__/
 .DS_Store
 results/*/samples_cache/
 dist/
+# MIMIC-CXR (PhysioNet credentialed data use agreement): never commit
+data/suite_private/
+results/*/raw_private.jsonl
+results/*/item_scores_private.csv

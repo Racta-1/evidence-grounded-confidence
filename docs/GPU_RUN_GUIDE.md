@@ -1,6 +1,6 @@
 # Running the six models on a GPU
 
-*Plain-language header: the real results need a graphics card (GPU), which Claude's workspace does not have. This guide runs everything on a GPU you can reach, with copy-paste steps. Your time: about 1 hour, spread out. Machine time: roughly 2 to 4 hours per model, so 12 to 24 hours for all six. That figure is an estimate; the first model's run tells you the real number.*
+*Plain-language header: the real results need a graphics card (GPU), which Claude's workspace does not have. This guide runs everything on a GPU you can reach, with copy-paste steps. Your time: about 1 hour, spread out. Machine time: roughly 6 to 12 hours per model with all five datasets (PathVQA is the largest), so about 2 to 3 days for all six if run one after another. That figure is an estimate; the first model's run tells you the real number.*
 
 **What you need:** a GPU with at least 24 GB of memory (an NVIDIA L4, A10G, A100 or better). Gemma and MedGemma also need you to accept their terms on Hugging Face first: open https://huggingface.co/google/gemma-3-4b-it and https://huggingface.co/google/medgemma-4b-it, sign in, and click the button to agree (2 min).
 
@@ -52,17 +52,30 @@ Send that zip to Claude in a new message. It is everything needed for the verifi
 **Tip:** before the full run, test with 20 questions per dataset to catch problems early:
 `!python code/04_run_model.py configs/qwen2_5_vl_7b.yaml --limit 20`. Then delete the `results/qwen2_5_vl_7b` folder before the full run, so the test answers are not mixed in.
 
+## MIMIC-CXR (on your own machine only)
+
+MIMIC-CXR needs your credentialed PhysioNet account. Do this step only on a machine you control (your cluster account), never on a shared notebook you might share with others.
+
+1. Sign in at https://physionet.org. On each of these pages, scroll to **Files** and sign the data use agreement if asked: https://physionet.org/content/mimic-ext-mimic-cxr-vqa/1.0.0/ and https://physionet.org/content/mimic-cxr-jpg/2.1.0/ (5 min).
+2. In the project folder run:
+   ```
+   python code/01b_fetch_mimic.py --user YOUR_PHYSIONET_USERNAME
+   ```
+   It asks for your PhysioNet password; what you type is not shown. It downloads the question files, then only the test-split chest X-rays, not the whole 500+ GB collection. It ends with `done: N images ready`. If it stops with a message about a missing test file or refused access, send Claude that message. It never contains your password.
+3. Run `python code/02_build_suite.py` again. After the public report you'll see a second report titled **PRIVATE (MIMIC-CXR ...)** with 8 PASS lines.
+4. Check `git status`. Nothing under `data/raw/mimic`, `data/suite_private`, or any file ending in `_private.jsonl` or `_private.csv` should appear; the project ignores them on purpose. MIMIC outputs stay on this machine. Only summary numbers go into `paper/stats.json`.
+
 ## Option B: The University of Alabama research computing cluster
 
 Log in to the cluster and run `git clone https://github.com/Racta-1/evidence-grounded-confidence.git` (when asked for a password, paste the read-only key from step 3 of Option A), then `cd evidence-grounded-confidence && pip install --user -r requirements.txt && python code/01_fetch.py && python code/02_build_suite.py`.
 
-To get later updates on either machine: `git pull` inside the project folder.
+To get later updates on either machine: `git pull` inside the project folder. If an older version of the project changed `data/raw/PROVENANCE.txt` on your machine and `git pull` refuses, run `git checkout -- data/raw/PROVENANCE.txt` and then `git pull` again.
 
 If you have an account with UA's research computing (Office of Information Technology), the job file below works on most clusters that use the Slurm scheduler. Ask the help desk which **partition** and **module** names to use. They differ by cluster.
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name=egc
+#SBATCH --job-name=groundcheck
 #SBATCH --gres=gpu:1
 #SBATCH --mem=48G
 #SBATCH --time=24:00:00
@@ -74,7 +87,8 @@ for c in qwen2_5_vl_7b lingshu_7b gemma3_4b medgemma_4b llava16_mistral_7b llava
 done
 python code/05_score.py && python code/06_figures.py
 ```
-Save it as `run_egc.sh` and submit it with `sbatch run_egc.sh`. Store your Hugging Face token with `huggingface-cli login` on the cluster, never in this file.
+Run `code/01b_fetch_mimic.py` once, interactively, before submitting this job, so the MIMIC items exist; the job cannot type your password.
+Save it as `run_groundcheck.sh` and submit it with `sbatch run_groundcheck.sh`. Store your Hugging Face token with `huggingface-cli login` on the cluster, never in this file.
 
 ## What each run produces
 

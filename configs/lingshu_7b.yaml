@@ -7,7 +7,7 @@ revision: b98aecd41dfd9d7545a6b8e2f4743ae8471bd7a9
 dtype: bf16
 device: auto
 max_image_side: 1024
-datasets: [SLAKE, VQA-RAD, MedXpertQA-MM]
+datasets: [SLAKE, VQA-RAD, PathVQA, MIMIC-CXR-VQA, MedXpertQA-MM]   # MIMIC used only if built on this machine
 splits: [cal, test]
 limit_per_dataset: null      # full suite
 verbalized: true

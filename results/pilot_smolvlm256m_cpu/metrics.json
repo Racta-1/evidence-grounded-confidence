@@ -93,7 +93,7 @@
             0.8224
           ]
         },
-        "EGC (evidence-adjusted)": {
+        "GroundCheck (evidence-adjusted)": {
           "n": 18,
           "accuracy": 0.1111,
           "mean_conf": 0.2138,
@@ -110,7 +110,7 @@
             0.4706
           ]
         },
-        "EGC-logistic": {
+        "GroundCheck-logistic": {
           "n": 18,
           "accuracy": 0.1111,
           "mean_conf": 0.1636,
@@ -242,7 +242,7 @@
             1.0
           ]
         },
-        "EGC (evidence-adjusted)": {
+        "GroundCheck (evidence-adjusted)": {
           "n": 13,
           "accuracy": 0.2308,
           "mean_conf": 0.2123,
@@ -259,7 +259,7 @@
             1.0
           ]
         },
-        "EGC-logistic": {
+        "GroundCheck-logistic": {
           "n": 13,
           "accuracy": 0.2308,
           "mean_conf": 0.0962,
@@ -403,7 +403,7 @@
             null
           ]
         },
-        "EGC (evidence-adjusted)": {
+        "GroundCheck (evidence-adjusted)": {
           "n": 9,
           "accuracy": 0.5556,
           "mean_conf": 0.3198,
@@ -420,7 +420,7 @@
             null
           ]
         },
-        "EGC-logistic": {
+        "GroundCheck-logistic": {
           "n": 9,
           "accuracy": 0.5556,
           "mean_conf": 0.1504,

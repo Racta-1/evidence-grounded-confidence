@@ -22,7 +22,7 @@ from PIL import Image  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "src"))
-from egc.suite import Suite  # noqa: E402
+from groundcheck.suite import Suite  # noqa: E402
 
 OUT = os.path.join(ROOT, "docs", "spot_checks")
 SEED = 20261119
@@ -36,12 +36,17 @@ def source_link(it):
         row = int(it.source_id.split(":")[1])
         return (f"https://huggingface.co/datasets/flaviagiammarino/vqa-rad/viewer/default/test?row={row}",
                 f"row {row} of the test split")
+    if it.dataset == "PathVQA":
+        row = int(it.source_id.split(":")[1])
+        return (f"https://huggingface.co/datasets/flaviagiammarino/path-vqa/viewer/default/test?row={row}",
+                f"row {row} of the test split")
     return ("https://huggingface.co/datasets/TsinghuaC3I/MedXpertQA/blob/7e7c465a68eb2b866926bfa59c8c9d17a8daba65/MM/test.jsonl",
             f'search the page for "{it.source_id}"')
 
 
 def pick(s: Suite):
     v = s.variants.merge(s.items, on="item_id")
+    v = v[~v.item_id.str.startswith("mimic-")]  # MIMIC pictures must not land in the shared docs folder
     rng = np.random.default_rng(SEED)
     reg = v[(v.variant == "mask_region") & v.status.str.startswith("ok")].copy()
     reg["frac"] = reg.detail.map(lambda d: json.loads(d)["region_frac"])
@@ -58,7 +63,7 @@ def pick(s: Suite):
     add(reg[reg.rule == "R1_named"].sample(3, random_state=SEED).item_id, "random: named organ")
     add(reg[reg.rule != "R1_named"].sample(3, random_state=SEED).item_id, "random: abnormality")
     sw = v[(v.variant == "swap_image") & (v.status == "ok")]
-    for ds in ("SLAKE", "VQA-RAD", "MedXpertQA-MM"):
+    for ds in ("SLAKE", "VQA-RAD", "PathVQA", "MedXpertQA-MM"):
         add(sw[sw.dataset == ds].sample(1, random_state=SEED).item_id, f"random: swap ({ds})")
     tr = v[(v.variant == "remove_text") & (v.status == "ok")]
     add(tr.sample(3, random_state=SEED).item_id, "random: text removal")
@@ -103,6 +108,8 @@ def draw(s: Suite, iid, why, n):
 
 
 def main():
+    import shutil
+    shutil.rmtree(OUT, ignore_errors=True)  # no pictures left over from an older selection
     os.makedirs(OUT, exist_ok=True)
     s = Suite(ROOT)
     rows = []

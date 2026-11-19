@@ -1,4 +1,4 @@
-"""The evidence-grounded confidence method (working name EGC) and the baselines.
+"""The evidence-grounded confidence method (GroundCheck) and the baselines.
 
 Plain-language summary:
   1. Ask the model a question and note how confident it is in its answer.
@@ -67,7 +67,7 @@ def survival(df: pd.DataFrame, agg: str = DEFAULT_AGG, use_control: bool = True)
     return df.apply(one, axis=1)
 
 
-def egc_simple(c0, u, lam: float):
+def groundcheck_adjust(c0, u, lam: float):
     c0 = np.asarray(c0, float)
     u = np.nan_to_num(np.asarray(u, float), nan=0.0)
     return np.clip(c0 * (1 - lam * u), 0, 1)
@@ -77,7 +77,7 @@ def fit_lambda(c0, u, correct, grid=np.linspace(0, 1, 21)) -> float:
     y = np.asarray(correct, float)
     best, best_l = np.inf, 0.0
     for lam in grid:
-        b = np.nanmean((egc_simple(c0, u, lam) - y) ** 2)
+        b = np.nanmean((groundcheck_adjust(c0, u, lam) - y) ** 2)
         if b < best - 1e-12:
             best, best_l = b, float(lam)
     return best_l
@@ -107,7 +107,7 @@ class Platt:
         return out
 
 
-class EGCLogistic:
+class GroundCheckLogistic:
     """Learned variant: predicts correctness from the original confidence plus
     how much confidence survived each evidence removal."""
 

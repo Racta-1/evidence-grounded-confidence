@@ -15,7 +15,7 @@ import numpy as np
 
 from . import prompts as PR
 from .perturb import seed_for
-from .suite import Suite
+from .suite import Suite, is_private
 
 
 def select_items(suite: Suite, datasets, splits, limit_per_dataset=None, require_variant=None, seed="pilot"):
@@ -38,10 +38,16 @@ def require_variant_datasets(suite, variants):
     return set(v.dataset)
 
 
+def private_path(path):
+    return path.replace("raw.jsonl", "raw_private.jsonl")
+
+
 def _done(path):
     done = set()
-    if os.path.exists(path):
-        for line in open(path):
+    for p in (path, private_path(path)):
+        if not os.path.exists(p):
+            continue
+        for line in open(p):
             try:
                 r = json.loads(line)
                 done.add((r["item_id"], r["variant"]))
@@ -58,8 +64,9 @@ def run_items(adapter, suite: Suite, item_ids, out_path, cfg: dict, log=print):
     verbal = bool(cfg.get("verbalized", True))
     max_new = int(cfg.get("max_new_tokens", 24))
     t0 = time.time()
-    with open(out_path, "a") as f:
+    with open(out_path, "a") as f_pub, open(private_path(out_path), "a") as f_priv:
         for n_i, iid in enumerate(item_ids):
+            f = f_priv if is_private(iid) else f_pub
             it = suite.item(iid)
             at = it.answer_type
             opts = PR.option_strings(at, json.loads(it.options) if it.options else [])
@@ -69,7 +76,7 @@ def run_items(adapter, suite: Suite, item_ids, out_path, cfg: dict, log=print):
             for var in suite.available(iid):
                 if var == "original" and (iid, var) in done:
                     # recover a0 from the saved original
-                    for line in open(out_path):
+                    for line in open(private_path(out_path) if is_private(iid) else out_path):
                         r = json.loads(line)
                         if r["item_id"] == iid and r["variant"] == "original":
                             a0 = r["a0"]
