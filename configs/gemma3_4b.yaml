@@ -5,7 +5,7 @@ adapter: hf
 model_id: google/gemma-3-4b-it
 revision: 093f9f388b31de276ce2de164bdc2081324b9767
 dtype: bf16
-device: auto
+device: cuda              # one GPU; pick which with CUDA_VISIBLE_DEVICES (shared machines)
 max_image_side: 1024
 datasets: [SLAKE, VQA-RAD, PathVQA, MIMIC-CXR-VQA, MedXpertQA-MM]   # MIMIC used only if built on this machine
 splits: [cal, test]

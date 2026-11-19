@@ -5,7 +5,7 @@ adapter: hf
 model_id: chaoyinshe/llava-med-v1.5-mistral-7b-hf
 revision: 627be53734c667cbb1669608dac747a4485a22d7
 dtype: bf16
-device: auto
+device: cuda              # one GPU; pick which with CUDA_VISIBLE_DEVICES (shared machines)
 max_image_side: 1024
 datasets: [SLAKE, VQA-RAD, PathVQA, MIMIC-CXR-VQA, MedXpertQA-MM]   # MIMIC used only if built on this machine
 splits: [cal, test]

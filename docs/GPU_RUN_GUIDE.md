@@ -65,6 +65,18 @@ MIMIC-CXR needs your credentialed PhysioNet account. Do this step only on a mach
 3. Run `python code/02_build_suite.py` again. After the public report you'll see a second report titled **PRIVATE (MIMIC-CXR ...)** with 8 PASS lines.
 4. Check `git status`. Nothing under `data/raw/mimic`, `data/suite_private`, or any file ending in `_private.jsonl` or `_private.csv` should appear; the project ignores them on purpose. MIMIC outputs stay on this machine. Only summary numbers go into `paper/stats.json`.
 
+## On a shared multi-GPU machine (such as wukong)
+
+Each run uses exactly **one** GPU. Pick a free one first, so you don't slow down other people's jobs:
+```
+nvidia-smi --query-gpu=index,memory.used,utilization.gpu --format=csv
+```
+Choose a GPU with near-zero memory used and 0% utilization (say GPU 4), and put `CUDA_VISIBLE_DEVICES=4` in front of the command:
+```
+CUDA_VISIBLE_DEVICES=4 python code/04_run_model.py configs/qwen2_5_vl_7b.yaml
+```
+The machine's driver supports CUDA up to the version `nvidia-smi` shows at the top right. For CUDA 12.x, install PyTorch with `python -m pip install --user torch --index-url https://download.pytorch.org/whl/cu126`.
+
 ## Option B: The University of Alabama research computing cluster
 
 Log in to the cluster and run `git clone https://github.com/Racta-1/evidence-grounded-confidence.git` (when asked for a password, paste the read-only key from step 3 of Option A), then `cd evidence-grounded-confidence && pip install --user -r requirements.txt && python code/01_fetch.py && python code/02_build_suite.py`.
