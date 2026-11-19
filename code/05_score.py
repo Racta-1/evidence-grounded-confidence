@@ -74,7 +74,10 @@ def main():
     if len(t):
         t.round(3).to_csv(os.path.join(ROOT, "paper", "tables", "metrics_table.csv"), index=False)
         with open(os.path.join(ROOT, "paper", "tables", "metrics_table.md"), "w") as f:
-            f.write(t.round(3).to_markdown(index=False) if hasattr(t, "to_markdown") else t.round(3).to_string(index=False))
+            try:
+                f.write(t.round(3).to_markdown(index=False))
+            except ImportError:  # older 'tabulate' on some clusters: plain-text table instead
+                f.write(t.round(3).to_string(index=False))
     json.dump(clean(stats), open(os.path.join(ROOT, "paper", "stats.json"), "w"), indent=2)
     print("wrote paper/stats.json")
 

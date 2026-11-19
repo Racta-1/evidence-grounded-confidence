@@ -32,6 +32,12 @@ set -euo pipefail
 if [[ -n "${SLURM_SUBMIT_DIR:-}" ]]; then cd "$SLURM_SUBMIT_DIR"; else cd "$(dirname "$0")/.."; fi
 mkdir -p logs
 
+# --- model downloads go to the project's disk, not the (small) home folder ----
+# about 80 GB for all six models; your Hugging Face login token stays where it is
+export HF_HUB_CACHE="${HF_HUB_CACHE:-$(pwd)/.hf_cache/hub}"
+export HF_XET_CACHE="${HF_XET_CACHE:-$(pwd)/.hf_cache/xet}"
+mkdir -p "$HF_HUB_CACHE" "$HF_XET_CACHE"
+
 # --- which models -------------------------------------------------------------
 ALL_MODELS="qwen2_5_vl_7b lingshu_7b gemma3_4b medgemma_4b llava16_mistral_7b llavamed15_mistral_7b"
 MODELS=()
@@ -55,6 +61,7 @@ fi
 
 echo "=== GroundCheck job started $(date '+%Y-%m-%d %H:%M:%S') on $(hostname), GPU ${CUDA_VISIBLE_DEVICES}"
 echo "models: ${MODELS[*]}   extra options: ${EXTRA[*]:-none}"
+echo "model files stored in: $HF_HUB_CACHE ($(df -h "$HF_HUB_CACHE" | awk 'NR==2 {print $4}') free there)"
 python -c "import torch, transformers; print('python ok | torch', torch.__version__, '| cuda', torch.cuda.is_available(), '|', torch.cuda.get_device_name(0), '| transformers', transformers.__version__)"
 [[ -f data/suite_private/items.csv ]] && echo "MIMIC-CXR items found (private)" || echo "note: MIMIC-CXR items not built; MIMIC will be skipped"
 
