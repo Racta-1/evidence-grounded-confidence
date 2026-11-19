@@ -14,3 +14,4 @@ dist/
 data/suite_private/
 results/*/raw_private.jsonl
 results/*/item_scores_private.csv
+logs/

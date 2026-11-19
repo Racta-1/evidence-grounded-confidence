@@ -77,6 +77,13 @@ CUDA_VISIBLE_DEVICES=4 python code/04_run_model.py configs/qwen2_5_vl_7b.yaml
 ```
 The machine's driver supports CUDA up to the version `nvidia-smi` shows at the top right. For CUDA 12.x, install PyTorch with `python -m pip install --user torch torchvision --index-url https://download.pytorch.org/whl/cu126`.
 
+## Running as a job: `scripts/run_groundcheck.sh`
+
+One script runs any set of models on one GPU, then scores and draws figures. Read its first 20 lines for all the options.
+- With Slurm (`which sbatch` prints a path): `sbatch scripts/run_groundcheck.sh qwen2_5_vl_7b --limit 20`. Check it with `squeue -u $USER`; the output goes to `logs/groundcheck_<job number>.out`.
+- Without Slurm: `nohup bash scripts/run_groundcheck.sh qwen2_5_vl_7b --limit 20 > logs/test.log 2>&1 &`, then `tail -f logs/test.log`. It picks the least-busy GPU itself.
+- Leave out the model names to run all six, one after another.
+
 ## Option B: The University of Alabama research computing cluster
 
 Log in to the cluster and run `git clone https://github.com/Racta-1/evidence-grounded-confidence.git` (when asked for a password, paste the read-only key from step 3 of Option A), then `cd evidence-grounded-confidence && pip install --user -r requirements.txt && python code/01_fetch.py && python code/02_build_suite.py`.
