@@ -1,0 +1,16 @@
+# Medical model; pair: llava16_mistral_7b. Community conversion of Microsoft LLaVA-Med v1.5 to the Hugging Face format; check that its outputs match the original before relying on it (decision D9)
+# License/terms: Apache-2.0 per the conversion's card; original LLaVA-Med release is for research use
+run_name: llavamed15_mistral_7b
+adapter: hf
+model_id: chaoyinshe/llava-med-v1.5-mistral-7b-hf
+revision: 627be53734c667cbb1669608dac747a4485a22d7
+dtype: bf16
+device: auto
+max_image_side: 1024
+datasets: [SLAKE, VQA-RAD, MedXpertQA-MM]
+splits: [cal, test]
+limit_per_dataset: null      # full suite
+verbalized: true
+consistency_k: 5
+temperature: 1.0
+max_new_tokens: 24

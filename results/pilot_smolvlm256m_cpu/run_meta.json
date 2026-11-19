@@ -1,0 +1,38 @@
+{
+  "config": {
+    "run_name": "pilot_smolvlm256m_cpu",
+    "adapter": "hf",
+    "model_id": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "revision": "d039ab0d4b9311b617e8ffec1d06c8464364aeb3",
+    "dtype": "fp32",
+    "device": "cpu",
+    "processor_kwargs": {
+      "do_image_splitting": false
+    },
+    "datasets": [
+      "SLAKE",
+      "VQA-RAD",
+      "MedXpertQA-MM"
+    ],
+    "splits": [
+      "cal",
+      "test"
+    ],
+    "limit_per_dataset": 30,
+    "require_variant": [
+      "mask_region"
+    ],
+    "verbalized": true,
+    "consistency_k": 3,
+    "temperature": 1.0,
+    "max_new_tokens": 16
+  },
+  "n_items": 90,
+  "started": "2026-11-19 13:59:05",
+  "python": "3.13.18",
+  "host": "Linux-6.18.44-fc-v653-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cpu",
+  "transformers": "5.23.0",
+  "cuda": false,
+  "finished": "2026-11-19 14:04:49"
+}

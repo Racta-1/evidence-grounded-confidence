@@ -1,0 +1,68 @@
+EVIDENCE PERTURBATION SUITE: QUALITY REPORT
+============================================
+Plain-language summary: counts of questions and altered versions, how many
+could be made, and checks that the files are consistent. Read the 'CHECKS'
+section first; every line should say PASS.
+
+ITEMS PER DATASET AND SPLIT
+split          cal  test
+dataset                 
+MedXpertQA-MM  823   758
+SLAKE          584   477
+VQA-RAD        244   207
+
+ANSWER TYPES
+answer_type    closed   mcq  open
+dataset                          
+MedXpertQA-MM       0  1581     0
+SLAKE             416     0   645
+VQA-RAD           251     0   200
+
+VARIANT STATUS (rows = dataset x variant)
+status                      not_applicable    ok  unavailable
+dataset       variant                                        
+MedXpertQA-MM mask_control            1581     0            0
+              mask_region             1581     0            0
+              original                   0  1581            0
+              remove_text              321  1260            0
+              swap_image                 0  1581            0
+SLAKE         mask_control             669   353           39
+              mask_region              669   392            0
+              original                   0  1061            0
+              remove_text             1061     0            0
+              swap_image                 0  1061            0
+VQA-RAD       mask_control             451     0            0
+              mask_region              451     0            0
+              original                   0   451            0
+              remove_text              451     0            0
+              swap_image                 0   451            0
+
+SWAP RULES USED
+dataset        rule                         
+MedXpertQA-MM  S3_other_body_system             1581
+SLAKE          S1_same_modality_other_region     700
+               S1b_other_region_any_modality     361
+VQA-RAD        S2_random_other_image             451
+
+REGION RULES USED (SLAKE mask_region)
+status          not_applicable   ok
+rule                               
+R0_none                    669    0
+R1+R2                        0   66
+R1_named                     0  155
+R2_abnormality               0  171
+region size (share of image): min 0.004, median 0.055, max 0.309
+region source: pixel_mask=232, bounding_box=160
+
+TEXT REMOVAL (MedXpertQA): share of question stem removed: median 0.86, min 0.23, max 0.97
+
+CHECKS
+  PASS  item_id unique
+  PASS  one row per item per variant (5 variants)
+  PASS  every image file exists
+  PASS  every swap image exists
+  PASS  no swap points to its own image
+  PASS  no leftover mask files from older builds
+  PASS  every mask file exists
+  PASS  region and control masks never overlap
+  PASS  every mask matches its image size

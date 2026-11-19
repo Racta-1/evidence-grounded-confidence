@@ -1,0 +1,500 @@
+{
+  "suite": {
+    "n_items": 3093,
+    "items_by_dataset": {
+      "MedXpertQA-MM": 1581,
+      "SLAKE": 1061,
+      "VQA-RAD": 451
+    },
+    "variants_ok": {
+      "MedXpertQA-MM|original": 1581,
+      "MedXpertQA-MM|remove_text": 1260,
+      "MedXpertQA-MM|swap_image": 1581,
+      "SLAKE|mask_control": 353,
+      "SLAKE|mask_region": 392,
+      "SLAKE|original": 1061,
+      "SLAKE|swap_image": 1061,
+      "VQA-RAD|original": 451,
+      "VQA-RAD|swap_image": 451
+    },
+    "n_variant_renderings": 8191
+  },
+  "runs": {
+    "pilot_smolvlm256m_cpu": {
+      "fitted": {
+        "VQA-RAD": {
+          "lambda_": 0.55,
+          "n_cal": 21,
+          "platt": true,
+          "logistic": true
+        },
+        "MedXpertQA-MM": {
+          "lambda_": 0.8,
+          "n_cal": 12,
+          "platt": true,
+          "logistic": true
+        },
+        "SLAKE": {
+          "lambda_": 0.65,
+          "n_cal": 17,
+          "platt": true,
+          "logistic": true
+        }
+      },
+      "aggregation": "mean",
+      "by_dataset": {
+        "MedXpertQA-MM": {
+          "n_test": 18,
+          "accuracy": 0.1111,
+          "methods": {
+            "Token probability": {
+              "n": 18,
+              "accuracy": 0.1111,
+              "mean_conf": 0.709,
+              "ece": 0.5979,
+              "brier": 0.4733,
+              "auroc": 0.5625,
+              "aurc": 0.9012,
+              "ece_ci": [
+                0.4672,
+                0.7495
+              ],
+              "auroc_ci": [
+                0.2444,
+                0.8224
+              ]
+            },
+            "Verbalized": {
+              "n": 1,
+              "accuracy": 1.0,
+              "mean_conf": 1.0,
+              "ece": 0.0,
+              "brier": 0.0,
+              "auroc": null,
+              "aurc": 0.0,
+              "ece_ci": [
+                null,
+                null
+              ],
+              "auroc_ci": [
+                null,
+                null
+              ]
+            },
+            "Sampling consistency": {
+              "n": 18,
+              "accuracy": 0.1111,
+              "mean_conf": 0.3148,
+              "ece": 0.3148,
+              "brier": 0.2407,
+              "auroc": 0.5156,
+              "aurc": 0.9117,
+              "ece_ci": [
+                0.1667,
+                0.4912
+              ],
+              "auroc_ci": [
+                0.1419,
+                0.9062
+              ]
+            },
+            "Platt-scaled token prob.": {
+              "n": 18,
+              "accuracy": 0.1111,
+              "mean_conf": 0.1741,
+              "ece": 0.063,
+              "brier": 0.1035,
+              "auroc": 0.5625,
+              "aurc": 0.9012,
+              "ece_ci": [
+                0.0126,
+                0.1835
+              ],
+              "auroc_ci": [
+                0.2444,
+                0.8224
+              ]
+            },
+            "EGC (evidence-adjusted)": {
+              "n": 18,
+              "accuracy": 0.1111,
+              "mean_conf": 0.2138,
+              "ece": 0.1833,
+              "brier": 0.1338,
+              "auroc": 0.25,
+              "aurc": 0.9601,
+              "ece_ci": [
+                0.1109,
+                0.3202
+              ],
+              "auroc_ci": [
+                0.0422,
+                0.4706
+              ]
+            },
+            "EGC-logistic": {
+              "n": 18,
+              "accuracy": 0.1111,
+              "mean_conf": 0.1636,
+              "ece": 0.0525,
+              "brier": 0.1033,
+              "auroc": 0.375,
+              "aurc": 0.9393,
+              "ece_ci": [
+                0.0056,
+                0.1706
+              ],
+              "auroc_ci": [
+                0.1176,
+                0.6256
+              ]
+            }
+          },
+          "evidence_sensitivity": {
+            "swap_image": {
+              "n": 18,
+              "mean_conf_original": 0.709,
+              "mean_conf_variant": 0.6236,
+              "answer_changed": 0.1111,
+              "mean_survival": 0.8114
+            },
+            "remove_text": {
+              "n": 12,
+              "mean_conf_original": 0.6768,
+              "mean_conf_variant": 0.807,
+              "answer_changed": 0.0,
+              "mean_survival": 0.9522
+            }
+          },
+          "flags": {
+            "n_flagged": 2,
+            "rate": 0.1111,
+            "acc_flagged": 0.0,
+            "acc_unflagged": 0.125
+          },
+          "conformal": {
+            "alpha": 0.1,
+            "qhat": 0.9981,
+            "original": {
+              "n": 18,
+              "mean_set_size": 4.7778,
+              "coverage": 0.9444
+            },
+            "swap_image": {
+              "n": 18,
+              "mean_set_size": 4.8333,
+              "coverage": 0.9444
+            },
+            "remove_text": {
+              "n": 12,
+              "mean_set_size": 4.3333,
+              "coverage": 0.8333
+            }
+          }
+        },
+        "SLAKE": {
+          "n_test": 13,
+          "accuracy": 0.2308,
+          "methods": {
+            "Token probability": {
+              "n": 13,
+              "accuracy": 0.2308,
+              "mean_conf": 0.3554,
+              "ece": 0.153,
+              "brier": 0.1037,
+              "auroc": 0.9333,
+              "aurc": 0.5033,
+              "ece_ci": [
+                0.0662,
+                0.33
+              ],
+              "auroc_ci": [
+                0.7273,
+                1.0
+              ]
+            },
+            "Verbalized": {
+              "n": 0,
+              "accuracy": null,
+              "mean_conf": null,
+              "ece": null,
+              "brier": null,
+              "auroc": null,
+              "aurc": null,
+              "ece_ci": [
+                null,
+                null
+              ],
+              "auroc_ci": [
+                null,
+                null
+              ]
+            },
+            "Sampling consistency": {
+              "n": 13,
+              "accuracy": 0.2308,
+              "mean_conf": 0.359,
+              "ece": 0.1282,
+              "brier": 0.1624,
+              "auroc": 0.8667,
+              "aurc": 0.5571,
+              "ece_ci": [
+                0.0256,
+                0.3846
+              ],
+              "auroc_ci": [
+                0.6136,
+                1.0
+              ]
+            },
+            "Platt-scaled token prob.": {
+              "n": 13,
+              "accuracy": 0.2308,
+              "mean_conf": 0.0769,
+              "ece": 0.1538,
+              "brier": 0.1538,
+              "auroc": 0.9333,
+              "aurc": 0.5033,
+              "ece_ci": [
+                0.0,
+                0.3846
+              ],
+              "auroc_ci": [
+                0.7273,
+                1.0
+              ]
+            },
+            "EGC (evidence-adjusted)": {
+              "n": 13,
+              "accuracy": 0.2308,
+              "mean_conf": 0.2123,
+              "ece": 0.1929,
+              "brier": 0.0799,
+              "auroc": 0.9333,
+              "aurc": 0.5225,
+              "ece_ci": [
+                0.0855,
+                0.3087
+              ],
+              "auroc_ci": [
+                0.7139,
+                1.0
+              ]
+            },
+            "EGC-logistic": {
+              "n": 13,
+              "accuracy": 0.2308,
+              "mean_conf": 0.0962,
+              "ece": 0.1345,
+              "brier": 0.1343,
+              "auroc": 0.9333,
+              "aurc": 0.5033,
+              "ece_ci": [
+                0.0115,
+                0.3484
+              ],
+              "auroc_ci": [
+                0.7273,
+                1.0
+              ]
+            }
+          },
+          "evidence_sensitivity": {
+            "mask_region": {
+              "n": 13,
+              "mean_conf_original": 0.3554,
+              "mean_conf_variant": 0.2756,
+              "answer_changed": 0.4615,
+              "mean_survival": 0.761
+            },
+            "mask_control": {
+              "n": 11,
+              "mean_conf_original": 0.4133,
+              "mean_conf_variant": 0.3642,
+              "answer_changed": 0.2727,
+              "mean_survival": null
+            },
+            "swap_image": {
+              "n": 13,
+              "mean_conf_original": 0.3554,
+              "mean_conf_variant": 0.2705,
+              "answer_changed": 0.6154,
+              "mean_survival": 0.6883
+            }
+          },
+          "flags": {
+            "n_flagged": 0,
+            "rate": 0.0,
+            "acc_flagged": null,
+            "acc_unflagged": 0.2308
+          },
+          "conformal": {
+            "alpha": 0.1,
+            "qhat": 1.0,
+            "original": {
+              "n": 5,
+              "mean_set_size": 2.0,
+              "coverage": 0.8
+            },
+            "mask_region": {
+              "n": 5,
+              "mean_set_size": 2.0,
+              "coverage": 0.8
+            },
+            "mask_control": {
+              "n": 5,
+              "mean_set_size": 2.0,
+              "coverage": 0.8
+            },
+            "swap_image": {
+              "n": 5,
+              "mean_set_size": 2.0,
+              "coverage": 0.8
+            }
+          }
+        },
+        "VQA-RAD": {
+          "n_test": 9,
+          "accuracy": 0.5556,
+          "methods": {
+            "Token probability": {
+              "n": 9,
+              "accuracy": 0.5556,
+              "mean_conf": 0.3612,
+              "ece": 0.2385,
+              "brier": 0.149,
+              "auroc": 0.85,
+              "aurc": 0.1979,
+              "ece_ci": [
+                null,
+                null
+              ],
+              "auroc_ci": [
+                null,
+                null
+              ]
+            },
+            "Verbalized": {
+              "n": 0,
+              "accuracy": null,
+              "mean_conf": null,
+              "ece": null,
+              "brier": null,
+              "auroc": null,
+              "aurc": null,
+              "ece_ci": [
+                null,
+                null
+              ],
+              "auroc_ci": [
+                null,
+                null
+              ]
+            },
+            "Sampling consistency": {
+              "n": 9,
+              "accuracy": 0.5556,
+              "mean_conf": 0.4815,
+              "ece": 0.0741,
+              "brier": 0.0988,
+              "auroc": 0.95,
+              "aurc": 0.1635,
+              "ece_ci": [
+                null,
+                null
+              ],
+              "auroc_ci": [
+                null,
+                null
+              ]
+            },
+            "Platt-scaled token prob.": {
+              "n": 9,
+              "accuracy": 0.5556,
+              "mean_conf": 0.1667,
+              "ece": 0.4297,
+              "brier": 0.3437,
+              "auroc": 0.85,
+              "aurc": 0.1979,
+              "ece_ci": [
+                null,
+                null
+              ],
+              "auroc_ci": [
+                null,
+                null
+              ]
+            },
+            "EGC (evidence-adjusted)": {
+              "n": 9,
+              "accuracy": 0.5556,
+              "mean_conf": 0.3198,
+              "ece": 0.2786,
+              "brier": 0.1915,
+              "auroc": 0.85,
+              "aurc": 0.1979,
+              "ece_ci": [
+                null,
+                null
+              ],
+              "auroc_ci": [
+                null,
+                null
+              ]
+            },
+            "EGC-logistic": {
+              "n": 9,
+              "accuracy": 0.5556,
+              "mean_conf": 0.1504,
+              "ece": 0.4114,
+              "brier": 0.3623,
+              "auroc": 0.9,
+              "aurc": 0.1821,
+              "ece_ci": [
+                null,
+                null
+              ],
+              "auroc_ci": [
+                null,
+                null
+              ]
+            }
+          },
+          "evidence_sensitivity": {
+            "swap_image": {
+              "n": 9,
+              "mean_conf_original": 0.3612,
+              "mean_conf_variant": 0.1532,
+              "answer_changed": 0.7778,
+              "mean_survival": 0.291
+            }
+          },
+          "flags": {
+            "n_flagged": 0,
+            "rate": 0.0,
+            "acc_flagged": null,
+            "acc_unflagged": 0.5556
+          },
+          "conformal": {
+            "alpha": 0.1,
+            "qhat": 0.9987,
+            "original": {
+              "n": 4,
+              "mean_set_size": 2.0,
+              "coverage": 1.0
+            },
+            "swap_image": {
+              "n": 4,
+              "mean_set_size": 2.0,
+              "coverage": 1.0
+            }
+          }
+        }
+      },
+      "model_id": "HuggingFaceTB/SmolVLM-256M-Instruct",
+      "n_items_scored": 90,
+      "n_items_planned": 90,
+      "complete": true
+    }
+  }
+}

@@ -1,0 +1,16 @@
+# General model; pair: llavamed15_mistral_7b (same LLaVA + Mistral-7B design)
+# License/terms: Apache-2.0
+run_name: llava16_mistral_7b
+adapter: hf
+model_id: llava-hf/llava-v1.6-mistral-7b-hf
+revision: 2424fdd47412fccc66d91719126b420e9fbd7065
+dtype: bf16
+device: auto
+max_image_side: 1024
+datasets: [SLAKE, VQA-RAD, MedXpertQA-MM]
+splits: [cal, test]
+limit_per_dataset: null      # full suite
+verbalized: true
+consistency_k: 5
+temperature: 1.0
+max_new_tokens: 24

@@ -1,0 +1,16 @@
+# General model; pair: medgemma_4b (same Gemma 3 backbone)
+# License/terms: Gemma Terms of Use; accept on the model page before downloading
+run_name: gemma3_4b
+adapter: hf
+model_id: google/gemma-3-4b-it
+revision: 093f9f388b31de276ce2de164bdc2081324b9767
+dtype: bf16
+device: auto
+max_image_side: 1024
+datasets: [SLAKE, VQA-RAD, MedXpertQA-MM]
+splits: [cal, test]
+limit_per_dataset: null      # full suite
+verbalized: true
+consistency_k: 5
+temperature: 1.0
+max_new_tokens: 24

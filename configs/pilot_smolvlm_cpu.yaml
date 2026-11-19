@@ -1,0 +1,18 @@
+# CPU pilot: proves the pipeline end to end on real model outputs.
+# SmolVLM-256M is a tiny general model, NOT a clinical model; its numbers are
+# pipeline checks, not findings about clinical VLMs.
+run_name: pilot_smolvlm256m_cpu
+adapter: hf
+model_id: HuggingFaceTB/SmolVLM-256M-Instruct
+revision: d039ab0d4b9311b617e8ffec1d06c8464364aeb3
+dtype: fp32
+device: cpu
+processor_kwargs: {do_image_splitting: false}
+datasets: [SLAKE, VQA-RAD, MedXpertQA-MM]
+splits: [cal, test]
+limit_per_dataset: 30
+require_variant: [mask_region]   # SLAKE pilot items all have a region to hide
+verbalized: true
+consistency_k: 3
+temperature: 1.0
+max_new_tokens: 16

@@ -1,0 +1,17 @@
+{
+  "_comment": "Author block. Every document, citation file, Zenodo record and commit reads from here, so the name appears identically everywhere.",
+  "authors": [
+    {
+      "name": "Taye Akinrele",
+      "family": "Akinrele",
+      "given": "Taye",
+      "orcid": "0009-0003-0564-9001",
+      "email": "toakinrele@ua.edu",
+      "affiliation": "Independent Researcher, Tuscaloosa, Alabama, USA",
+      "github": "toakinrele",
+      "roles": ["Conceptualization", "Methodology", "Software", "Validation", "Formal analysis", "Data curation", "Writing - original draft", "Writing - review and editing"],
+      "corresponding": true
+    }
+  ],
+  "collaborators": []
+}

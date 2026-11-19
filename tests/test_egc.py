@@ -1,0 +1,147 @@
+"""Automatic tests. Run:  python -m pytest -q tests
+
+Plain-language summary: small checks that each piece does what it claims, plus
+one end-to-end run with a fake model. The key test: a fake model that ignores
+the image entirely must be flagged by the method, and a fake model that uses
+the image must not be.
+"""
+import json
+import os
+import sys
+
+import numpy as np
+import pandas as pd
+import pytest
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "src"))
+
+from egc import method as M  # noqa: E402
+from egc import metrics as MT  # noqa: E402
+from egc import perturb as P  # noqa: E402
+from egc import prompts as PR  # noqa: E402
+
+
+# --- region targeting --------------------------------------------------------
+PRESENT = ["Left Lung", "Right Lung", "Liver", "Liver Cancer", "Heart", "Spleen"]
+
+
+def test_side_specific_beats_generic():
+    labs, rule = P.target_labels("What color does the left lung show?", "Black", "Color", PRESENT)
+    assert labs == ["Left Lung"] and rule == "R1_named"
+
+
+def test_generic_matches_both_sides():
+    labs, _ = P.target_labels("How many lungs are in this image?", "2", "Quantity", PRESENT)
+    assert labs == ["Left Lung", "Right Lung"]
+
+
+def test_organ_includes_its_lesion():
+    labs, _ = P.target_labels("Does the picture contain liver?", "Yes", "Organ", PRESENT)
+    assert set(labs) == {"Liver", "Liver Cancer"}
+
+
+def test_abnormality_rule():
+    labs, rule = P.target_labels("Are there abnormalities in this image?", "Yes", "Abnormality", PRESENT)
+    assert labs == ["Liver Cancer"] and rule == "R2_abnormality"
+
+
+def test_no_region_for_global_question():
+    labs, rule = P.target_labels("What modality is used to take this image?", "CT", "Modality", PRESENT)
+    assert labs == [] and rule == "R0_none"
+
+
+def test_label_mask_detection():
+    legend = {70: "Liver", 175: "Liver Cancer"}
+    assert P.is_label_mask(np.array([[0, 70], [175, 0]]), legend)
+    assert not P.is_label_mask(np.arange(16).reshape(4, 4), legend)
+
+
+# --- control mask ---------------------------------------------------------------
+def test_control_same_area_no_overlap():
+    gray = np.full((100, 100), 128, np.uint8)
+    region = np.zeros((100, 100), bool)
+    region[10:30, 10:30] = True
+    ctrl = P.control_region(region, gray, "x")
+    assert ctrl is not None and ctrl.sum() == region.sum() and not (ctrl & region).any()
+    assert np.array_equal(ctrl, P.control_region(region, gray, "x"))  # deterministic
+
+
+# --- text removal ---------------------------------------------------------------
+def test_remove_context_keeps_final_question():
+    q = ("A 29-year-old woman has a painless mass. It appeared 4 months after delivery. "
+         "What is the most likely diagnosis?\nAnswer Choices: (A) Cyst (B) Tumor")
+    new, removed, rule = P.remove_context(q)
+    assert new.startswith("What is the most likely diagnosis?") and "(A) Cyst" in new
+    assert removed > 0 and rule == "T1_final_question_only"
+    assert P.remove_context("What is shown?\nAnswer Choices: (A) x (B) y")[0] is None
+
+
+# --- prompts and matching -------------------------------------------------------
+def test_answer_matching():
+    assert PR.parse_choice("(C) Radial head", "mcq", list("ABCDE")) == "C"
+    assert PR.parse_choice("Yes, it is.", "closed", ["yes", "no"]) == "yes"
+    assert PR.is_correct("the liver", "Liver", "open")
+    assert not PR.is_correct("lung", "Liver", "open")
+    assert PR.parse_verbal_conf("B\nConfidence: 85") == 0.85
+
+
+# --- metrics --------------------------------------------------------------------
+def test_metrics_known_values():
+    rng = np.random.default_rng(0)
+    c = rng.uniform(0, 1, 20000)
+    y = rng.uniform(0, 1, 20000) < c          # perfectly calibrated by construction
+    assert MT.ece(c, y) < 0.02
+    assert MT.auroc([0.9, 0.8, 0.2, 0.1], [1, 1, 0, 0]) == 1.0
+    assert MT.brier([1.0, 0.0], [1, 0]) == 0.0
+
+
+# --- method ---------------------------------------------------------------------
+def test_survival_is_chance_normalized():
+    row = pd.Series({"chance": 0.5, "p_a0__original": 0.9, "p_a0__swap_image": 0.5})
+    assert M.survival_per_variant(row)["swap_image"] == 0.0
+    row = pd.Series({"chance": 0.5, "p_a0__original": 0.9, "p_a0__swap_image": 0.9})
+    assert M.survival_per_variant(row)["swap_image"] == 1.0
+
+
+def test_control_used_as_reference():
+    row = pd.Series({"chance": 0.0, "p_a0__original": 0.9, "p_a0__mask_control": 0.6, "p_a0__mask_region": 0.3})
+    assert abs(M.survival_per_variant(row)["mask_region"] - 0.5) < 1e-9
+
+
+def test_egc_lowers_only_surviving_confidence():
+    out = M.egc_simple([0.9, 0.9], [1.0, 0.0], lam=0.5)
+    assert out[0] == pytest.approx(0.45) and out[1] == pytest.approx(0.9)
+
+
+def test_conformal_coverage():
+    rng = np.random.default_rng(1)
+    p_true = rng.uniform(0.3, 1, 1000)
+    q = M.conformal_qhat(p_true, alpha=0.1)
+    assert np.mean(1 - p_true <= q) >= 0.9
+
+
+# --- end to end with fake models on the real suite ---------------------------------
+HAVE_SUITE = os.path.exists(os.path.join(ROOT, "data", "suite", "items.csv"))
+
+
+@pytest.mark.skipif(not HAVE_SUITE, reason="suite not built; run code/01 and code/02 first")
+@pytest.mark.parametrize("blind", [False, True])
+def test_end_to_end_blind_model_is_flagged(tmp_path, blind):
+    from egc.models import MockAdapter
+    from egc.run import run_items, select_items
+    from egc.score import item_frame, score
+    from egc.suite import Suite
+    s = Suite(ROOT)
+    ids = select_items(s, ["SLAKE"], ["cal", "test"], 30, ["mask_region"])
+    out = tmp_path / "raw.jsonl"
+    run_items(MockAdapter(blind=blind), s, ids, str(out), {"consistency_k": 3, "verbalized": False}, log=lambda *_: None)
+    df = item_frame(str(out), s)
+    assert len(df) == 30
+    df, res = score(df)
+    u = df["u__swap_image"].mean()
+    if blind:
+        assert u > 0.95 and df.flag.mean() > 0.9
+    else:
+        # the fake sighted model compares whole pictures, so it is tested on swaps only
+        assert u < 0.4 and (df.conf_token.ge(0.8) & df["u__swap_image"].ge(0.8)).mean() <= 0.15
