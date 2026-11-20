@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 
 from . import method as M
+from . import prompts as PR
 from . import metrics as MT
 from .suite import EVIDENCE_REMOVING, Suite
 
@@ -35,7 +36,10 @@ def item_frame(raw_path: str, suite: Suite) -> pd.DataFrame:
         it = suite.item(iid)
         opts = list(o["probs"].keys()) if "probs" in o else []
         row = dict(item_id=iid, dataset=it.dataset, split=it.split, answer_type=it.answer_type,
-                   content_type=it.content_type, gold=it.answer, pred=o["pred"], correct=bool(o["correct"]),
+                   content_type=it.content_type, gold=it.answer, pred=o["pred"],
+                   # re-marked at scoring time from the saved answer, so a change to the matching
+                   # rule never needs a new GPU run
+                   correct=bool(PR.is_correct(o["pred"], it.answer, it.answer_type)),
                    chance=M.chance_level(it.answer_type, len(opts)),
                    conf_token=o["probs"][o["pred"]] if "probs" in o else o["p_a0"],
                    conf_verbal=o.get("verbal_conf") if o.get("verbal_conf") is not None else np.nan,

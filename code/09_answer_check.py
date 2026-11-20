@@ -40,7 +40,7 @@ def main():
             raw = "probs " + ", ".join(f"{k}={v:.2f}" for k, v in sorted(pr.items(), key=lambda x: -x[1]))
         rows.append(dict(item_id=r["item_id"], dataset=it.dataset, type=r["answer_type"], gold=it.answer,
                          pred=r["pred"], raw=raw, verbal=(r.get("verbal_text") or "")[:60],
-                         correct=r["correct"], private=is_private(r["item_id"])))
+                         correct=bool(PR.is_correct(r["pred"], it.answer, r["answer_type"])), private=is_private(r["item_id"])))
     df = pd.DataFrame(rows)
     out = []
     out.append(f"ANSWER CHECK for {run}: {len(df)} questions\n")
