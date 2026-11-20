@@ -32,7 +32,7 @@ TAU_SURVIVE = 0.8
 
 
 def chance_level(answer_type: str, n_options: int) -> float:
-    return 1.0 / n_options if answer_type in ("closed", "mcq") and n_options > 0 else 0.0
+    return 1.0 / n_options if answer_type in ("closed", "mcq", "choice") and n_options > 0 else 0.0
 
 
 def survival_per_variant(row: pd.Series, use_control: bool = True) -> dict[str, float]:

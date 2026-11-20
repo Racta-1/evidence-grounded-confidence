@@ -13,12 +13,12 @@ SLAKE           584   477
 VQA-RAD         244   207
 
 ANSWER TYPES
-answer_type    closed   mcq  open
-dataset                          
-MedXpertQA-MM       0  1581     0
-PathVQA          3362     0  3357
-SLAKE             416     0   645
-VQA-RAD           251     0   200
+answer_type    choice  closed   mcq  open
+dataset                                  
+MedXpertQA-MM       0       0  1581     0
+PathVQA             0    3362     0  3357
+SLAKE              56     355     0   650
+VQA-RAD            10     251     0   190
 
 VARIANT STATUS (rows = dataset x variant)
 status                      not_applicable    ok  unavailable

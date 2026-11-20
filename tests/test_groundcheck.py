@@ -181,3 +181,15 @@ def test_private_items_are_routed_to_private_file():
     from groundcheck.suite import is_private
     assert is_private("mimic-123") and not is_private("slake-1")
     assert private_path("results/x/raw.jsonl") == "results/x/raw_private.jsonl"
+
+
+def test_choice_questions():
+    assert PR.choice_options("Which organ is abnormal, heart or lung?", "Lung") == ["heart", "lung"]
+    assert PR.choice_options("Which is the biggest in this image,lung,liver or heart?", "Lung") == ["lung", "liver", "heart"]
+    assert PR.choice_options("is this supratentorial or infratentorial?", "supratentorial") == ["supratentorial", "infratentorial"]
+    assert PR.choice_options("are there multiple or just 1 metastatic focus?", "one") is None   # answer not an option
+    assert PR.choice_options("What modality is this?", "CT") is None
+    opts = ["heart", "lung"]
+    assert PR.parse_choice("The lungs.", "choice", opts) == "lung"
+    assert PR.is_correct("lung", "Lung", "choice") and not PR.is_correct("heart", "Lung", "choice")
+    assert "Answer with one of: heart, lung." in PR.build_prompt("Which organ is abnormal, heart or lung?", "choice", options=opts)

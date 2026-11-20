@@ -323,6 +323,16 @@ def qa_report(items: pd.DataFrame, var: pd.DataFrame, private: bool = False) -> 
 
 
 def tidy(items, variants):
+    # "X or Y" questions become choice questions when the answer is one of the options;
+    # other non-yes/no "closed" questions (SLAKE) become free text (decision D13)
+    from groundcheck import prompts as PR
+    for d in items:
+        if d["answer_type"] in ("closed", "open") and d["answer"].strip().lower() not in ("yes", "no"):
+            opts = PR.choice_options(d["question"], d["answer"])
+            if opts:
+                d["answer_type"], d["options"] = "choice", json.dumps(opts)
+            elif d["answer_type"] == "closed":
+                d["answer_type"], d["options"] = "open", ""
     it = pd.DataFrame(items)
     va = pd.DataFrame(variants)
     for c in ("rule", "detail", "mask_file", "swap_image_path", "text"):

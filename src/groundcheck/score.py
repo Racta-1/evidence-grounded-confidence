@@ -125,13 +125,17 @@ def score(df: pd.DataFrame, agg: str = M.DEFAULT_AGG, seed: int = 0) -> tuple[pd
     return df, out
 
 
+def _p_gold(probs: dict, gold: str, at: str) -> float:
+    """Probability the model gave the correct option (option keys may differ in case/plural)."""
+    return float(sum(p for o, p in probs.items() if PR.is_correct(o, gold, at)))
+
+
 def conformal_block(d: pd.DataFrame, alpha: float = 0.1) -> dict:
-    d = d[d.answer_type.isin(["closed", "mcq"])]
+    d = d[d.answer_type.isin(["closed", "mcq", "choice"])]
     if d.empty:
         return {}
     cal, test = d[d.split == "cal"], d[d.split == "test"]
-    pt = [json.loads(p).get(g if at == "mcq" else g.lower(), 0.0)
-          for p, g, at in zip(cal.probs_original, cal.gold, cal.answer_type)]
+    pt = [_p_gold(json.loads(p), g, at) for p, g, at in zip(cal.probs_original, cal.gold, cal.answer_type)]
     q = M.conformal_qhat(np.array(pt), alpha)
     if np.isnan(q) or test.empty:
         return {}
@@ -142,7 +146,7 @@ def conformal_block(d: pd.DataFrame, alpha: float = 0.1) -> dict:
         if tt.empty:
             continue
         sets = M.conformal_sets([json.loads(p) for p in tt[col]], q)
-        gold = [g if at == "mcq" else g.lower() for g, at in zip(tt.gold, tt.answer_type)]
         res[v] = dict(n=int(len(tt)), mean_set_size=float(np.mean([len(s) for s in sets])),
-                      coverage=float(np.mean([g in s for g, s in zip(gold, sets)])))
+                      coverage=float(np.mean([any(PR.is_correct(o, g, at) for o in s)
+                                              for g, at, s in zip(tt.gold, tt.answer_type, sets)])))
     return res

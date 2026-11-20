@@ -17,8 +17,12 @@ VERBAL_SUFFIX = ("\nAfter your answer, write a new line in the form 'Confidence:
                  "from 0 to 100 giving how sure you are that your answer is correct.")
 
 
-def build_prompt(question: str, answer_type: str, verbalized: bool = False) -> str:
-    p = f"{question.strip()}\n{INSTRUCT[answer_type]}"
+def build_prompt(question: str, answer_type: str, verbalized: bool = False, options=None) -> str:
+    if answer_type == "choice":
+        instr = "Answer with one of: " + ", ".join(options) + "."
+    else:
+        instr = INSTRUCT[answer_type]
+    p = f"{question.strip()}\n{instr}"
     return p + (VERBAL_SUFFIX if verbalized else "")
 
 
@@ -27,6 +31,34 @@ def option_strings(answer_type: str, options: list[str]) -> list[str]:
     if answer_type == "closed":
         return ["yes", "no"]
     return list(options)
+
+
+def choice_options(question: str, answer: str) -> list[str] | None:
+    """Options of an "X or Y" question ("Which organ is abnormal, heart or lung?" -> [heart, lung]).
+    Returned only when the correct answer is exactly one of them; otherwise None (free text)."""
+    q = question.strip().rstrip("?").strip().lower()
+    if " or " not in q:
+        return None
+    left, right = q.rsplit(" or ", 1)
+    right = right.strip(" ,")
+    if "," in left:
+        parts = [x.strip() for x in left.split(",")]
+        opts = []
+        for x in reversed(parts):
+            if x and len(x.split()) <= 3:
+                opts.insert(0, x)
+            else:
+                break
+    else:
+        k = len(right.split())
+        opts = [" ".join(left.split()[-k:])]
+    opts = [o for o in opts if o] + [right]
+    if len(opts) < 2:
+        return None
+    g = _sing(norm(answer))
+    if g in [_sing(norm(o)) for o in opts]:
+        return opts
+    return None
 
 
 def norm(s: str) -> str:
@@ -43,6 +75,10 @@ def parse_choice(text: str, answer_type: str, options: list[str]) -> str:
     if answer_type == "mcq":
         m = re.search(r"\b([A-J])\b", t.upper().replace("(", " ").replace(")", " "))
         return m.group(1) if m and m.group(1) in options else norm(t)[:1].upper()
+    if answer_type == "choice":
+        n = _sing(norm(t))
+        hits = [(n.find(_sing(norm(o))), o) for o in options if _sing(norm(o)) and _sing(norm(o)) in n]
+        return min(hits)[1] if hits else n
     if answer_type == "closed":
         n = norm(t)
         if n.startswith("yes"):
@@ -64,6 +100,8 @@ def _sing(text: str) -> str:
 def is_correct(pred: str, gold: str, answer_type: str) -> bool:
     if answer_type in ("closed", "mcq"):
         return norm(pred) == norm(gold)
+    if answer_type == "choice":
+        return _sing(norm(pred)) == _sing(norm(gold))
     p, g = _sing(norm(pred)), _sing(norm(gold))
     if not p:
         return False

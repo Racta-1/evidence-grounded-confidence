@@ -87,6 +87,7 @@ The build made these choices provisionally. Agree or change each one. Changing D
 - [ ] **D10 Swapped image for MIMIC chest X-rays.** All MIMIC images are chest X-rays, so the swap uses an unrelated non-chest CT or MRI from SLAKE (recommended: clearly unrelated, same as the other datasets), or another patient's chest X-ray (a harder test; the answer may truly be the same). Your choice: ___
 - [ ] **D11 Which MIMIC questions to keep.** Only questions with a single answer (recommended: they can be scored right or wrong), or also list-answer questions ("list all findings"), which need partial-credit scoring. Your choice: ___
 - [ ] **D12 PathVQA size.** All 6,719 test questions (recommended: the full test set), or a fixed random 2,000 (cuts PathVQA's GPU time by about 70%; Claude adds the setting if you choose it). Your choice: ___
+- [ ] **D13 "X or Y" questions.** Questions such as "Which organ is abnormal, heart or lung?" are scored as choices between the named options when the correct answer is exactly one of them (66 public items). Other SLAKE "closed" questions without yes/no answers are scored as free text. Keep (recommended), or score all of them as free text. Your choice: ___
 
 ## Part 5: Before it goes public (15 to 30 min)
 

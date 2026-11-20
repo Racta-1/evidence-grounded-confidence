@@ -14,7 +14,7 @@
 | `image_path` | Path to the image after running `code/01_fetch.py` (VQA-RAD images are extracted to `data/interim/`) | |
 | `question` | Question text, unchanged | Source |
 | `answer` | Correct answer, unchanged (MedXpertQA: the letter) | Source |
-| `answer_type` | `closed` (yes/no), `open` (free text), `mcq` (letter A to E) | SLAKE `answer_type`; VQA-RAD: yes/no answers are closed; MedXpertQA: mcq |
+| `answer_type` | `closed` (yes/no), `choice` (pick one of the options named in an "X or Y" question; the correct answer must be exactly one of them), `open` (free text), `mcq` (letter A to E) | SLAKE `answer_type`; VQA-RAD: yes/no answers are closed; MedXpertQA: mcq |
 | `options` | JSON list of choices for closed/mcq items | |
 | `content_type` | SLAKE question category (Organ, Position, Abnormality, ...); MedXpertQA medical task | Source |
 | `modality` | CT / MRI / X-Ray (SLAKE only) | Source |

@@ -85,9 +85,9 @@ def run_items(adapter, suite: Suite, item_ids, out_path, cfg: dict, log=print):
                 if (iid, var) in done:
                     continue
                 rd = suite.render(iid, var)
-                prompt = PR.build_prompt(rd.question, at)
+                prompt = PR.build_prompt(rd.question, at, options=opts)
                 rec = dict(item_id=iid, variant=var, model=adapter.name, answer_type=at)
-                if at in ("closed", "mcq"):
+                if at in ("closed", "mcq", "choice"):
                     probs = adapter.option_probs(rd.image, prompt, opts)
                     pred = max(probs, key=probs.get)
                     rec.update(probs=probs, pred=pred)
@@ -105,7 +105,7 @@ def run_items(adapter, suite: Suite, item_ids, out_path, cfg: dict, log=print):
                     rec["a0"] = a0
                     rec["correct"] = PR.is_correct(rec["pred"], it.answer, at)
                     if verbal:
-                        vt, _ = adapter.generate(rd.image, PR.build_prompt(rd.question, at, verbalized=True),
+                        vt, _ = adapter.generate(rd.image, PR.build_prompt(rd.question, at, verbalized=True, options=opts),
                                                  n=1, temperature=0.0, max_new_tokens=max_new + 16)[0]
                         rec.update(verbal_text=vt, verbal_conf=PR.parse_verbal_conf(vt),
                                    verbal_pred=PR.parse_choice(vt, at, opts))

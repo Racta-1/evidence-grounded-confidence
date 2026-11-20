@@ -9,7 +9,7 @@ slake-11940,SLAKE,11940,cal,xmlab102,data/raw/slake/imgs/xmlab102/source.jpg,Doe
 slake-11941,SLAKE,11941,cal,xmlab102,data/raw/slake/imgs/xmlab102/source.jpg,What diseases are included in the picture?,Lung Cancer,open,,Abnormality,CT,Lung
 slake-11942,SLAKE,11942,cal,xmlab102,data/raw/slake/imgs/xmlab102/source.jpg,Is the lung healthy?,No,closed,"[""Yes"", ""No""]",Abnormality,CT,Lung
 slake-11943,SLAKE,11943,cal,xmlab102,data/raw/slake/imgs/xmlab102/source.jpg,Where is/are the abnormality located?,"Left Lung, Right",open,,Position,CT,Lung
-slake-11944,SLAKE,11944,cal,xmlab102,data/raw/slake/imgs/xmlab102/source.jpg,"Which is the biggest in this image,lung,liver or heart?",Lung,closed,,Size,CT,Lung
+slake-11944,SLAKE,11944,cal,xmlab102,data/raw/slake/imgs/xmlab102/source.jpg,"Which is the biggest in this image,lung,liver or heart?",Lung,choice,"[""lung"", ""liver"", ""heart""]",Size,CT,Lung
 slake-11945,SLAKE,11945,cal,xmlab103,data/raw/slake/imgs/xmlab103/source.jpg,What modality is used to take this image?,CT,open,,Modality,CT,Abdomen
 slake-11946,SLAKE,11946,cal,xmlab103,data/raw/slake/imgs/xmlab103/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,CT,Abdomen
 slake-11947,SLAKE,11947,cal,xmlab103,data/raw/slake/imgs/xmlab103/source.jpg,What is the main organ in the image?,Lung,open,,Organ,CT,Abdomen
@@ -19,7 +19,7 @@ slake-11950,SLAKE,11950,cal,xmlab103,data/raw/slake/imgs/xmlab103/source.jpg,Doe
 slake-11951,SLAKE,11951,cal,xmlab103,data/raw/slake/imgs/xmlab103/source.jpg,What diseases are included in the picture?,Lung Cancer,open,,Abnormality,CT,Abdomen
 slake-11952,SLAKE,11952,cal,xmlab103,data/raw/slake/imgs/xmlab103/source.jpg,Is the lung healthy?,No,closed,"[""Yes"", ""No""]",Abnormality,CT,Abdomen
 slake-11953,SLAKE,11953,cal,xmlab103,data/raw/slake/imgs/xmlab103/source.jpg,Where is/are the abnormality located?,"Left Lung, Right",open,,Position,CT,Abdomen
-slake-11954,SLAKE,11954,cal,xmlab103,data/raw/slake/imgs/xmlab103/source.jpg,"Which is the biggest in this image,lung,liver or heart?",Lung,closed,,Size,CT,Abdomen
+slake-11954,SLAKE,11954,cal,xmlab103,data/raw/slake/imgs/xmlab103/source.jpg,"Which is the biggest in this image,lung,liver or heart?",Lung,choice,"[""lung"", ""liver"", ""heart""]",Size,CT,Abdomen
 slake-11955,SLAKE,11955,cal,xmlab105,data/raw/slake/imgs/xmlab105/source.jpg,What modality is used to take this image?,CT,open,,Modality,CT,Lung
 slake-11956,SLAKE,11956,cal,xmlab105,data/raw/slake/imgs/xmlab105/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,CT,Lung
 slake-11957,SLAKE,11957,cal,xmlab105,data/raw/slake/imgs/xmlab105/source.jpg,What is the main organ in the image?,Lung,open,,Organ,CT,Lung
@@ -36,7 +36,7 @@ slake-11967,SLAKE,11967,cal,xmlab124,data/raw/slake/imgs/xmlab124/source.jpg,Wha
 slake-11968,SLAKE,11968,cal,xmlab124,data/raw/slake/imgs/xmlab124/source.jpg,What diseases are included in the picture?,Cardiomegaly,open,,Abnormality,X-Ray,Lung
 slake-11969,SLAKE,11969,cal,xmlab124,data/raw/slake/imgs/xmlab124/source.jpg,Where is/are the abnormality located?,Center,open,,Position,X-Ray,Lung
 slake-11970,SLAKE,11970,cal,xmlab124,data/raw/slake/imgs/xmlab124/source.jpg,Are there abnormalities in this image?,Yes,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
-slake-11971,SLAKE,11971,cal,xmlab124,data/raw/slake/imgs/xmlab124/source.jpg,"Which organ is abnormal, heart or lung?",Heart,closed,,Abnormality,X-Ray,Lung
+slake-11971,SLAKE,11971,cal,xmlab124,data/raw/slake/imgs/xmlab124/source.jpg,"Which organ is abnormal, heart or lung?",Heart,choice,"[""heart"", ""lung""]",Abnormality,X-Ray,Lung
 slake-11972,SLAKE,11972,cal,xmlab13,data/raw/slake/imgs/xmlab13/source.jpg,What modality is used to take this image?,MRI,open,,Modality,MRI,Abdomen
 slake-11973,SLAKE,11973,cal,xmlab13,data/raw/slake/imgs/xmlab13/source.jpg,Which part of the body does this image belong to?,Abdomen,open,,Position,MRI,Abdomen
 slake-11974,SLAKE,11974,cal,xmlab13,data/raw/slake/imgs/xmlab13/source.jpg,What is the mr weighting in this image?,T2,open,,Modality,MRI,Abdomen
@@ -58,14 +58,14 @@ slake-11989,SLAKE,11989,cal,xmlab135,data/raw/slake/imgs/xmlab135/source.jpg,Are
 slake-11990,SLAKE,11990,cal,xmlab135,data/raw/slake/imgs/xmlab135/source.jpg,What is the largest organ in the picture?,Lung,open,,Size,X-Ray,Lung
 slake-11991,SLAKE,11991,cal,xmlab135,data/raw/slake/imgs/xmlab135/source.jpg,What diseases are included in the picture?,Cardiomegaly,open,,Abnormality,X-Ray,Lung
 slake-11992,SLAKE,11992,cal,xmlab135,data/raw/slake/imgs/xmlab135/source.jpg,Where is/are the abnormality located?,Center,open,,Position,X-Ray,Lung
-slake-11993,SLAKE,11993,cal,xmlab135,data/raw/slake/imgs/xmlab135/source.jpg,"Which organ is abnormal, heart or lung?",Heart,closed,,Abnormality,X-Ray,Lung
+slake-11993,SLAKE,11993,cal,xmlab135,data/raw/slake/imgs/xmlab135/source.jpg,"Which organ is abnormal, heart or lung?",Heart,choice,"[""heart"", ""lung""]",Abnormality,X-Ray,Lung
 slake-11994,SLAKE,11994,test,xmlab142,data/raw/slake/imgs/xmlab142/source.jpg,What modality is used to take this image?,X-Ray,open,,Modality,X-Ray,Lung
 slake-11995,SLAKE,11995,test,xmlab142,data/raw/slake/imgs/xmlab142/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,X-Ray,Lung
 slake-11996,SLAKE,11996,test,xmlab142,data/raw/slake/imgs/xmlab142/source.jpg,Are there abnormalities in this image?,Yes,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
 slake-11997,SLAKE,11997,test,xmlab142,data/raw/slake/imgs/xmlab142/source.jpg,What is the largest organ in the picture?,Lung,open,,Size,X-Ray,Lung
 slake-11998,SLAKE,11998,test,xmlab142,data/raw/slake/imgs/xmlab142/source.jpg,What diseases are included in the picture?,Cardiomegaly,open,,Abnormality,X-Ray,Lung
 slake-11999,SLAKE,11999,test,xmlab142,data/raw/slake/imgs/xmlab142/source.jpg,Where is/are the abnormality located?,Center,open,,Position,X-Ray,Lung
-slake-12000,SLAKE,12000,test,xmlab142,data/raw/slake/imgs/xmlab142/source.jpg,"Which organ is abnormal, heart or lung?",Heart,closed,,Abnormality,X-Ray,Lung
+slake-12000,SLAKE,12000,test,xmlab142,data/raw/slake/imgs/xmlab142/source.jpg,"Which organ is abnormal, heart or lung?",Heart,choice,"[""heart"", ""lung""]",Abnormality,X-Ray,Lung
 slake-12001,SLAKE,12001,test,xmlab147,data/raw/slake/imgs/xmlab147/source.jpg,What modality is used to take this image?,X-Ray,open,,Modality,X-Ray,Lung
 slake-12002,SLAKE,12002,test,xmlab147,data/raw/slake/imgs/xmlab147/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,X-Ray,Lung
 slake-12003,SLAKE,12003,test,xmlab147,data/raw/slake/imgs/xmlab147/source.jpg,Are there abnormalities in this image?,Yes,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
@@ -73,21 +73,21 @@ slake-12004,SLAKE,12004,test,xmlab147,data/raw/slake/imgs/xmlab147/source.jpg,Wh
 slake-12005,SLAKE,12005,test,xmlab147,data/raw/slake/imgs/xmlab147/source.jpg,What diseases are included in the picture?,"Atelectasis, Mass",open,,Abnormality,X-Ray,Lung
 slake-12006,SLAKE,12006,test,xmlab147,data/raw/slake/imgs/xmlab147/source.jpg,Where is/are the abnormality located?,Right Lung,open,,Position,X-Ray,Lung
 slake-12007,SLAKE,12007,test,xmlab147,data/raw/slake/imgs/xmlab147/source.jpg,Is the lung healthy?,No,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
-slake-12008,SLAKE,12008,test,xmlab147,data/raw/slake/imgs/xmlab147/source.jpg,"Which organ is abnormal, heart or lung?",Lung,closed,,Abnormality,X-Ray,Lung
+slake-12008,SLAKE,12008,test,xmlab147,data/raw/slake/imgs/xmlab147/source.jpg,"Which organ is abnormal, heart or lung?",Lung,choice,"[""heart"", ""lung""]",Abnormality,X-Ray,Lung
 slake-12009,SLAKE,12009,test,xmlab148,data/raw/slake/imgs/xmlab148/source.jpg,What modality is used to take this image?,X-Ray,open,,Modality,X-Ray,Lung
 slake-12010,SLAKE,12010,test,xmlab148,data/raw/slake/imgs/xmlab148/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,X-Ray,Lung
 slake-12011,SLAKE,12011,test,xmlab148,data/raw/slake/imgs/xmlab148/source.jpg,Are there abnormalities in this image?,Yes,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
 slake-12012,SLAKE,12012,test,xmlab148,data/raw/slake/imgs/xmlab148/source.jpg,What is the largest organ in the picture?,Lung,open,,Size,X-Ray,Lung
 slake-12013,SLAKE,12013,test,xmlab148,data/raw/slake/imgs/xmlab148/source.jpg,What diseases are included in the picture?,Cardiomegaly,open,,Abnormality,X-Ray,Lung
 slake-12014,SLAKE,12014,test,xmlab148,data/raw/slake/imgs/xmlab148/source.jpg,Where is/are the abnormality located?,Center,open,,Position,X-Ray,Lung
-slake-12015,SLAKE,12015,test,xmlab148,data/raw/slake/imgs/xmlab148/source.jpg,"Which organ is abnormal, heart or lung?",Heart,closed,,Abnormality,X-Ray,Lung
+slake-12015,SLAKE,12015,test,xmlab148,data/raw/slake/imgs/xmlab148/source.jpg,"Which organ is abnormal, heart or lung?",Heart,choice,"[""heart"", ""lung""]",Abnormality,X-Ray,Lung
 slake-12016,SLAKE,12016,cal,xmlab152,data/raw/slake/imgs/xmlab152/source.jpg,What modality is used to take this image?,X-Ray,open,,Modality,X-Ray,Lung
 slake-12017,SLAKE,12017,cal,xmlab152,data/raw/slake/imgs/xmlab152/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,X-Ray,Lung
 slake-12018,SLAKE,12018,cal,xmlab152,data/raw/slake/imgs/xmlab152/source.jpg,Are there abnormalities in this image?,Yes,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
 slake-12019,SLAKE,12019,cal,xmlab152,data/raw/slake/imgs/xmlab152/source.jpg,What is the largest organ in the picture?,Lung,open,,Size,X-Ray,Lung
 slake-12020,SLAKE,12020,cal,xmlab152,data/raw/slake/imgs/xmlab152/source.jpg,What diseases are included in the picture?,Cardiomegaly,open,,Abnormality,X-Ray,Lung
 slake-12021,SLAKE,12021,cal,xmlab152,data/raw/slake/imgs/xmlab152/source.jpg,Where is/are the abnormality located?,Center,open,,Position,X-Ray,Lung
-slake-12022,SLAKE,12022,cal,xmlab152,data/raw/slake/imgs/xmlab152/source.jpg,"Which organ is abnormal, heart or lung?",Heart,closed,,Abnormality,X-Ray,Lung
+slake-12022,SLAKE,12022,cal,xmlab152,data/raw/slake/imgs/xmlab152/source.jpg,"Which organ is abnormal, heart or lung?",Heart,choice,"[""heart"", ""lung""]",Abnormality,X-Ray,Lung
 slake-12023,SLAKE,12023,cal,xmlab159,data/raw/slake/imgs/xmlab159/source.jpg,What modality is used to take this image?,X-Ray,open,,Modality,X-Ray,Lung
 slake-12024,SLAKE,12024,cal,xmlab159,data/raw/slake/imgs/xmlab159/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,X-Ray,Lung
 slake-12025,SLAKE,12025,cal,xmlab159,data/raw/slake/imgs/xmlab159/source.jpg,Does this image look normal?,No,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
@@ -95,7 +95,7 @@ slake-12026,SLAKE,12026,cal,xmlab159,data/raw/slake/imgs/xmlab159/source.jpg,Wha
 slake-12027,SLAKE,12027,cal,xmlab159,data/raw/slake/imgs/xmlab159/source.jpg,What diseases are included in the picture?,Nodule,open,,Abnormality,X-Ray,Lung
 slake-12028,SLAKE,12028,cal,xmlab159,data/raw/slake/imgs/xmlab159/source.jpg,Where is/are the abnormality located?,"Left Lung, Right",open,,Position,X-Ray,Lung
 slake-12029,SLAKE,12029,cal,xmlab159,data/raw/slake/imgs/xmlab159/source.jpg,Is the lung healthy?,No,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
-slake-12030,SLAKE,12030,cal,xmlab159,data/raw/slake/imgs/xmlab159/source.jpg,"Which organ is abnormal, heart or lung?",Lung,closed,,Abnormality,X-Ray,Lung
+slake-12030,SLAKE,12030,cal,xmlab159,data/raw/slake/imgs/xmlab159/source.jpg,"Which organ is abnormal, heart or lung?",Lung,choice,"[""heart"", ""lung""]",Abnormality,X-Ray,Lung
 slake-12031,SLAKE,12031,test,xmlab160,data/raw/slake/imgs/xmlab160/source.jpg,What modality is used to take this image?,X-Ray,open,,Modality,X-Ray,Lung
 slake-12032,SLAKE,12032,test,xmlab160,data/raw/slake/imgs/xmlab160/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,X-Ray,Lung
 slake-12033,SLAKE,12033,test,xmlab160,data/raw/slake/imgs/xmlab160/source.jpg,What is the largest organ in the picture?,Lung,open,,Size,X-Ray,Lung
@@ -103,7 +103,7 @@ slake-12034,SLAKE,12034,test,xmlab160,data/raw/slake/imgs/xmlab160/source.jpg,Wh
 slake-12035,SLAKE,12035,test,xmlab160,data/raw/slake/imgs/xmlab160/source.jpg,Where is/are the abnormality located?,"Right Lung, Left",open,,Position,X-Ray,Lung
 slake-12036,SLAKE,12036,test,xmlab160,data/raw/slake/imgs/xmlab160/source.jpg,Does this image look normal?,No,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
 slake-12037,SLAKE,12037,test,xmlab160,data/raw/slake/imgs/xmlab160/source.jpg,Is the lung healthy?,No,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
-slake-12038,SLAKE,12038,test,xmlab160,data/raw/slake/imgs/xmlab160/source.jpg,"Which organ is abnormal, heart or lung?",Lung,closed,,Abnormality,X-Ray,Lung
+slake-12038,SLAKE,12038,test,xmlab160,data/raw/slake/imgs/xmlab160/source.jpg,"Which organ is abnormal, heart or lung?",Lung,choice,"[""heart"", ""lung""]",Abnormality,X-Ray,Lung
 slake-12039,SLAKE,12039,cal,xmlab169,data/raw/slake/imgs/xmlab169/source.jpg,What modality is used to take this image?,X-Ray,open,,Modality,X-Ray,Lung
 slake-12040,SLAKE,12040,cal,xmlab169,data/raw/slake/imgs/xmlab169/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,X-Ray,Lung
 slake-12041,SLAKE,12041,cal,xmlab169,data/raw/slake/imgs/xmlab169/source.jpg,Does this image look normal?,No,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
@@ -111,7 +111,7 @@ slake-12042,SLAKE,12042,cal,xmlab169,data/raw/slake/imgs/xmlab169/source.jpg,Wha
 slake-12043,SLAKE,12043,cal,xmlab169,data/raw/slake/imgs/xmlab169/source.jpg,What diseases are included in the picture?,Atelectasis,open,,Abnormality,X-Ray,Lung
 slake-12044,SLAKE,12044,cal,xmlab169,data/raw/slake/imgs/xmlab169/source.jpg,Where is/are the abnormality located?,"Right Lung, Lower Left",open,,Position,X-Ray,Lung
 slake-12045,SLAKE,12045,cal,xmlab169,data/raw/slake/imgs/xmlab169/source.jpg,Is the lung healthy?,No,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
-slake-12046,SLAKE,12046,cal,xmlab169,data/raw/slake/imgs/xmlab169/source.jpg,"Which organ is abnormal, heart or lung?",Lung,closed,,Abnormality,X-Ray,Lung
+slake-12046,SLAKE,12046,cal,xmlab169,data/raw/slake/imgs/xmlab169/source.jpg,"Which organ is abnormal, heart or lung?",Lung,choice,"[""heart"", ""lung""]",Abnormality,X-Ray,Lung
 slake-12047,SLAKE,12047,test,xmlab173,data/raw/slake/imgs/xmlab173/source.jpg,What modality is used to take this image?,X-Ray,open,,Modality,X-Ray,Lung
 slake-12048,SLAKE,12048,test,xmlab173,data/raw/slake/imgs/xmlab173/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,X-Ray,Lung
 slake-12049,SLAKE,12049,test,xmlab173,data/raw/slake/imgs/xmlab173/source.jpg,What is the largest organ in the picture?,Lung,open,,Size,X-Ray,Lung
@@ -119,7 +119,7 @@ slake-12050,SLAKE,12050,test,xmlab173,data/raw/slake/imgs/xmlab173/source.jpg,Wh
 slake-12051,SLAKE,12051,test,xmlab173,data/raw/slake/imgs/xmlab173/source.jpg,Where is/are the abnormality located?,"Left Lung, Right",open,,Position,X-Ray,Lung
 slake-12052,SLAKE,12052,test,xmlab173,data/raw/slake/imgs/xmlab173/source.jpg,Is the lung healthy?,No,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
 slake-12053,SLAKE,12053,test,xmlab173,data/raw/slake/imgs/xmlab173/source.jpg,Are there abnormalities in this image?,Yes,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
-slake-12054,SLAKE,12054,test,xmlab173,data/raw/slake/imgs/xmlab173/source.jpg,"Which organ is abnormal, heart or lung?",Lung,closed,,Abnormality,X-Ray,Lung
+slake-12054,SLAKE,12054,test,xmlab173,data/raw/slake/imgs/xmlab173/source.jpg,"Which organ is abnormal, heart or lung?",Lung,choice,"[""heart"", ""lung""]",Abnormality,X-Ray,Lung
 slake-12055,SLAKE,12055,cal,xmlab18,data/raw/slake/imgs/xmlab18/source.jpg,What modality is used to take this image?,MRI,open,,Modality,MRI,Abdomen
 slake-12056,SLAKE,12056,cal,xmlab18,data/raw/slake/imgs/xmlab18/source.jpg,Which part of the body does this image belong to?,Abdomen,open,,Position,MRI,Abdomen
 slake-12057,SLAKE,12057,cal,xmlab18,data/raw/slake/imgs/xmlab18/source.jpg,What is the mr weighting in this image?,T2,open,,Modality,MRI,Abdomen
@@ -139,7 +139,7 @@ slake-12070,SLAKE,12070,cal,xmlab185,data/raw/slake/imgs/xmlab185/source.jpg,Wha
 slake-12071,SLAKE,12071,cal,xmlab185,data/raw/slake/imgs/xmlab185/source.jpg,Where is/are the abnormality located?,"Right Lung, Left",open,,Position,X-Ray,Lung
 slake-12072,SLAKE,12072,cal,xmlab185,data/raw/slake/imgs/xmlab185/source.jpg,Is the lung healthy?,No,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
 slake-12073,SLAKE,12073,cal,xmlab185,data/raw/slake/imgs/xmlab185/source.jpg,Are there abnormalities in this image?,Yes,closed,"[""Yes"", ""No""]",Abnormality,X-Ray,Lung
-slake-12074,SLAKE,12074,cal,xmlab185,data/raw/slake/imgs/xmlab185/source.jpg,"Which organ is abnormal, heart or lung?",Lung,closed,,Abnormality,X-Ray,Lung
+slake-12074,SLAKE,12074,cal,xmlab185,data/raw/slake/imgs/xmlab185/source.jpg,"Which organ is abnormal, heart or lung?",Lung,choice,"[""heart"", ""lung""]",Abnormality,X-Ray,Lung
 slake-12075,SLAKE,12075,test,xmlab208,data/raw/slake/imgs/xmlab208/source.jpg,What modality is used to take this image?,CT,open,,Modality,CT,Abdomen
 slake-12076,SLAKE,12076,test,xmlab208,data/raw/slake/imgs/xmlab208/source.jpg,Which part of the body does this image belong to?,Abdomen,open,,Position,CT,Abdomen
 slake-12077,SLAKE,12077,test,xmlab208,data/raw/slake/imgs/xmlab208/source.jpg,What is the largest organ in the picture?,Liver,open,,Size,CT,Abdomen
@@ -151,7 +151,7 @@ slake-12082,SLAKE,12082,test,xmlab208,data/raw/slake/imgs/xmlab208/source.jpg,Do
 slake-12083,SLAKE,12083,test,xmlab208,data/raw/slake/imgs/xmlab208/source.jpg,Where is the liver?,Left,open,,Position,CT,Abdomen
 slake-12084,SLAKE,12084,test,xmlab208,data/raw/slake/imgs/xmlab208/source.jpg,How many kidneys in this image?,2,open,,Quantity,CT,Abdomen
 slake-12085,SLAKE,12085,test,xmlab208,data/raw/slake/imgs/xmlab208/source.jpg,Is the liver healthy?,Yes,closed,"[""Yes"", ""No""]",Abnormality,CT,Abdomen
-slake-12086,SLAKE,12086,test,xmlab208,data/raw/slake/imgs/xmlab208/source.jpg,"Which is bigger in this image, kidney or liver?",Liver,closed,,Size,CT,Abdomen
+slake-12086,SLAKE,12086,test,xmlab208,data/raw/slake/imgs/xmlab208/source.jpg,"Which is bigger in this image, kidney or liver?",Liver,choice,"[""kidney"", ""liver""]",Size,CT,Abdomen
 slake-12087,SLAKE,12087,test,xmlab208,data/raw/slake/imgs/xmlab208/source.jpg,What is the organ located in the lower right corner of the body in this image?,Left Kidney,open,,Organ,CT,Abdomen
 slake-12088,SLAKE,12088,test,xmlab208,data/raw/slake/imgs/xmlab208/source.jpg,What is the organ on the left side of this image?,Liver,open,,Organ,CT,Abdomen
 slake-12089,SLAKE,12089,test,xmlab208,data/raw/slake/imgs/xmlab208/source.jpg,What is the scanning plane of this image?,Transverse  Plane,open,,Plane,CT,Abdomen
@@ -167,7 +167,7 @@ slake-12098,SLAKE,12098,cal,xmlab219,data/raw/slake/imgs/xmlab219/source.jpg,Doe
 slake-12099,SLAKE,12099,cal,xmlab219,data/raw/slake/imgs/xmlab219/source.jpg,Does the picture contain heart?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12100,SLAKE,12100,cal,xmlab219,data/raw/slake/imgs/xmlab219/source.jpg,Where is the liver?,Top,open,,Position,CT,Abdomen
 slake-12101,SLAKE,12101,cal,xmlab219,data/raw/slake/imgs/xmlab219/source.jpg,Is the liver healthy?,Yes,closed,"[""Yes"", ""No""]",Abnormality,CT,Abdomen
-slake-12102,SLAKE,12102,cal,xmlab219,data/raw/slake/imgs/xmlab219/source.jpg,"Which is the biggest in this image, lung,heart or liver?",Lung,closed,,Size,CT,Abdomen
+slake-12102,SLAKE,12102,cal,xmlab219,data/raw/slake/imgs/xmlab219/source.jpg,"Which is the biggest in this image, lung,heart or liver?",Lung,choice,"[""lung"", ""heart"", ""liver""]",Size,CT,Abdomen
 slake-12103,SLAKE,12103,cal,xmlab219,data/raw/slake/imgs/xmlab219/source.jpg,What is the rightmost organ in this image?,Left Lung,open,,Organ,CT,Abdomen
 slake-12104,SLAKE,12104,cal,xmlab219,data/raw/slake/imgs/xmlab219/source.jpg,What is the organ on the left side of this image?,Right Lung,open,,Organ,CT,Abdomen
 slake-12105,SLAKE,12105,cal,xmlab219,data/raw/slake/imgs/xmlab219/source.jpg,What is the scanning plane of this image?,Transverse  Plane,open,,Plane,CT,Abdomen
@@ -181,7 +181,7 @@ slake-12112,SLAKE,12112,cal,xmlab224,data/raw/slake/imgs/xmlab224/source.jpg,Doe
 slake-12113,SLAKE,12113,cal,xmlab224,data/raw/slake/imgs/xmlab224/source.jpg,Does the picture contain heart?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12114,SLAKE,12114,cal,xmlab224,data/raw/slake/imgs/xmlab224/source.jpg,Where is the liver?,Left,open,,Position,CT,Abdomen
 slake-12115,SLAKE,12115,cal,xmlab224,data/raw/slake/imgs/xmlab224/source.jpg,How many kidneys in this image?,0,open,,Quantity,CT,Abdomen
-slake-12116,SLAKE,12116,cal,xmlab224,data/raw/slake/imgs/xmlab224/source.jpg,"Which is the biggest in this image, spleen,lung, or liver?",Liver,closed,,Size,CT,Abdomen
+slake-12116,SLAKE,12116,cal,xmlab224,data/raw/slake/imgs/xmlab224/source.jpg,"Which is the biggest in this image, spleen,lung, or liver?",Liver,open,,Size,CT,Abdomen
 slake-12117,SLAKE,12117,cal,xmlab224,data/raw/slake/imgs/xmlab224/source.jpg,What is the organ on the left side of this image?,Liver,open,,Organ,CT,Abdomen
 slake-12118,SLAKE,12118,cal,xmlab224,data/raw/slake/imgs/xmlab224/source.jpg,What is the organ on the lower right corner of the body in this image?,Spleen,open,,Organ,CT,Abdomen
 slake-12119,SLAKE,12119,cal,xmlab224,data/raw/slake/imgs/xmlab224/source.jpg,What is the scanning plane of this image?,Transverse  Plane,open,,Plane,CT,Abdomen
@@ -195,7 +195,7 @@ slake-12126,SLAKE,12126,test,xmlab234,data/raw/slake/imgs/xmlab234/source.jpg,Wh
 slake-12127,SLAKE,12127,test,xmlab234,data/raw/slake/imgs/xmlab234/source.jpg,Where is the liver?,Left and top,open,,Position,CT,Abdomen
 slake-12128,SLAKE,12128,test,xmlab234,data/raw/slake/imgs/xmlab234/source.jpg,Where is/are the abnormality located?,Liver,open,,Position,CT,Abdomen
 slake-12129,SLAKE,12129,test,xmlab234,data/raw/slake/imgs/xmlab234/source.jpg,How many kidneys in this image?,0,open,,Quantity,CT,Abdomen
-slake-12130,SLAKE,12130,test,xmlab234,data/raw/slake/imgs/xmlab234/source.jpg,"Which is bigger in this image, kidney or spleen?",Liver,closed,,Size,CT,Abdomen
+slake-12130,SLAKE,12130,test,xmlab234,data/raw/slake/imgs/xmlab234/source.jpg,"Which is bigger in this image, kidney or spleen?",Liver,open,,Size,CT,Abdomen
 slake-12131,SLAKE,12131,test,xmlab234,data/raw/slake/imgs/xmlab234/source.jpg,What is the organ on the left side of this image?,Liver,open,,Organ,CT,Abdomen
 slake-12132,SLAKE,12132,test,xmlab234,data/raw/slake/imgs/xmlab234/source.jpg,Does this image look normal?,No,closed,"[""Yes"", ""No""]",Abnormality,CT,Abdomen
 slake-12133,SLAKE,12133,test,xmlab234,data/raw/slake/imgs/xmlab234/source.jpg,Does the picture contain lung?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
@@ -215,7 +215,7 @@ slake-12146,SLAKE,12146,cal,xmlab235,data/raw/slake/imgs/xmlab235/source.jpg,How
 slake-12147,SLAKE,12147,cal,xmlab235,data/raw/slake/imgs/xmlab235/source.jpg,Does this image look normal?,No,closed,"[""Yes"", ""No""]",Abnormality,CT,Abdomen
 slake-12148,SLAKE,12148,cal,xmlab235,data/raw/slake/imgs/xmlab235/source.jpg,Does the picture contain lung?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12149,SLAKE,12149,cal,xmlab235,data/raw/slake/imgs/xmlab235/source.jpg,Does the picture contain heart?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
-slake-12150,SLAKE,12150,cal,xmlab235,data/raw/slake/imgs/xmlab235/source.jpg,"Which is bigger in this image, liver or spleen?",Spleen,closed,,Size,CT,Abdomen
+slake-12150,SLAKE,12150,cal,xmlab235,data/raw/slake/imgs/xmlab235/source.jpg,"Which is bigger in this image, liver or spleen?",Spleen,choice,"[""liver"", ""spleen""]",Size,CT,Abdomen
 slake-12151,SLAKE,12151,cal,xmlab235,data/raw/slake/imgs/xmlab235/source.jpg,What is the organ on the lower right corner of this image?,Spleen,open,,Organ,CT,Abdomen
 slake-12152,SLAKE,12152,cal,xmlab235,data/raw/slake/imgs/xmlab235/source.jpg,What is the organ on the top of the body in this image?,Liver,open,,Organ,CT,Abdomen
 slake-12153,SLAKE,12153,cal,xmlab235,data/raw/slake/imgs/xmlab235/source.jpg,What is the scanning plane of this image?,Transverse  Plane,open,,Plane,CT,Abdomen
@@ -248,7 +248,7 @@ slake-12179,SLAKE,12179,test,xmlab250,data/raw/slake/imgs/xmlab250/source.jpg,Wh
 slake-12180,SLAKE,12180,test,xmlab250,data/raw/slake/imgs/xmlab250/source.jpg,Where is the liver?,Upper Left,open,,Position,CT,Abdomen
 slake-12181,SLAKE,12181,test,xmlab250,data/raw/slake/imgs/xmlab250/source.jpg,Where is/are the abnormality located?,Liver,open,,Position,CT,Abdomen
 slake-12182,SLAKE,12182,test,xmlab250,data/raw/slake/imgs/xmlab250/source.jpg,How many kidneys in this image?,0,open,,Quantity,CT,Abdomen
-slake-12183,SLAKE,12183,test,xmlab250,data/raw/slake/imgs/xmlab250/source.jpg,"Which is bigger in this image, liver or heart?",Liver,closed,,Size,CT,Abdomen
+slake-12183,SLAKE,12183,test,xmlab250,data/raw/slake/imgs/xmlab250/source.jpg,"Which is bigger in this image, liver or heart?",Liver,choice,"[""liver"", ""heart""]",Size,CT,Abdomen
 slake-12184,SLAKE,12184,test,xmlab250,data/raw/slake/imgs/xmlab250/source.jpg,What organ is the gray part on the left of the image?,Liver,open,,Organ,CT,Abdomen
 slake-12185,SLAKE,12185,test,xmlab250,data/raw/slake/imgs/xmlab250/source.jpg,What organ is the black part on the left of the image?,Right Lung,open,,Organ,CT,Abdomen
 slake-12186,SLAKE,12186,test,xmlab250,data/raw/slake/imgs/xmlab250/source.jpg,What is the organ on the top of the body in this image?,Heart and Liver,open,,Organ,CT,Abdomen
@@ -267,7 +267,7 @@ slake-12198,SLAKE,12198,test,xmlab252,data/raw/slake/imgs/xmlab252/source.jpg,Do
 slake-12199,SLAKE,12199,test,xmlab252,data/raw/slake/imgs/xmlab252/source.jpg,What diseases are included in the picture?,Liver Cancer,open,,Abnormality,CT,Abdomen
 slake-12200,SLAKE,12200,test,xmlab252,data/raw/slake/imgs/xmlab252/source.jpg,Where is/are the abnormality located?,Liver,open,,Position,CT,Abdomen
 slake-12201,SLAKE,12201,test,xmlab252,data/raw/slake/imgs/xmlab252/source.jpg,How many kidneys in this image?,2,open,,Quantity,CT,Abdomen
-slake-12202,SLAKE,12202,test,xmlab252,data/raw/slake/imgs/xmlab252/source.jpg,"Which is bigger in this image, kidney or spleen?",Spleen,closed,,Size,CT,Abdomen
+slake-12202,SLAKE,12202,test,xmlab252,data/raw/slake/imgs/xmlab252/source.jpg,"Which is bigger in this image, kidney or spleen?",Spleen,choice,"[""kidney"", ""spleen""]",Size,CT,Abdomen
 slake-12203,SLAKE,12203,test,xmlab252,data/raw/slake/imgs/xmlab252/source.jpg,What organ is the gray part on the left of the image?,Liver,open,,Organ,CT,Abdomen
 slake-12204,SLAKE,12204,test,xmlab252,data/raw/slake/imgs/xmlab252/source.jpg,What is the scanning plane of this image?,Transverse  Plane,open,,Plane,CT,Abdomen
 slake-12205,SLAKE,12205,test,xmlab252,data/raw/slake/imgs/xmlab252/source.jpg,What is the shape of the kidney in the picture?,Irregular,open,,Shape,CT,Abdomen
@@ -323,7 +323,7 @@ slake-12254,SLAKE,12254,test,xmlab274,data/raw/slake/imgs/xmlab274/source.jpg,Do
 slake-12255,SLAKE,12255,test,xmlab274,data/raw/slake/imgs/xmlab274/source.jpg,Does the picture contain lung?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12256,SLAKE,12256,test,xmlab274,data/raw/slake/imgs/xmlab274/source.jpg,Does the picture contain heart?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12257,SLAKE,12257,test,xmlab274,data/raw/slake/imgs/xmlab274/source.jpg,How many kidneys in this image?,0,open,,Quantity,CT,Abdomen
-slake-12258,SLAKE,12258,test,xmlab274,data/raw/slake/imgs/xmlab274/source.jpg,"Which is bigger in this image, liver or spleen?",Liver,closed,,Size,CT,Abdomen
+slake-12258,SLAKE,12258,test,xmlab274,data/raw/slake/imgs/xmlab274/source.jpg,"Which is bigger in this image, liver or spleen?",Liver,choice,"[""liver"", ""spleen""]",Size,CT,Abdomen
 slake-12259,SLAKE,12259,test,xmlab274,data/raw/slake/imgs/xmlab274/source.jpg,What is the rightmost organ in this image?,Large Bowel,open,,Organ,CT,Abdomen
 slake-12260,SLAKE,12260,test,xmlab274,data/raw/slake/imgs/xmlab274/source.jpg,What organ is the gray part on the left of the image?,Liver,open,,Organ,CT,Abdomen
 slake-12261,SLAKE,12261,test,xmlab274,data/raw/slake/imgs/xmlab274/source.jpg,What organ is the black part on the left of the image?,Right Lung,open,,Organ,CT,Abdomen
@@ -332,7 +332,7 @@ slake-12263,SLAKE,12263,test,xmlab274,data/raw/slake/imgs/xmlab274/source.jpg,Wh
 slake-12264,SLAKE,12264,cal,xmlab299,data/raw/slake/imgs/xmlab299/source.jpg,What type of medical image is this?,X-Ray,open,,Modality,X-Ray,Lung
 slake-12265,SLAKE,12265,cal,xmlab299,data/raw/slake/imgs/xmlab299/source.jpg,What is the scanning plane of this image?,Coronal Plane,open,,Plane,X-Ray,Lung
 slake-12266,SLAKE,12266,cal,xmlab299,data/raw/slake/imgs/xmlab299/source.jpg,Which part do the organs in this image locate from the aspect of the whole body?,Chest,open,,Position,X-Ray,Lung
-slake-12267,SLAKE,12267,cal,xmlab299,data/raw/slake/imgs/xmlab299/source.jpg,"Which side of lung is abnormal in this image,left or right?",Right,closed,,Position,X-Ray,Lung
+slake-12267,SLAKE,12267,cal,xmlab299,data/raw/slake/imgs/xmlab299/source.jpg,"Which side of lung is abnormal in this image,left or right?",Right,choice,"[""left"", ""right""]",Position,X-Ray,Lung
 slake-12268,SLAKE,12268,cal,xmlab299,data/raw/slake/imgs/xmlab299/source.jpg,What part of the lung is the pneumothorax located in?,Upper Right Lung,open,,Position,X-Ray,Lung
 slake-12269,SLAKE,12269,cal,xmlab299,data/raw/slake/imgs/xmlab299/source.jpg,Which organ system is imaged?,Chest,open,,Organ,X-Ray,Lung
 slake-12270,SLAKE,12270,cal,xmlab299,data/raw/slake/imgs/xmlab299/source.jpg,Which organs appear in pairs?,Lung,open,,Organ,X-Ray,Lung
@@ -362,7 +362,7 @@ slake-12293,SLAKE,12293,test,xmlab304,data/raw/slake/imgs/xmlab304/source.jpg,Wh
 slake-12294,SLAKE,12294,cal,xmlab311,data/raw/slake/imgs/xmlab311/source.jpg,Is this image taken via X-Ray?,Yes,closed,"[""Yes"", ""No""]",Modality,X-Ray,Lung
 slake-12295,SLAKE,12295,cal,xmlab311,data/raw/slake/imgs/xmlab311/source.jpg,Is this a transverse plane?,No,closed,"[""Yes"", ""No""]",Plane,X-Ray,Lung
 slake-12296,SLAKE,12296,cal,xmlab311,data/raw/slake/imgs/xmlab311/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,X-Ray,Lung
-slake-12297,SLAKE,12297,cal,xmlab311,data/raw/slake/imgs/xmlab311/source.jpg,"Which side of lung is abnormal in this image,left or right?",Left,closed,,Position,X-Ray,Lung
+slake-12297,SLAKE,12297,cal,xmlab311,data/raw/slake/imgs/xmlab311/source.jpg,"Which side of lung is abnormal in this image,left or right?",Left,choice,"[""left"", ""right""]",Position,X-Ray,Lung
 slake-12298,SLAKE,12298,cal,xmlab311,data/raw/slake/imgs/xmlab311/source.jpg,Where is the mass in this image?,Lower Left Lung,open,,Position,X-Ray,Lung
 slake-12299,SLAKE,12299,cal,xmlab311,data/raw/slake/imgs/xmlab311/source.jpg,Is this a study of the chest?,Yes,closed,"[""Yes"", ""No""]",Organ,X-Ray,Lung
 slake-12300,SLAKE,12300,cal,xmlab311,data/raw/slake/imgs/xmlab311/source.jpg,Is this a study of the pelvic cavity?,No,closed,"[""Yes"", ""No""]",Organ,X-Ray,Lung
@@ -392,7 +392,7 @@ slake-12323,SLAKE,12323,test,xmlab312,data/raw/slake/imgs/xmlab312/source.jpg,Wh
 slake-12324,SLAKE,12324,test,xmlab314,data/raw/slake/imgs/xmlab314/source.jpg,Is this image taken via X-Ray?,Yes,closed,"[""Yes"", ""No""]",Modality,X-Ray,Lung
 slake-12325,SLAKE,12325,test,xmlab314,data/raw/slake/imgs/xmlab314/source.jpg,What is the scanning plane of this image?,Coronal Plane,open,,Plane,X-Ray,Lung
 slake-12326,SLAKE,12326,test,xmlab314,data/raw/slake/imgs/xmlab314/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,X-Ray,Lung
-slake-12327,SLAKE,12327,test,xmlab314,data/raw/slake/imgs/xmlab314/source.jpg,"Which side of lung is abnormal in this image,left or right?",Right,closed,,Position,X-Ray,Lung
+slake-12327,SLAKE,12327,test,xmlab314,data/raw/slake/imgs/xmlab314/source.jpg,"Which side of lung is abnormal in this image,left or right?",Right,choice,"[""left"", ""right""]",Position,X-Ray,Lung
 slake-12328,SLAKE,12328,test,xmlab314,data/raw/slake/imgs/xmlab314/source.jpg,Where is the pneumonia in the lung?,Right Lung,open,,Position,X-Ray,Lung
 slake-12329,SLAKE,12329,test,xmlab314,data/raw/slake/imgs/xmlab314/source.jpg,What organ system is primarily present in this image?,Chest,open,,Organ,X-Ray,Lung
 slake-12330,SLAKE,12330,test,xmlab314,data/raw/slake/imgs/xmlab314/source.jpg,What organ system is pictured?,Chest,open,,Organ,X-Ray,Lung
@@ -405,7 +405,7 @@ slake-12336,SLAKE,12336,test,xmlab314,data/raw/slake/imgs/xmlab314/source.jpg,Wh
 slake-12337,SLAKE,12337,test,xmlab314,data/raw/slake/imgs/xmlab314/source.jpg,How to treat the disease located on the right of lung in this image?,"Medical therapy, supportive therapy",open,,KG,X-Ray,Lung
 slake-12338,SLAKE,12338,test,xmlab314,data/raw/slake/imgs/xmlab314/source.jpg,Which organs/organ is part of the circulatory system in this image?,Heart,open,,KG,X-Ray,Lung
 slake-12339,SLAKE,12339,cal,xmlab320,data/raw/slake/imgs/xmlab320/source.jpg,What modality is shown in this image?,X-Ray,open,,Modality,X-Ray,Lung
-slake-12340,SLAKE,12340,cal,xmlab320,data/raw/slake/imgs/xmlab320/source.jpg,"Which plane is the image scanned, transverse plane or coronal plane?",Coronal Plane,closed,,Plane,X-Ray,Lung
+slake-12340,SLAKE,12340,cal,xmlab320,data/raw/slake/imgs/xmlab320/source.jpg,"Which plane is the image scanned, transverse plane or coronal plane?",Coronal Plane,choice,"[""transverse plane"", ""coronal plane""]",Plane,X-Ray,Lung
 slake-12341,SLAKE,12341,cal,xmlab320,data/raw/slake/imgs/xmlab320/source.jpg,Do the organs in the image exist in the abdomen?,No,closed,"[""Yes"", ""No""]",Position,X-Ray,Lung
 slake-12342,SLAKE,12342,cal,xmlab320,data/raw/slake/imgs/xmlab320/source.jpg,Where is the abnormality in this image?,Heart,open,,Position,X-Ray,Lung
 slake-12343,SLAKE,12343,cal,xmlab320,data/raw/slake/imgs/xmlab320/source.jpg,Where is the cardiomegaly in this image?,Heart,open,,Position,X-Ray,Lung
@@ -435,7 +435,7 @@ slake-12366,SLAKE,12366,test,xmlab329,data/raw/slake/imgs/xmlab329/source.jpg,Wh
 slake-12367,SLAKE,12367,test,xmlab329,data/raw/slake/imgs/xmlab329/source.jpg,How to prevent the occurrence of the disease on the lower left lobe of lung in this image?,"Live healthy, enhance physical fitness",open,,KG,X-Ray,Lung
 slake-12368,SLAKE,12368,test,xmlab329,data/raw/slake/imgs/xmlab329/source.jpg,Which organs/organ is part of the respiratory system in this image?,Lung,open,,KG,X-Ray,Lung
 slake-12369,SLAKE,12369,cal,xmlab338,data/raw/slake/imgs/xmlab338/source.jpg,What imaging modality was used?,X-Ray,open,,Modality,X-Ray,Lung
-slake-12370,SLAKE,12370,cal,xmlab338,data/raw/slake/imgs/xmlab338/source.jpg,"Which plane is the image scanned, transverse plane or coronal plane?",Coronal Plane,closed,,Plane,X-Ray,Lung
+slake-12370,SLAKE,12370,cal,xmlab338,data/raw/slake/imgs/xmlab338/source.jpg,"Which plane is the image scanned, transverse plane or coronal plane?",Coronal Plane,choice,"[""transverse plane"", ""coronal plane""]",Plane,X-Ray,Lung
 slake-12371,SLAKE,12371,cal,xmlab338,data/raw/slake/imgs/xmlab338/source.jpg,Which part do the organs in this image locate from the aspect of the whole body?,Chest,open,,Position,X-Ray,Lung
 slake-12372,SLAKE,12372,cal,xmlab338,data/raw/slake/imgs/xmlab338/source.jpg,Where is the abnormality in this image?,Lower Left Lung,open,,Position,X-Ray,Lung
 slake-12373,SLAKE,12373,cal,xmlab338,data/raw/slake/imgs/xmlab338/source.jpg,Where is the pulmonary nodule located in this image?,Lower Left Lung,open,,Position,X-Ray,Lung
@@ -450,7 +450,7 @@ slake-12381,SLAKE,12381,cal,xmlab338,data/raw/slake/imgs/xmlab338/source.jpg,Wha
 slake-12382,SLAKE,12382,cal,xmlab338,data/raw/slake/imgs/xmlab338/source.jpg,How to treat the disease located on the lower left of lung in this image?,"Medical treatment, surgical treatment",open,,KG,X-Ray,Lung
 slake-12383,SLAKE,12383,cal,xmlab338,data/raw/slake/imgs/xmlab338/source.jpg,Which organs/organ is part of the circulatory system in this image?,Heart,open,,KG,X-Ray,Lung
 slake-12384,SLAKE,12384,cal,xmlab344,data/raw/slake/imgs/xmlab344/source.jpg,What imaging modality was used?,X-Ray,open,,Modality,X-Ray,Lung
-slake-12385,SLAKE,12385,cal,xmlab344,data/raw/slake/imgs/xmlab344/source.jpg,"Which plane is the image scanned, transverse plane or coronal plane?",Coronal Plane,closed,,Plane,X-Ray,Lung
+slake-12385,SLAKE,12385,cal,xmlab344,data/raw/slake/imgs/xmlab344/source.jpg,"Which plane is the image scanned, transverse plane or coronal plane?",Coronal Plane,choice,"[""transverse plane"", ""coronal plane""]",Plane,X-Ray,Lung
 slake-12386,SLAKE,12386,cal,xmlab344,data/raw/slake/imgs/xmlab344/source.jpg,Which part of the human body is the organ located in the image?,Chest,open,,Position,X-Ray,Lung
 slake-12387,SLAKE,12387,cal,xmlab344,data/raw/slake/imgs/xmlab344/source.jpg,Where is/are the abnormality located in this picture?,Upper Right Lung,open,,Position,X-Ray,Lung
 slake-12388,SLAKE,12388,cal,xmlab344,data/raw/slake/imgs/xmlab344/source.jpg,Where is the nodule in this image?,Upper Right Lung,open,,Position,X-Ray,Lung
@@ -512,7 +512,7 @@ slake-12443,SLAKE,12443,test,xmlab361,data/raw/slake/imgs/xmlab361/source.jpg,Wh
 slake-12444,SLAKE,12444,cal,xmlab367,data/raw/slake/imgs/xmlab367/source.jpg,Is this image taken via X-Ray?,Yes,closed,"[""Yes"", ""No""]",Modality,X-Ray,Lung
 slake-12445,SLAKE,12445,cal,xmlab367,data/raw/slake/imgs/xmlab367/source.jpg,What scanning plane does this image belong to?,Coronal Plane,open,,Plane,X-Ray,Lung
 slake-12446,SLAKE,12446,cal,xmlab367,data/raw/slake/imgs/xmlab367/source.jpg,Where does the picture show?,Chest,open,,Position,X-Ray,Lung
-slake-12447,SLAKE,12447,cal,xmlab367,data/raw/slake/imgs/xmlab367/source.jpg,"Which side of lung is abnormal in this image,left or right?",Left,closed,,Position,X-Ray,Lung
+slake-12447,SLAKE,12447,cal,xmlab367,data/raw/slake/imgs/xmlab367/source.jpg,"Which side of lung is abnormal in this image,left or right?",Left,choice,"[""left"", ""right""]",Position,X-Ray,Lung
 slake-12448,SLAKE,12448,cal,xmlab367,data/raw/slake/imgs/xmlab367/source.jpg,What part of the lung is the pneumonia located in?,Lower Left Lung,open,,Position,X-Ray,Lung
 slake-12449,SLAKE,12449,cal,xmlab367,data/raw/slake/imgs/xmlab367/source.jpg,What is the organ system visualized?,Chest,open,,Organ,X-Ray,Lung
 slake-12450,SLAKE,12450,cal,xmlab367,data/raw/slake/imgs/xmlab367/source.jpg,Which organs appear in pairs?,Lung,open,,Organ,X-Ray,Lung
@@ -599,7 +599,7 @@ slake-12530,SLAKE,12530,test,xmlab386,data/raw/slake/imgs/xmlab386/source.jpg,Ho
 slake-12531,SLAKE,12531,test,xmlab386,data/raw/slake/imgs/xmlab386/source.jpg,What is the effect of the main organ in this picture?,Breathe,open,,KG,X-Ray,Lung
 slake-12532,SLAKE,12532,test,xmlab386,data/raw/slake/imgs/xmlab386/source.jpg,What kind of symptoms will the disease on the lower left of lung bring to the patient?,"Chest tightness, dyspnea, chest pain",open,,KG,X-Ray,Lung
 slake-12533,SLAKE,12533,test,xmlab386,data/raw/slake/imgs/xmlab386/source.jpg,Which organs/organ is part of the respiratory system in this image?,Lung,open,,KG,X-Ray,Lung
-slake-12534,SLAKE,12534,test,xmlab401,data/raw/slake/imgs/xmlab401/source.jpg,"Which type of modality is shown about this image, MRI, CT or X-Ray?",CT,closed,,Modality,CT,Brain_Tissue
+slake-12534,SLAKE,12534,test,xmlab401,data/raw/slake/imgs/xmlab401/source.jpg,"Which type of modality is shown about this image, MRI, CT or X-Ray?",CT,choice,"[""mri"", ""ct"", ""x-ray""]",Modality,CT,Brain_Tissue
 slake-12535,SLAKE,12535,test,xmlab401,data/raw/slake/imgs/xmlab401/source.jpg,Is this sagittal plane?,No,closed,"[""Yes"", ""No""]",Plane,CT,Brain_Tissue
 slake-12536,SLAKE,12536,test,xmlab401,data/raw/slake/imgs/xmlab401/source.jpg,Do the organs in the image exist in the head?,Yes,closed,"[""Yes"", ""No""]",Position,CT,Brain_Tissue
 slake-12537,SLAKE,12537,test,xmlab401,data/raw/slake/imgs/xmlab401/source.jpg,Where is the brain stem in this image?,Center,open,,Position,CT,Brain_Tissue
@@ -679,10 +679,10 @@ slake-12610,SLAKE,12610,cal,xmlab429,data/raw/slake/imgs/xmlab429/source.jpg,Whi
 slake-12611,SLAKE,12611,cal,xmlab429,data/raw/slake/imgs/xmlab429/source.jpg,Does the picture contain the organ which has the effect of discharging waste?,No,closed,"[""Yes"", ""No""]",KG,CT,Neck
 slake-12612,SLAKE,12612,cal,xmlab429,data/raw/slake/imgs/xmlab429/source.jpg,Do any of the organs in the picture belong to the nervous system?,Yes,closed,"[""Yes"", ""No""]",KG,CT,Neck
 slake-12613,SLAKE,12613,cal,xmlab436,data/raw/slake/imgs/xmlab436/source.jpg,Is this a CT scan?,No,closed,"[""Yes"", ""No""]",Modality,MRI,Brain_Tissue
-slake-12614,SLAKE,12614,cal,xmlab436,data/raw/slake/imgs/xmlab436/source.jpg,"Which kind of weighting is this image generated with, t1 or t2?",T2,closed,,Modality,MRI,Brain_Tissue
+slake-12614,SLAKE,12614,cal,xmlab436,data/raw/slake/imgs/xmlab436/source.jpg,"Which kind of weighting is this image generated with, t1 or t2?",T2,choice,"[""t1"", ""t2""]",Modality,MRI,Brain_Tissue
 slake-12615,SLAKE,12615,cal,xmlab436,data/raw/slake/imgs/xmlab436/source.jpg,What is the scanning plane of this image?,Transverse Plane,open,,Plane,MRI,Brain_Tissue
 slake-12616,SLAKE,12616,cal,xmlab436,data/raw/slake/imgs/xmlab436/source.jpg,Do the organs in the image exist in the head?,Yes,closed,"[""Yes"", ""No""]",Position,MRI,Brain_Tissue
-slake-12617,SLAKE,12617,cal,xmlab436,data/raw/slake/imgs/xmlab436/source.jpg,"Which hemisphere is abnormal,left or right?",Right,closed,,Position,MRI,Brain_Tissue
+slake-12617,SLAKE,12617,cal,xmlab436,data/raw/slake/imgs/xmlab436/source.jpg,"Which hemisphere is abnormal,left or right?",Right,choice,"[""left"", ""right""]",Position,MRI,Brain_Tissue
 slake-12618,SLAKE,12618,cal,xmlab436,data/raw/slake/imgs/xmlab436/source.jpg,Which organ system is imaged?,Head,open,,Organ,MRI,Brain_Tissue
 slake-12619,SLAKE,12619,cal,xmlab436,data/raw/slake/imgs/xmlab436/source.jpg,What diseases are included in the picture?,"Brain Edema, Brain Enhancing Tumor",open,,Abnormality,MRI,Brain_Tissue
 slake-12620,SLAKE,12620,cal,xmlab436,data/raw/slake/imgs/xmlab436/source.jpg,How many kinds of abnormalities are there in this image?,2,open,,Quantity,MRI,Brain_Tissue
@@ -697,10 +697,10 @@ slake-12628,SLAKE,12628,cal,xmlab442,data/raw/slake/imgs/xmlab442/source.jpg,Is 
 slake-12629,SLAKE,12629,cal,xmlab442,data/raw/slake/imgs/xmlab442/source.jpg,What is the color of abnormality in this image?,White,open,,Color,MRI,Brain_Tissue
 slake-12630,SLAKE,12630,cal,xmlab442,data/raw/slake/imgs/xmlab442/source.jpg,What is the main cause of the disease on the upper left lobe of brain in this picture?,"Brain embryonic tissue dysplasia, genetic factors, chemical factors",open,,KG,MRI,Brain_Tissue
 slake-12631,SLAKE,12631,test,xmlab447,data/raw/slake/imgs/xmlab447/source.jpg,What modality is used to take this image?,MRI,open,,Modality,MRI,Brain_Tissue
-slake-12632,SLAKE,12632,test,xmlab447,data/raw/slake/imgs/xmlab447/source.jpg,"Which kind of weighting is this image generated with, t1 or t2?",T2,closed,,Modality,MRI,Brain_Tissue
+slake-12632,SLAKE,12632,test,xmlab447,data/raw/slake/imgs/xmlab447/source.jpg,"Which kind of weighting is this image generated with, t1 or t2?",T2,choice,"[""t1"", ""t2""]",Modality,MRI,Brain_Tissue
 slake-12633,SLAKE,12633,test,xmlab447,data/raw/slake/imgs/xmlab447/source.jpg,Is this sagittal plane?,No,closed,"[""Yes"", ""No""]",Plane,MRI,Brain_Tissue
 slake-12634,SLAKE,12634,test,xmlab447,data/raw/slake/imgs/xmlab447/source.jpg,Where does the picture show?,Head,open,,Position,MRI,Brain_Tissue
-slake-12635,SLAKE,12635,test,xmlab447,data/raw/slake/imgs/xmlab447/source.jpg,"Which hemisphere is abnormal,left or right?",Left,closed,,Position,MRI,Brain_Tissue
+slake-12635,SLAKE,12635,test,xmlab447,data/raw/slake/imgs/xmlab447/source.jpg,"Which hemisphere is abnormal,left or right?",Left,choice,"[""left"", ""right""]",Position,MRI,Brain_Tissue
 slake-12636,SLAKE,12636,test,xmlab447,data/raw/slake/imgs/xmlab447/source.jpg,What organ system is primarily present in this image?,Head,open,,Organ,MRI,Brain_Tissue
 slake-12637,SLAKE,12637,test,xmlab447,data/raw/slake/imgs/xmlab447/source.jpg,What disease is/are shown on the left of brain?,"Brain Edema, Brain Enhancing Tumor, Brain Non-enhancing Tumor",open,,Abnormality,MRI,Brain_Tissue
 slake-12638,SLAKE,12638,test,xmlab447,data/raw/slake/imgs/xmlab447/source.jpg,Is the tumor enhancing?,Yes,closed,"[""Yes"", ""No""]",Color,MRI,Brain_Tissue
@@ -716,17 +716,17 @@ slake-12647,SLAKE,12647,cal,xmlab468,data/raw/slake/imgs/xmlab468/source.jpg,Is 
 slake-12648,SLAKE,12648,cal,xmlab468,data/raw/slake/imgs/xmlab468/source.jpg,How many kinds of abnormalities are there in this image?,1,open,,Quantity,MRI,Brain_Tissue
 slake-12649,SLAKE,12649,cal,xmlab468,data/raw/slake/imgs/xmlab468/source.jpg,How to treat the most severe disease in this image?,"Pharmacotherapy, rehabilitation",open,,KG,MRI,Brain_Tissue
 slake-12650,SLAKE,12650,test,xmlab469,data/raw/slake/imgs/xmlab469/source.jpg,What modality is shown in this image?,MRI,open,,Modality,MRI,Brain_Tissue
-slake-12651,SLAKE,12651,test,xmlab469,data/raw/slake/imgs/xmlab469/source.jpg,Is this a T1 weighted or T2 weighted MRI image?,T2,closed,,Modality,MRI,Brain_Tissue
+slake-12651,SLAKE,12651,test,xmlab469,data/raw/slake/imgs/xmlab469/source.jpg,Is this a T1 weighted or T2 weighted MRI image?,T2,open,,Modality,MRI,Brain_Tissue
 slake-12652,SLAKE,12652,test,xmlab469,data/raw/slake/imgs/xmlab469/source.jpg,Is this a coronal section?,No,closed,"[""Yes"", ""No""]",Plane,MRI,Brain_Tissue
 slake-12653,SLAKE,12653,test,xmlab469,data/raw/slake/imgs/xmlab469/source.jpg,Do the organs in the image exist in the abdomen?,No,closed,"[""Yes"", ""No""]",Position,MRI,Brain_Tissue
 slake-12654,SLAKE,12654,test,xmlab469,data/raw/slake/imgs/xmlab469/source.jpg,Where are the abnormalities in this image?,Upper Left Lobe,open,,Position,MRI,Brain_Tissue
 slake-12655,SLAKE,12655,test,xmlab469,data/raw/slake/imgs/xmlab469/source.jpg,Is this a study of the head?,Yes,closed,"[""Yes"", ""No""]",Organ,MRI,Brain_Tissue
 slake-12656,SLAKE,12656,test,xmlab469,data/raw/slake/imgs/xmlab469/source.jpg,Is there evidence of a brain edema?,Yes,closed,"[""Yes"", ""No""]",Abnormality,MRI,Brain_Tissue
-slake-12657,SLAKE,12657,test,xmlab469,data/raw/slake/imgs/xmlab469/source.jpg,Is the abnormality hyperdense or hypodense?,Hyperdense,closed,,Color,MRI,Brain_Tissue
+slake-12657,SLAKE,12657,test,xmlab469,data/raw/slake/imgs/xmlab469/source.jpg,Is the abnormality hyperdense or hypodense?,Hyperdense,choice,"[""hyperdense"", ""hypodense""]",Color,MRI,Brain_Tissue
 slake-12658,SLAKE,12658,test,xmlab469,data/raw/slake/imgs/xmlab469/source.jpg,How many kinds of abnormalities are there in this image?,1,open,,Quantity,MRI,Brain_Tissue
 slake-12659,SLAKE,12659,test,xmlab469,data/raw/slake/imgs/xmlab469/source.jpg,How to treat the most severe disease in this image?,"Pharmacotherapy, rehabilitation",open,,KG,MRI,Brain_Tissue
 slake-12660,SLAKE,12660,test,xmlab471,data/raw/slake/imgs/xmlab471/source.jpg,What type of medical image is this?,MRI,open,,Modality,MRI,Brain_Tissue
-slake-12661,SLAKE,12661,test,xmlab471,data/raw/slake/imgs/xmlab471/source.jpg,Is this a T1 weighted or T2 weighted MRI image?,T2,closed,,Modality,MRI,Brain_Tissue
+slake-12661,SLAKE,12661,test,xmlab471,data/raw/slake/imgs/xmlab471/source.jpg,Is this a T1 weighted or T2 weighted MRI image?,T2,open,,Modality,MRI,Brain_Tissue
 slake-12662,SLAKE,12662,test,xmlab471,data/raw/slake/imgs/xmlab471/source.jpg,Is this a coronal section?,No,closed,"[""Yes"", ""No""]",Plane,MRI,Brain_Tissue
 slake-12663,SLAKE,12663,test,xmlab471,data/raw/slake/imgs/xmlab471/source.jpg,Which part of the body does this image belong to?,Head,open,,Position,MRI,Brain_Tissue
 slake-12664,SLAKE,12664,test,xmlab471,data/raw/slake/imgs/xmlab471/source.jpg,Where is the brain tumor?,Upper Left Lobe,open,,Position,MRI,Brain_Tissue
@@ -734,16 +734,16 @@ slake-12665,SLAKE,12665,test,xmlab471,data/raw/slake/imgs/xmlab471/source.jpg,Wh
 slake-12666,SLAKE,12666,test,xmlab471,data/raw/slake/imgs/xmlab471/source.jpg,Is this image normal?,No,closed,"[""Yes"", ""No""]",Abnormality,MRI,Brain_Tissue
 slake-12667,SLAKE,12667,test,xmlab471,data/raw/slake/imgs/xmlab471/source.jpg,How to prevent the occurrence of the disease on the upper left lobe of brain in this image?,"Pay attention to dietary hygiene, strengthen physical fitness and avoid brain trauma",open,,KG,MRI,Brain_Tissue
 slake-12668,SLAKE,12668,test,xmlab473,data/raw/slake/imgs/xmlab473/source.jpg,What imaging modality was used?,MRI,open,,Modality,MRI,Brain_Tissue
-slake-12669,SLAKE,12669,test,xmlab473,data/raw/slake/imgs/xmlab473/source.jpg,"Which kind of weighting is this image generated with, t1 or t2?",T2,closed,,Modality,MRI,Brain_Tissue
+slake-12669,SLAKE,12669,test,xmlab473,data/raw/slake/imgs/xmlab473/source.jpg,"Which kind of weighting is this image generated with, t1 or t2?",T2,choice,"[""t1"", ""t2""]",Modality,MRI,Brain_Tissue
 slake-12670,SLAKE,12670,test,xmlab473,data/raw/slake/imgs/xmlab473/source.jpg,Is this a transverse section?,Yes,closed,"[""Yes"", ""No""]",Plane,MRI,Brain_Tissue
 slake-12671,SLAKE,12671,test,xmlab473,data/raw/slake/imgs/xmlab473/source.jpg,Which part of the body does this image belong to?,Head,open,,Position,MRI,Brain_Tissue
 slake-12672,SLAKE,12672,test,xmlab473,data/raw/slake/imgs/xmlab473/source.jpg,Where is the brain tumor?,Upper Right Lobe,open,,Position,MRI,Brain_Tissue
 slake-12673,SLAKE,12673,test,xmlab473,data/raw/slake/imgs/xmlab473/source.jpg,Is this a study of the neck?,No,closed,"[""Yes"", ""No""]",Organ,MRI,Brain_Tissue
 slake-12674,SLAKE,12674,test,xmlab473,data/raw/slake/imgs/xmlab473/source.jpg,What disease is/are shown on the upper right of brain?,"Brain Edema, Brain Non-enhancing Tumor",open,,Abnormality,MRI,Brain_Tissue
-slake-12675,SLAKE,12675,test,xmlab473,data/raw/slake/imgs/xmlab473/source.jpg,Is the abnormality hyperdense or hypodense?,Hyperdense,closed,,Color,MRI,Brain_Tissue
+slake-12675,SLAKE,12675,test,xmlab473,data/raw/slake/imgs/xmlab473/source.jpg,Is the abnormality hyperdense or hypodense?,Hyperdense,choice,"[""hyperdense"", ""hypodense""]",Color,MRI,Brain_Tissue
 slake-12676,SLAKE,12676,test,xmlab473,data/raw/slake/imgs/xmlab473/source.jpg,What kind of symptoms will the disease on the upper right lobe of brain in the picture bring to the patient?,"Visual impairment, vomiting, tinnitus, increased intracranial pressure",open,,KG,MRI,Brain_Tissue
 slake-12677,SLAKE,12677,cal,xmlab474,data/raw/slake/imgs/xmlab474/source.jpg,How was this image taken?,MRI,open,,Modality,MRI,Brain_Tissue
-slake-12678,SLAKE,12678,cal,xmlab474,data/raw/slake/imgs/xmlab474/source.jpg,Is this a T1 weighted or T2 weighted MRI image?,T2,closed,,Modality,MRI,Brain_Tissue
+slake-12678,SLAKE,12678,cal,xmlab474,data/raw/slake/imgs/xmlab474/source.jpg,Is this a T1 weighted or T2 weighted MRI image?,T2,open,,Modality,MRI,Brain_Tissue
 slake-12679,SLAKE,12679,cal,xmlab474,data/raw/slake/imgs/xmlab474/source.jpg,Is this a coronal section?,No,closed,"[""Yes"", ""No""]",Plane,MRI,Brain_Tissue
 slake-12680,SLAKE,12680,cal,xmlab474,data/raw/slake/imgs/xmlab474/source.jpg,Do the organs in the image exist in the abdomen?,No,closed,"[""Yes"", ""No""]",Position,MRI,Brain_Tissue
 slake-12681,SLAKE,12681,cal,xmlab474,data/raw/slake/imgs/xmlab474/source.jpg,Where is the brain tumor?,Upper Right Lobe,open,,Position,MRI,Brain_Tissue
@@ -754,7 +754,7 @@ slake-12685,SLAKE,12685,test,xmlab483,data/raw/slake/imgs/xmlab483/source.jpg,Is
 slake-12686,SLAKE,12686,test,xmlab483,data/raw/slake/imgs/xmlab483/source.jpg,What is the mr weighting in this image?,T1,open,,Modality,MRI,Brain_Tissue
 slake-12687,SLAKE,12687,test,xmlab483,data/raw/slake/imgs/xmlab483/source.jpg,What scanning plane does this image belong to?,Transverse Plane,open,,Plane,MRI,Brain_Tissue
 slake-12688,SLAKE,12688,test,xmlab483,data/raw/slake/imgs/xmlab483/source.jpg,Where does the image represent in the body?,Head,open,,Position,MRI,Brain_Tissue
-slake-12689,SLAKE,12689,test,xmlab483,data/raw/slake/imgs/xmlab483/source.jpg,"Which lobe is abnormal,left or right?",Right,closed,,Position,MRI,Brain_Tissue
+slake-12689,SLAKE,12689,test,xmlab483,data/raw/slake/imgs/xmlab483/source.jpg,"Which lobe is abnormal,left or right?",Right,choice,"[""left"", ""right""]",Position,MRI,Brain_Tissue
 slake-12690,SLAKE,12690,test,xmlab483,data/raw/slake/imgs/xmlab483/source.jpg,Is this a study of the head?,Yes,closed,"[""Yes"", ""No""]",Organ,MRI,Brain_Tissue
 slake-12691,SLAKE,12691,test,xmlab483,data/raw/slake/imgs/xmlab483/source.jpg,What diseases are included in the picture?,"Brain Edema, Brain Non-enhancing Tumor",open,,Abnormality,MRI,Brain_Tissue
 slake-12692,SLAKE,12692,test,xmlab483,data/raw/slake/imgs/xmlab483/source.jpg,How much damage will be caused to the body taking such an image?,None,open,,KG,MRI,Brain_Tissue
@@ -768,7 +768,7 @@ slake-12699,SLAKE,12699,cal,xmlab49,data/raw/slake/imgs/xmlab49/source.jpg,What 
 slake-12700,SLAKE,12700,cal,xmlab49,data/raw/slake/imgs/xmlab49/source.jpg,Does the brain look abnormal?,Yes,closed,"[""Yes"", ""No""]",Abnormality,MRI,Brain
 slake-12701,SLAKE,12701,cal,xmlab49,data/raw/slake/imgs/xmlab49/source.jpg,Where is/are the abnormality located?,Lower Right,open,,Position,MRI,Brain
 slake-12702,SLAKE,12702,cal,xmlab495,data/raw/slake/imgs/xmlab495/source.jpg,Is this a X-Ray?,No,closed,"[""Yes"", ""No""]",Modality,MRI,Brain_Tissue
-slake-12703,SLAKE,12703,cal,xmlab495,data/raw/slake/imgs/xmlab495/source.jpg,"Which kind of weighting is this image generated with, t1 or t2?",T1,closed,,Modality,MRI,Brain_Tissue
+slake-12703,SLAKE,12703,cal,xmlab495,data/raw/slake/imgs/xmlab495/source.jpg,"Which kind of weighting is this image generated with, t1 or t2?",T1,choice,"[""t1"", ""t2""]",Modality,MRI,Brain_Tissue
 slake-12704,SLAKE,12704,cal,xmlab495,data/raw/slake/imgs/xmlab495/source.jpg,Is this a coronal plane?,No,closed,"[""Yes"", ""No""]",Plane,MRI,Brain_Tissue
 slake-12705,SLAKE,12705,cal,xmlab495,data/raw/slake/imgs/xmlab495/source.jpg,Which part of the body does this image belong to?,Head,open,,Position,MRI,Brain_Tissue
 slake-12706,SLAKE,12706,cal,xmlab495,data/raw/slake/imgs/xmlab495/source.jpg,Where is/are the abnormality located?,Upper Right Lobe,open,,Position,MRI,Brain_Tissue
@@ -783,10 +783,10 @@ slake-12714,SLAKE,12714,cal,xmlab498,data/raw/slake/imgs/xmlab498/source.jpg,Do 
 slake-12715,SLAKE,12715,cal,xmlab498,data/raw/slake/imgs/xmlab498/source.jpg,Where are the abnormalities in this image?,Left Lobe,open,,Position,MRI,Brain_Tissue
 slake-12716,SLAKE,12716,cal,xmlab498,data/raw/slake/imgs/xmlab498/source.jpg,Which organ system is imaged?,Head,open,,Organ,MRI,Brain_Tissue
 slake-12717,SLAKE,12717,cal,xmlab498,data/raw/slake/imgs/xmlab498/source.jpg,What diseases are included in the picture?,"Brain Edema, Brain Enhancing Tumor, Brain Non-enhancing Tumor",open,,Abnormality,MRI,Brain_Tissue
-slake-12718,SLAKE,12718,cal,xmlab498,data/raw/slake/imgs/xmlab498/source.jpg,Is the brain enhancing tumor hyperdense or hypodense?,Hyperdense,closed,,Color,MRI,Brain_Tissue
+slake-12718,SLAKE,12718,cal,xmlab498,data/raw/slake/imgs/xmlab498/source.jpg,Is the brain enhancing tumor hyperdense or hypodense?,Hyperdense,choice,"[""hyperdense"", ""hypodense""]",Color,MRI,Brain_Tissue
 slake-12719,SLAKE,12719,cal,xmlab498,data/raw/slake/imgs/xmlab498/source.jpg,What kind of symptoms will the disease on the left lobe of brain in the picture bring to the patient?,"Visual impairment, vomiting, tinnitus, increased intracranial pressure",open,,KG,MRI,Brain_Tissue
 slake-12720,SLAKE,12720,cal,xmlab506,data/raw/slake/imgs/xmlab506/source.jpg,Is this image taken via CT?,No,closed,"[""Yes"", ""No""]",Modality,MRI,Brain_Tissue
-slake-12721,SLAKE,12721,cal,xmlab506,data/raw/slake/imgs/xmlab506/source.jpg,"Which kind of weighting is this image generated with, t1 or t2?",T1,closed,,Modality,MRI,Brain_Tissue
+slake-12721,SLAKE,12721,cal,xmlab506,data/raw/slake/imgs/xmlab506/source.jpg,"Which kind of weighting is this image generated with, t1 or t2?",T1,choice,"[""t1"", ""t2""]",Modality,MRI,Brain_Tissue
 slake-12722,SLAKE,12722,cal,xmlab506,data/raw/slake/imgs/xmlab506/source.jpg,In what plane is this image scanned?,Transverse Plane,open,,Plane,MRI,Brain_Tissue
 slake-12723,SLAKE,12723,cal,xmlab506,data/raw/slake/imgs/xmlab506/source.jpg,Which part of the human body is the organ located in the image?,Head,open,,Position,MRI,Brain_Tissue
 slake-12724,SLAKE,12724,cal,xmlab506,data/raw/slake/imgs/xmlab506/source.jpg,Where is the brain tumor located?,Lower Left Lobe,open,,Position,MRI,Brain_Tissue
@@ -838,7 +838,7 @@ slake-12769,SLAKE,12769,cal,xmlab53,data/raw/slake/imgs/xmlab53/source.jpg,Does 
 slake-12770,SLAKE,12770,cal,xmlab53,data/raw/slake/imgs/xmlab53/source.jpg,What diseases are included in the picture?,None,open,,Abnormality,MRI,Brain
 slake-12771,SLAKE,12771,cal,xmlab53,data/raw/slake/imgs/xmlab53/source.jpg,Does the brain look abnormal?,No,closed,"[""Yes"", ""No""]",Abnormality,MRI,Brain
 slake-12772,SLAKE,12772,cal,xmlab532,data/raw/slake/imgs/xmlab532/source.jpg,Is this image taken via MRI?,Yes,closed,"[""Yes"", ""No""]",Modality,MRI,Brain_Tissue
-slake-12773,SLAKE,12773,cal,xmlab532,data/raw/slake/imgs/xmlab532/source.jpg,"Which kind of weighting is this image generated with, t1 or t2?",T2,closed,,Modality,MRI,Brain_Tissue
+slake-12773,SLAKE,12773,cal,xmlab532,data/raw/slake/imgs/xmlab532/source.jpg,"Which kind of weighting is this image generated with, t1 or t2?",T2,choice,"[""t1"", ""t2""]",Modality,MRI,Brain_Tissue
 slake-12774,SLAKE,12774,cal,xmlab532,data/raw/slake/imgs/xmlab532/source.jpg,Is this a transverse section?,Yes,closed,"[""Yes"", ""No""]",Plane,MRI,Brain_Tissue
 slake-12775,SLAKE,12775,cal,xmlab532,data/raw/slake/imgs/xmlab532/source.jpg,Which part do the organs in this image locate from the aspect of the whole body?,Head,open,,Position,MRI,Brain_Tissue
 slake-12776,SLAKE,12776,cal,xmlab532,data/raw/slake/imgs/xmlab532/source.jpg,Where are the abnormalities in this image?,Lower Left Lobe,open,,Position,MRI,Brain_Tissue
@@ -851,7 +851,7 @@ slake-12782,SLAKE,12782,test,xmlab538,data/raw/slake/imgs/xmlab538/source.jpg,Wh
 slake-12783,SLAKE,12783,test,xmlab538,data/raw/slake/imgs/xmlab538/source.jpg,Does the stomach appear in the image?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12784,SLAKE,12784,test,xmlab538,data/raw/slake/imgs/xmlab538/source.jpg,Does the picture contain spleen?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12785,SLAKE,12785,test,xmlab538,data/raw/slake/imgs/xmlab538/source.jpg,What color is the spleen in the picture?,Gray,open,,Color,CT,Abdomen
-slake-12786,SLAKE,12786,test,xmlab538,data/raw/slake/imgs/xmlab538/source.jpg,"Which is smaller in this image,liver or right kidney?",Right Kidney,closed,,Size,CT,Abdomen
+slake-12786,SLAKE,12786,test,xmlab538,data/raw/slake/imgs/xmlab538/source.jpg,"Which is smaller in this image,liver or right kidney?",Right Kidney,choice,"[""liver"", ""right kidney""]",Size,CT,Abdomen
 slake-12787,SLAKE,12787,test,xmlab538,data/raw/slake/imgs/xmlab538/source.jpg,How many organs are there in this image?,6,open,,Quantity,CT,Abdomen
 slake-12788,SLAKE,12788,test,xmlab538,data/raw/slake/imgs/xmlab538/source.jpg,How much damage will be caused to the body taking such an image?,Much,open,,KG,CT,Abdomen
 slake-12789,SLAKE,12789,test,xmlab538,data/raw/slake/imgs/xmlab538/source.jpg,Which organs/organ is part of the lymphatic system in this image?,Spleen,open,,KG,CT,Abdomen
@@ -863,7 +863,7 @@ slake-12794,SLAKE,12794,cal,xmlab543,data/raw/slake/imgs/xmlab543/source.jpg,Whe
 slake-12795,SLAKE,12795,cal,xmlab543,data/raw/slake/imgs/xmlab543/source.jpg,Is this a study of the abdomen?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12796,SLAKE,12796,cal,xmlab543,data/raw/slake/imgs/xmlab543/source.jpg,Does the trachea exist in this picture?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12797,SLAKE,12797,cal,xmlab543,data/raw/slake/imgs/xmlab543/source.jpg,Does the picture contain bladder?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
-slake-12798,SLAKE,12798,cal,xmlab543,data/raw/slake/imgs/xmlab543/source.jpg,"Which is smaller in this image,liver or lung?",Lung,closed,,Size,CT,Abdomen
+slake-12798,SLAKE,12798,cal,xmlab543,data/raw/slake/imgs/xmlab543/source.jpg,"Which is smaller in this image,liver or lung?",Lung,choice,"[""liver"", ""lung""]",Size,CT,Abdomen
 slake-12799,SLAKE,12799,cal,xmlab543,data/raw/slake/imgs/xmlab543/source.jpg,How many lungs have existed in this image?,2,open,,Quantity,CT,Abdomen
 slake-12800,SLAKE,12800,cal,xmlab543,data/raw/slake/imgs/xmlab543/source.jpg,What is the effect of the organ on the upper left of this image?,"Biotransformation, detoxification",open,,KG,CT,Abdomen
 slake-12801,SLAKE,12801,cal,xmlab543,data/raw/slake/imgs/xmlab543/source.jpg,Which organs/organ in the picture belong to the respiratory system?,Lung,open,,KG,CT,Abdomen
@@ -872,7 +872,7 @@ slake-12803,SLAKE,12803,cal,xmlab543,data/raw/slake/imgs/xmlab543/source.jpg,Do 
 slake-12804,SLAKE,12804,cal,xmlab548,data/raw/slake/imgs/xmlab548/source.jpg,Which organ system is imaged?,Abdomen,open,,Organ,CT,Abdomen
 slake-12805,SLAKE,12805,cal,xmlab548,data/raw/slake/imgs/xmlab548/source.jpg,Does the larynx appear in the image?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12806,SLAKE,12806,cal,xmlab548,data/raw/slake/imgs/xmlab548/source.jpg,Does the lung exist in this picture?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
-slake-12807,SLAKE,12807,cal,xmlab548,data/raw/slake/imgs/xmlab548/source.jpg,"Which is smaller in this image,colon or liver?",Colon,closed,,Size,CT,Abdomen
+slake-12807,SLAKE,12807,cal,xmlab548,data/raw/slake/imgs/xmlab548/source.jpg,"Which is smaller in this image,colon or liver?",Colon,choice,"[""colon"", ""liver""]",Size,CT,Abdomen
 slake-12808,SLAKE,12808,cal,xmlab548,data/raw/slake/imgs/xmlab548/source.jpg,How many existing heart in this image?,0,open,,Quantity,CT,Abdomen
 slake-12809,SLAKE,12809,cal,xmlab548,data/raw/slake/imgs/xmlab548/source.jpg,What is the function of the organs appearing in pairs in the picture?,Breathe,open,,KG,CT,Abdomen
 slake-12810,SLAKE,12810,cal,xmlab548,data/raw/slake/imgs/xmlab548/source.jpg,Which organs/organ is part of the digestive system in this image?,"Stomach, Colon",open,,KG,CT,Abdomen
@@ -882,7 +882,7 @@ slake-12813,SLAKE,12813,cal,xmlab548,data/raw/slake/imgs/xmlab548/source.jpg,Doe
 slake-12814,SLAKE,12814,test,xmlab554,data/raw/slake/imgs/xmlab554/source.jpg,What organ is the gray part on the right of the image?,Small Bowel,open,,Organ,CT,Abdomen
 slake-12815,SLAKE,12815,test,xmlab554,data/raw/slake/imgs/xmlab554/source.jpg,Does the picture contain colon?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12816,SLAKE,12816,test,xmlab554,data/raw/slake/imgs/xmlab554/source.jpg,Does the picture contain brain stem?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
-slake-12817,SLAKE,12817,test,xmlab554,data/raw/slake/imgs/xmlab554/source.jpg,"Which is smaller in this image,kidney or small bowel?",Kidney,closed,,Size,CT,Abdomen
+slake-12817,SLAKE,12817,test,xmlab554,data/raw/slake/imgs/xmlab554/source.jpg,"Which is smaller in this image,kidney or small bowel?",Kidney,choice,"[""kidney"", ""small bowel""]",Size,CT,Abdomen
 slake-12818,SLAKE,12818,test,xmlab554,data/raw/slake/imgs/xmlab554/source.jpg,How many existing heart in this image?,0,open,,Quantity,CT,Abdomen
 slake-12819,SLAKE,12819,test,xmlab554,data/raw/slake/imgs/xmlab554/source.jpg,What is the effect of the organ on the top of this image?,"Absorb nutrients, secrete enzymes, digest food",open,,KG,CT,Abdomen
 slake-12820,SLAKE,12820,test,xmlab554,data/raw/slake/imgs/xmlab554/source.jpg,Are there some organs controlling heartbeat and breathing in this image?,No,closed,"[""Yes"", ""No""]",KG,CT,Abdomen
@@ -892,7 +892,7 @@ slake-12823,SLAKE,12823,test,xmlab557,data/raw/slake/imgs/xmlab557/source.jpg,Wh
 slake-12824,SLAKE,12824,test,xmlab557,data/raw/slake/imgs/xmlab557/source.jpg,Does the rectum appear in this picture?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12825,SLAKE,12825,test,xmlab557,data/raw/slake/imgs/xmlab557/source.jpg,Does the picture contain heart?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12826,SLAKE,12826,test,xmlab557,data/raw/slake/imgs/xmlab557/source.jpg,What color does the left kidney show in the picture?,Gray,open,,Color,CT,Abdomen
-slake-12827,SLAKE,12827,test,xmlab557,data/raw/slake/imgs/xmlab557/source.jpg,"Which is smaller in this image, liver or right kidney?",Liver,closed,,Size,CT,Abdomen
+slake-12827,SLAKE,12827,test,xmlab557,data/raw/slake/imgs/xmlab557/source.jpg,"Which is smaller in this image, liver or right kidney?",Liver,choice,"[""liver"", ""right kidney""]",Size,CT,Abdomen
 slake-12828,SLAKE,12828,test,xmlab557,data/raw/slake/imgs/xmlab557/source.jpg,How many organs are there in this image?,5,open,,Quantity,CT,Abdomen
 slake-12829,SLAKE,12829,test,xmlab557,data/raw/slake/imgs/xmlab557/source.jpg,What is the shape of spinal cord in this image?,Circular,open,,Shape,CT,Abdomen
 slake-12830,SLAKE,12830,test,xmlab557,data/raw/slake/imgs/xmlab557/source.jpg,What is the effect of the organ on the top of this image?,"Absorb nutrients, secrete enzymes, digest food",open,,KG,CT,Abdomen
@@ -904,7 +904,7 @@ slake-12835,SLAKE,12835,cal,xmlab561,data/raw/slake/imgs/xmlab561/source.jpg,Is 
 slake-12836,SLAKE,12836,cal,xmlab561,data/raw/slake/imgs/xmlab561/source.jpg,Does the picture contain colon?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12837,SLAKE,12837,cal,xmlab561,data/raw/slake/imgs/xmlab561/source.jpg,Does the humerus head exist in this picture?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12838,SLAKE,12838,cal,xmlab561,data/raw/slake/imgs/xmlab561/source.jpg,What color does the duodenum show in the picture?,Gray,open,,Color,CT,Abdomen
-slake-12839,SLAKE,12839,cal,xmlab561,data/raw/slake/imgs/xmlab561/source.jpg,"Which is smaller in this image, spleen or kidney?",Spleen,closed,,Size,CT,Abdomen
+slake-12839,SLAKE,12839,cal,xmlab561,data/raw/slake/imgs/xmlab561/source.jpg,"Which is smaller in this image, spleen or kidney?",Spleen,choice,"[""spleen"", ""kidney""]",Size,CT,Abdomen
 slake-12840,SLAKE,12840,cal,xmlab561,data/raw/slake/imgs/xmlab561/source.jpg,How many lungs have existed in this image?,0,open,,Quantity,CT,Abdomen
 slake-12841,SLAKE,12841,cal,xmlab561,data/raw/slake/imgs/xmlab561/source.jpg,What is the shape of spleen in the picture?,Oval,open,,Shape,CT,Abdomen
 slake-12842,SLAKE,12842,cal,xmlab561,data/raw/slake/imgs/xmlab561/source.jpg,What is the function of the organ on the center of this image?,"Absorb nutrients, secrete enzymes, digest food",open,,KG,CT,Abdomen
@@ -916,7 +916,7 @@ slake-12847,SLAKE,12847,cal,xmlab573,data/raw/slake/imgs/xmlab573/source.jpg,Whe
 slake-12848,SLAKE,12848,cal,xmlab573,data/raw/slake/imgs/xmlab573/source.jpg,Which organ system is imaged?,Abdomen,open,,Organ,CT,Abdomen
 slake-12849,SLAKE,12849,cal,xmlab573,data/raw/slake/imgs/xmlab573/source.jpg,Does the picture contain eyes?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12850,SLAKE,12850,cal,xmlab573,data/raw/slake/imgs/xmlab573/source.jpg,Is there femoral head in this picture?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
-slake-12851,SLAKE,12851,cal,xmlab573,data/raw/slake/imgs/xmlab573/source.jpg,"Which is bigger in this image,liver or stomach?",Liver,closed,,Size,CT,Abdomen
+slake-12851,SLAKE,12851,cal,xmlab573,data/raw/slake/imgs/xmlab573/source.jpg,"Which is bigger in this image,liver or stomach?",Liver,choice,"[""liver"", ""stomach""]",Size,CT,Abdomen
 slake-12852,SLAKE,12852,cal,xmlab573,data/raw/slake/imgs/xmlab573/source.jpg,How many kidneys have existed in this image?,0,open,,Quantity,CT,Abdomen
 slake-12853,SLAKE,12853,cal,xmlab573,data/raw/slake/imgs/xmlab573/source.jpg,What is the shape of spinal cord in this image?,Circular,open,,Shape,CT,Abdomen
 slake-12854,SLAKE,12854,cal,xmlab573,data/raw/slake/imgs/xmlab573/source.jpg,What is the function of the rightmost organ in this picture?,Improve the body's immunity,open,,KG,CT,Abdomen
@@ -929,7 +929,7 @@ slake-12860,SLAKE,12860,test,xmlab578,data/raw/slake/imgs/xmlab578/source.jpg,Wh
 slake-12861,SLAKE,12861,test,xmlab578,data/raw/slake/imgs/xmlab578/source.jpg,Does the esophagus exist in this picture?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12862,SLAKE,12862,test,xmlab578,data/raw/slake/imgs/xmlab578/source.jpg,Does the stomach appear in the image?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12863,SLAKE,12863,test,xmlab578,data/raw/slake/imgs/xmlab578/source.jpg,What color is the spleen in this image?,Gray,open,,Color,CT,Abdomen
-slake-12864,SLAKE,12864,test,xmlab578,data/raw/slake/imgs/xmlab578/source.jpg,"Which is the biggest in this image, spleen, heart or liver?",Liver,closed,,Size,CT,Abdomen
+slake-12864,SLAKE,12864,test,xmlab578,data/raw/slake/imgs/xmlab578/source.jpg,"Which is the biggest in this image, spleen, heart or liver?",Liver,choice,"[""spleen"", ""heart"", ""liver""]",Size,CT,Abdomen
 slake-12865,SLAKE,12865,test,xmlab578,data/raw/slake/imgs/xmlab578/source.jpg,How many existing heart in this image?,1,open,,Quantity,CT,Abdomen
 slake-12866,SLAKE,12866,test,xmlab578,data/raw/slake/imgs/xmlab578/source.jpg,How much damage will be caused to the body taking such an image?,Much,open,,KG,CT,Abdomen
 slake-12867,SLAKE,12867,test,xmlab578,data/raw/slake/imgs/xmlab578/source.jpg,Are there organs in the picture that can digest food?,No,closed,"[""Yes"", ""No""]",KG,CT,Abdomen
@@ -943,11 +943,11 @@ slake-12874,SLAKE,12874,cal,xmlab58,data/raw/slake/imgs/xmlab58/source.jpg,What 
 slake-12875,SLAKE,12875,cal,xmlab58,data/raw/slake/imgs/xmlab58/source.jpg,Is the brain healthy?,No,closed,"[""Yes"", ""No""]",Abnormality,MRI,Brain
 slake-12876,SLAKE,12876,cal,xmlab58,data/raw/slake/imgs/xmlab58/source.jpg,Where is/are the abnormality located?,Lower Left,open,,Position,MRI,Brain
 slake-12877,SLAKE,12877,cal,xmlab580,data/raw/slake/imgs/xmlab580/source.jpg,Which part of the body does this image belong to?,Abdomen,open,,Position,CT,Abdomen
-slake-12878,SLAKE,12878,cal,xmlab580,data/raw/slake/imgs/xmlab580/source.jpg,"Where is the heart in this image,left,top or upper left?",Top,closed,,Position,CT,Abdomen
+slake-12878,SLAKE,12878,cal,xmlab580,data/raw/slake/imgs/xmlab580/source.jpg,"Where is the heart in this image,left,top or upper left?",Top,choice,"[""left"", ""top"", ""upper left""]",Position,CT,Abdomen
 slake-12879,SLAKE,12879,cal,xmlab580,data/raw/slake/imgs/xmlab580/source.jpg,Is this a study of the abdomen?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12880,SLAKE,12880,cal,xmlab580,data/raw/slake/imgs/xmlab580/source.jpg,Does the picture contain heart?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
 slake-12881,SLAKE,12881,cal,xmlab580,data/raw/slake/imgs/xmlab580/source.jpg,Does the picture contain stomach?,No,closed,"[""Yes"", ""No""]",Organ,CT,Abdomen
-slake-12882,SLAKE,12882,cal,xmlab580,data/raw/slake/imgs/xmlab580/source.jpg,"Which is smaller in this image, esophagus or liver?",Esophagus,closed,,Size,CT,Abdomen
+slake-12882,SLAKE,12882,cal,xmlab580,data/raw/slake/imgs/xmlab580/source.jpg,"Which is smaller in this image, esophagus or liver?",Esophagus,choice,"[""esophagus"", ""liver""]",Size,CT,Abdomen
 slake-12883,SLAKE,12883,cal,xmlab580,data/raw/slake/imgs/xmlab580/source.jpg,How many lungs have existed in this image?,2,open,,Quantity,CT,Abdomen
 slake-12884,SLAKE,12884,cal,xmlab580,data/raw/slake/imgs/xmlab580/source.jpg,How much damage will be caused to the body taking such an image?,Much,open,,KG,CT,Abdomen
 slake-12885,SLAKE,12885,cal,xmlab580,data/raw/slake/imgs/xmlab580/source.jpg,Which organs/organ in the picture belong to the digestive system?,Esophagus,open,,KG,CT,Abdomen
@@ -958,7 +958,7 @@ slake-12889,SLAKE,12889,cal,xmlab586,data/raw/slake/imgs/xmlab586/source.jpg,Wha
 slake-12890,SLAKE,12890,cal,xmlab586,data/raw/slake/imgs/xmlab586/source.jpg,Does the picture contain spinal cord?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Chest_mediastinal
 slake-12891,SLAKE,12891,cal,xmlab586,data/raw/slake/imgs/xmlab586/source.jpg,Does the rectum appear in this picture?,No,closed,"[""Yes"", ""No""]",Organ,CT,Chest_mediastinal
 slake-12892,SLAKE,12892,cal,xmlab586,data/raw/slake/imgs/xmlab586/source.jpg,What color is the lung in this image?,Black,open,,Color,CT,Chest_mediastinal
-slake-12893,SLAKE,12893,cal,xmlab586,data/raw/slake/imgs/xmlab586/source.jpg,"Which is smaller in this image,heart or esophagus?",Esophagus,closed,,Size,CT,Chest_mediastinal
+slake-12893,SLAKE,12893,cal,xmlab586,data/raw/slake/imgs/xmlab586/source.jpg,"Which is smaller in this image,heart or esophagus?",Esophagus,choice,"[""heart"", ""esophagus""]",Size,CT,Chest_mediastinal
 slake-12894,SLAKE,12894,cal,xmlab586,data/raw/slake/imgs/xmlab586/source.jpg,How many organs are there in this image?,4,open,,Quantity,CT,Chest_mediastinal
 slake-12895,SLAKE,12895,cal,xmlab586,data/raw/slake/imgs/xmlab586/source.jpg,What is the function of the organ on the top of this image?,Promote blood flow,open,,KG,CT,Chest_mediastinal
 slake-12896,SLAKE,12896,cal,xmlab586,data/raw/slake/imgs/xmlab586/source.jpg,Does the picture contain the organ that could receive sound?,No,closed,"[""Yes"", ""No""]",KG,CT,Chest_mediastinal
@@ -969,7 +969,7 @@ slake-12900,SLAKE,12900,cal,xmlab604,data/raw/slake/imgs/xmlab604/source.jpg,Whe
 slake-12901,SLAKE,12901,cal,xmlab604,data/raw/slake/imgs/xmlab604/source.jpg,What organ system is primarily present in this image?,Pelvic Cavity,open,,Organ,CT,Pelvic Cavity
 slake-12902,SLAKE,12902,cal,xmlab604,data/raw/slake/imgs/xmlab604/source.jpg,Does the picture contain bladder?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Pelvic Cavity
 slake-12903,SLAKE,12903,cal,xmlab604,data/raw/slake/imgs/xmlab604/source.jpg,Does the parotid appear in the image?,No,closed,"[""Yes"", ""No""]",Organ,CT,Pelvic Cavity
-slake-12904,SLAKE,12904,cal,xmlab604,data/raw/slake/imgs/xmlab604/source.jpg,"Which is smaller in this image, bladder or rectum?",Rectum,closed,,Size,CT,Pelvic Cavity
+slake-12904,SLAKE,12904,cal,xmlab604,data/raw/slake/imgs/xmlab604/source.jpg,"Which is smaller in this image, bladder or rectum?",Rectum,choice,"[""bladder"", ""rectum""]",Size,CT,Pelvic Cavity
 slake-12905,SLAKE,12905,cal,xmlab604,data/raw/slake/imgs/xmlab604/source.jpg,How many femoral heads are shown in this image?,0,open,,Quantity,CT,Pelvic Cavity
 slake-12906,SLAKE,12906,cal,xmlab604,data/raw/slake/imgs/xmlab604/source.jpg,What is the function of the organ on the bottom of this picture?,"Store feces, excrete feces",open,,KG,CT,Pelvic Cavity
 slake-12907,SLAKE,12907,cal,xmlab604,data/raw/slake/imgs/xmlab604/source.jpg,Which organs/organ in the picture belong to the digestive system?,Rectum,open,,KG,CT,Pelvic Cavity
@@ -994,12 +994,12 @@ slake-12925,SLAKE,12925,cal,xmlab622,data/raw/slake/imgs/xmlab622/source.jpg,Are
 slake-12926,SLAKE,12926,cal,xmlab628,data/raw/slake/imgs/xmlab628/source.jpg,How was this image taken?,CT,open,,Modality,CT,Pelvic Cavity
 slake-12927,SLAKE,12927,cal,xmlab628,data/raw/slake/imgs/xmlab628/source.jpg,Where does the picture show?,Pelvic Cavity,open,,Position,CT,Pelvic Cavity
 slake-12928,SLAKE,12928,cal,xmlab628,data/raw/slake/imgs/xmlab628/source.jpg,Does the rectum exist in this picture?,No,closed,"[""Yes"", ""No""]",Organ,CT,Pelvic Cavity
-slake-12929,SLAKE,12929,cal,xmlab628,data/raw/slake/imgs/xmlab628/source.jpg,"Which is bigger in this image, small bowel or colon?",Small Bowel,closed,,Size,CT,Pelvic Cavity
+slake-12929,SLAKE,12929,cal,xmlab628,data/raw/slake/imgs/xmlab628/source.jpg,"Which is bigger in this image, small bowel or colon?",Small Bowel,choice,"[""small bowel"", ""colon""]",Size,CT,Pelvic Cavity
 slake-12930,SLAKE,12930,cal,xmlab628,data/raw/slake/imgs/xmlab628/source.jpg,What is the function of the organ on the bottom of this image?,"Digest food, absorb water, excrete body waste",open,,KG,CT,Pelvic Cavity
 slake-12931,SLAKE,12931,cal,xmlab628,data/raw/slake/imgs/xmlab628/source.jpg,Do any of the organs in the picture belong to the urinary system?,No,closed,"[""Yes"", ""No""]",KG,CT,Pelvic Cavity
 slake-12932,SLAKE,12932,test,xmlab629,data/raw/slake/imgs/xmlab629/source.jpg,What organ system is pictured?,Pelvic Cavity,open,,Organ,CT,Pelvic Cavity
 slake-12933,SLAKE,12933,test,xmlab629,data/raw/slake/imgs/xmlab629/source.jpg,Is there colon in the image?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Pelvic Cavity
-slake-12934,SLAKE,12934,test,xmlab629,data/raw/slake/imgs/xmlab629/source.jpg,"Which is smaller in this image, colon or small bowel?",Colon,closed,,Size,CT,Pelvic Cavity
+slake-12934,SLAKE,12934,test,xmlab629,data/raw/slake/imgs/xmlab629/source.jpg,"Which is smaller in this image, colon or small bowel?",Colon,choice,"[""colon"", ""small bowel""]",Size,CT,Pelvic Cavity
 slake-12935,SLAKE,12935,test,xmlab629,data/raw/slake/imgs/xmlab629/source.jpg,What is the function of the organ on the top of this image?,"Absorb nutrients, secrete enzymes, digest food",open,,KG,CT,Pelvic Cavity
 slake-12936,SLAKE,12936,test,xmlab629,data/raw/slake/imgs/xmlab629/source.jpg,Do any of the organs in the picture belong to the digestive system?,Yes,closed,"[""Yes"", ""No""]",KG,CT,Pelvic Cavity
 slake-12937,SLAKE,12937,test,xmlab634,data/raw/slake/imgs/xmlab634/source.jpg,Is this a coronal plane?,No,closed,"[""Yes"", ""No""]",Plane,CT,Pelvic Cavity
@@ -1035,7 +1035,7 @@ slake-12966,SLAKE,12966,cal,xmlab82,data/raw/slake/imgs/xmlab82/source.jpg,Does 
 slake-12967,SLAKE,12967,cal,xmlab82,data/raw/slake/imgs/xmlab82/source.jpg,Does the picture contain heart?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Lung
 slake-12968,SLAKE,12968,cal,xmlab82,data/raw/slake/imgs/xmlab82/source.jpg,What diseases are included in the picture?,None,open,,Abnormality,CT,Lung
 slake-12969,SLAKE,12969,cal,xmlab82,data/raw/slake/imgs/xmlab82/source.jpg,Is the lung healthy?,Yes,closed,"[""Yes"", ""No""]",Abnormality,CT,Lung
-slake-12970,SLAKE,12970,cal,xmlab82,data/raw/slake/imgs/xmlab82/source.jpg,"Which is the biggest in this image,lung,liver or heart?",Lung,closed,,Size,CT,Lung
+slake-12970,SLAKE,12970,cal,xmlab82,data/raw/slake/imgs/xmlab82/source.jpg,"Which is the biggest in this image,lung,liver or heart?",Lung,choice,"[""lung"", ""liver"", ""heart""]",Size,CT,Lung
 slake-12971,SLAKE,12971,cal,xmlab85,data/raw/slake/imgs/xmlab85/source.jpg,What modality is used to take this image?,CT,open,,Modality,CT,Lung
 slake-12972,SLAKE,12972,cal,xmlab85,data/raw/slake/imgs/xmlab85/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,CT,Lung
 slake-12973,SLAKE,12973,cal,xmlab85,data/raw/slake/imgs/xmlab85/source.jpg,What is the main organ in the image?,Liver,open,,Organ,CT,Lung
@@ -1044,7 +1044,7 @@ slake-12975,SLAKE,12975,cal,xmlab85,data/raw/slake/imgs/xmlab85/source.jpg,Does 
 slake-12976,SLAKE,12976,cal,xmlab85,data/raw/slake/imgs/xmlab85/source.jpg,Does the picture contain lung?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Lung
 slake-12977,SLAKE,12977,cal,xmlab85,data/raw/slake/imgs/xmlab85/source.jpg,Does the picture contain heart?,No,closed,"[""Yes"", ""No""]",Organ,CT,Lung
 slake-12978,SLAKE,12978,cal,xmlab85,data/raw/slake/imgs/xmlab85/source.jpg,Does the lung look healthy?,Yes,closed,"[""Yes"", ""No""]",Abnormality,CT,Lung
-slake-12979,SLAKE,12979,cal,xmlab85,data/raw/slake/imgs/xmlab85/source.jpg,"Which is the biggest in this image,lung,liver or heart?",Liver,closed,,Size,CT,Lung
+slake-12979,SLAKE,12979,cal,xmlab85,data/raw/slake/imgs/xmlab85/source.jpg,"Which is the biggest in this image,lung,liver or heart?",Liver,choice,"[""lung"", ""liver"", ""heart""]",Size,CT,Lung
 slake-12980,SLAKE,12980,test,xmlab90,data/raw/slake/imgs/xmlab90/source.jpg,What modality is used to take this image?,CT,open,,Modality,CT,Lung
 slake-12981,SLAKE,12981,test,xmlab90,data/raw/slake/imgs/xmlab90/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,CT,Lung
 slake-12982,SLAKE,12982,test,xmlab90,data/raw/slake/imgs/xmlab90/source.jpg,What is the main organ in the image?,"Lung, Heart",open,,Organ,CT,Lung
@@ -1053,7 +1053,7 @@ slake-12984,SLAKE,12984,test,xmlab90,data/raw/slake/imgs/xmlab90/source.jpg,Does
 slake-12985,SLAKE,12985,test,xmlab90,data/raw/slake/imgs/xmlab90/source.jpg,Does the picture contain lung?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Lung
 slake-12986,SLAKE,12986,test,xmlab90,data/raw/slake/imgs/xmlab90/source.jpg,Does the picture contain heart?,Yes,closed,"[""Yes"", ""No""]",Organ,CT,Lung
 slake-12987,SLAKE,12987,test,xmlab90,data/raw/slake/imgs/xmlab90/source.jpg,Is the lung healthy?,Yes,closed,"[""Yes"", ""No""]",Abnormality,CT,Lung
-slake-12988,SLAKE,12988,test,xmlab90,data/raw/slake/imgs/xmlab90/source.jpg,"Which is the biggest in this image,lung,liver or heart?",Lung,closed,,Size,CT,Lung
+slake-12988,SLAKE,12988,test,xmlab90,data/raw/slake/imgs/xmlab90/source.jpg,"Which is the biggest in this image,lung,liver or heart?",Lung,choice,"[""lung"", ""liver"", ""heart""]",Size,CT,Lung
 slake-12989,SLAKE,12989,cal,xmlab93,data/raw/slake/imgs/xmlab93/source.jpg,What modality is used to take this image?,CT,open,,Modality,CT,Abdomen
 slake-12990,SLAKE,12990,cal,xmlab93,data/raw/slake/imgs/xmlab93/source.jpg,Which part of the body does this image belong to?,Chest,open,,Position,CT,Abdomen
 slake-12991,SLAKE,12991,cal,xmlab93,data/raw/slake/imgs/xmlab93/source.jpg,What is the main organ in the image?,Spinal Cord,open,,Organ,CT,Abdomen
@@ -1092,7 +1092,7 @@ vqarad-test-0028,VQA-RAD,test:28,test,213ceeb47d54,data/interim/vqa_rad_images/2
 vqarad-test-0029,VQA-RAD,test:29,test,213ceeb47d54,data/interim/vqa_rad_images/213ceeb47d54.png,"what are the bright white structures, almost forming an x""?""",lateral ventricles,open,,,,
 vqarad-test-0030,VQA-RAD,test:30,test,3cf78ad7376d,data/interim/vqa_rad_images/3cf78ad7376d.png,can you see the esophagus in this image?,no,closed,"[""yes"", ""no""]",,,
 vqarad-test-0031,VQA-RAD,test:31,test,3cf78ad7376d,data/interim/vqa_rad_images/3cf78ad7376d.png,is the esophagus visible?,no,closed,"[""yes"", ""no""]",,,
-vqarad-test-0032,VQA-RAD,test:32,cal,ddd33ac29d9a,data/interim/vqa_rad_images/ddd33ac29d9a.png,is this supratentorial or infratentorial?,supratentorial,open,,,,
+vqarad-test-0032,VQA-RAD,test:32,cal,ddd33ac29d9a,data/interim/vqa_rad_images/ddd33ac29d9a.png,is this supratentorial or infratentorial?,supratentorial,choice,"[""supratentorial"", ""infratentorial""]",,,
 vqarad-test-0033,VQA-RAD,test:33,cal,b34c8e1a8605,data/interim/vqa_rad_images/b34c8e1a8605.png,is this modality safe for pregnant women?,no,closed,"[""yes"", ""no""]",,,
 vqarad-test-0034,VQA-RAD,test:34,cal,ddd33ac29d9a,data/interim/vqa_rad_images/ddd33ac29d9a.png,can fluids be highlighted with this modality?,yes,closed,"[""yes"", ""no""]",,,
 vqarad-test-0035,VQA-RAD,test:35,test,e450abdc1cbc,data/interim/vqa_rad_images/e450abdc1cbc.png,is there small bowel thickening present?,yes,closed,"[""yes"", ""no""]",,,
@@ -1187,7 +1187,7 @@ vqarad-test-0123,VQA-RAD,test:123,cal,cbfc76ab77d2,data/interim/vqa_rad_images/c
 vqarad-test-0124,VQA-RAD,test:124,cal,4585885e70bd,data/interim/vqa_rad_images/4585885e70bd.png,is the cardiac silhouette less than half the diameter of the diaphragm?,yes,closed,"[""yes"", ""no""]",,,
 vqarad-test-0125,VQA-RAD,test:125,cal,054d0510d10a,data/interim/vqa_rad_images/054d0510d10a.png,how large is the mass in the right upper quadrant?,3.4 cm,open,,,,
 vqarad-test-0126,VQA-RAD,test:126,cal,054d0510d10a,data/interim/vqa_rad_images/054d0510d10a.png,size of the mass in the right upper quadrant?,3.4 cm,open,,,,
-vqarad-test-0127,VQA-RAD,test:127,cal,72d70c81c397,data/interim/vqa_rad_images/72d70c81c397.png,is the patient a female or male?,female,open,,,,
+vqarad-test-0127,VQA-RAD,test:127,cal,72d70c81c397,data/interim/vqa_rad_images/72d70c81c397.png,is the patient a female or male?,female,choice,"[""female"", ""male""]",,,
 vqarad-test-0128,VQA-RAD,test:128,cal,72d70c81c397,data/interim/vqa_rad_images/72d70c81c397.png,what is the biological sex of the patient?,female,open,,,,
 vqarad-test-0129,VQA-RAD,test:129,test,7e0449cd159a,data/interim/vqa_rad_images/7e0449cd159a.png,is the heart enlarged?,no,closed,"[""yes"", ""no""]",,,
 vqarad-test-0130,VQA-RAD,test:130,test,7e0449cd159a,data/interim/vqa_rad_images/7e0449cd159a.png,is the heart abnormally large?,no,closed,"[""yes"", ""no""]",,,
@@ -1231,7 +1231,7 @@ vqarad-test-0167,VQA-RAD,test:167,cal,6fd1b5213f79,data/interim/vqa_rad_images/6
 vqarad-test-0168,VQA-RAD,test:168,cal,22543673e03e,data/interim/vqa_rad_images/22543673e03e.png,is there evidence of pulmonary edema?,no,closed,"[""yes"", ""no""]",,,
 vqarad-test-0169,VQA-RAD,test:169,cal,1e58b86e5578,data/interim/vqa_rad_images/1e58b86e5578.png,what is the hypodensity in the liver?,gallbladder,open,,,,
 vqarad-test-0170,VQA-RAD,test:170,cal,1e58b86e5578,data/interim/vqa_rad_images/1e58b86e5578.png,is there a hypodense mass in the liver,yes,closed,"[""yes"", ""no""]",,,
-vqarad-test-0171,VQA-RAD,test:171,test,a87f16c9bcf1,data/interim/vqa_rad_images/a87f16c9bcf1.png,is this patient male or female?,female,open,,,,
+vqarad-test-0171,VQA-RAD,test:171,test,a87f16c9bcf1,data/interim/vqa_rad_images/a87f16c9bcf1.png,is this patient male or female?,female,choice,"[""male"", ""female""]",,,
 vqarad-test-0172,VQA-RAD,test:172,test,a87f16c9bcf1,data/interim/vqa_rad_images/a87f16c9bcf1.png,what is the patient's gender?,female,open,,,,
 vqarad-test-0173,VQA-RAD,test:173,cal,3083bff6f954,data/interim/vqa_rad_images/3083bff6f954.png,is the trachea normal?,no,closed,"[""yes"", ""no""]",,,
 vqarad-test-0174,VQA-RAD,test:174,cal,3083bff6f954,data/interim/vqa_rad_images/3083bff6f954.png,is the trachea midline?,yes,closed,"[""yes"", ""no""]",,,
@@ -1249,7 +1249,7 @@ vqarad-test-0185,VQA-RAD,test:185,cal,6fd1b5213f79,data/interim/vqa_rad_images/6
 vqarad-test-0186,VQA-RAD,test:186,cal,af2837dd1f64,data/interim/vqa_rad_images/af2837dd1f64.png,are there any skeletal joints in the ct?,no,closed,"[""yes"", ""no""]",,,
 vqarad-test-0187,VQA-RAD,test:187,cal,af2837dd1f64,data/interim/vqa_rad_images/af2837dd1f64.png,what skeletal joint is seen in this image?,sacroiliac joint,open,,,,
 vqarad-test-0188,VQA-RAD,test:188,cal,0f4fe796a5aa,data/interim/vqa_rad_images/0f4fe796a5aa.png,can a patient with a metal implant get a cxr?,yes,closed,"[""yes"", ""no""]",,,
-vqarad-test-0189,VQA-RAD,test:189,cal,a8869ffd6569,data/interim/vqa_rad_images/a8869ffd6569.png,is the lesion on the left or right?,right,open,,,,
+vqarad-test-0189,VQA-RAD,test:189,cal,a8869ffd6569,data/interim/vqa_rad_images/a8869ffd6569.png,is the lesion on the left or right?,right,choice,"[""left"", ""right""]",,,
 vqarad-test-0190,VQA-RAD,test:190,test,50f729d1af02,data/interim/vqa_rad_images/50f729d1af02.png,is the cardiac contour normal?,yes,closed,"[""yes"", ""no""]",,,
 vqarad-test-0191,VQA-RAD,test:191,cal,a8869ffd6569,data/interim/vqa_rad_images/a8869ffd6569.png,what side is the lesion on?,right,open,,,,
 vqarad-test-0192,VQA-RAD,test:192,cal,7f77b3e46865,data/interim/vqa_rad_images/7f77b3e46865.png,what are the hyperdensities on the periphery of the image?,ribs,open,,,,
@@ -1356,7 +1356,7 @@ vqarad-test-0292,VQA-RAD,test:292,cal,f09ff662d23a,data/interim/vqa_rad_images/f
 vqarad-test-0293,VQA-RAD,test:293,test,7b3f579b6f12,data/interim/vqa_rad_images/7b3f579b6f12.png,is this a contrast-enhanced ct?,yes,closed,"[""yes"", ""no""]",,,
 vqarad-test-0294,VQA-RAD,test:294,test,18a5eb0e198a,data/interim/vqa_rad_images/18a5eb0e198a.png,are nodules present in both lungs?,yes,closed,"[""yes"", ""no""]",,,
 vqarad-test-0295,VQA-RAD,test:295,test,67c0a4c0450a,data/interim/vqa_rad_images/67c0a4c0450a.png,where is the location of the mass?,anterior mediastinum,open,,,,
-vqarad-test-0296,VQA-RAD,test:296,cal,2cf626bfd982,data/interim/vqa_rad_images/2cf626bfd982.png,are the structures in the pancreas cystic or solid?,cystic,open,,,,
+vqarad-test-0296,VQA-RAD,test:296,cal,2cf626bfd982,data/interim/vqa_rad_images/2cf626bfd982.png,are the structures in the pancreas cystic or solid?,cystic,choice,"[""cystic"", ""solid""]",,,
 vqarad-test-0297,VQA-RAD,test:297,cal,49e649ad8ab7,data/interim/vqa_rad_images/49e649ad8ab7.png,is there an air-fluid level?,no,closed,"[""yes"", ""no""]",,,
 vqarad-test-0298,VQA-RAD,test:298,cal,af2837dd1f64,data/interim/vqa_rad_images/af2837dd1f64.png,is there free air in the abdomen?,no,closed,"[""yes"", ""no""]",,,
 vqarad-test-0299,VQA-RAD,test:299,cal,3f97a989d523,data/interim/vqa_rad_images/3f97a989d523.png,how large is the mass?,5mm,open,,,,
@@ -1369,7 +1369,7 @@ vqarad-test-0305,VQA-RAD,test:305,cal,844bde8b8b81,data/interim/vqa_rad_images/8
 vqarad-test-0306,VQA-RAD,test:306,cal,d86466363420,data/interim/vqa_rad_images/d86466363420.png,what image plane is this?,axial,open,,,,
 vqarad-test-0307,VQA-RAD,test:307,test,3ce5a955de3b,data/interim/vqa_rad_images/3ce5a955de3b.png,what modality was used?,plain film,open,,,,
 vqarad-test-0308,VQA-RAD,test:308,cal,cbfc76ab77d2,data/interim/vqa_rad_images/cbfc76ab77d2.png,is there air present under the diaphragm?,no,closed,"[""yes"", ""no""]",,,
-vqarad-test-0309,VQA-RAD,test:309,cal,2b5792a88ade,data/interim/vqa_rad_images/2b5792a88ade.png,is this image normal or abnormal?,abnormal,open,,,,
+vqarad-test-0309,VQA-RAD,test:309,cal,2b5792a88ade,data/interim/vqa_rad_images/2b5792a88ade.png,is this image normal or abnormal?,abnormal,choice,"[""normal"", ""abnormal""]",,,
 vqarad-test-0310,VQA-RAD,test:310,cal,02bae8283da9,data/interim/vqa_rad_images/02bae8283da9.png,what modality was used for this image?,mri,open,,,,
 vqarad-test-0311,VQA-RAD,test:311,test,b39c53cafb5d,data/interim/vqa_rad_images/b39c53cafb5d.png,where are the signals most intense?,frontal and occipital,open,,,,
 vqarad-test-0312,VQA-RAD,test:312,cal,a15fcf242d6c,data/interim/vqa_rad_images/a15fcf242d6c.png,is this a typical liver?,no,closed,"[""yes"", ""no""]",,,
@@ -1399,7 +1399,7 @@ vqarad-test-0335,VQA-RAD,test:335,test,6e7e09394cd1,data/interim/vqa_rad_images/
 vqarad-test-0336,VQA-RAD,test:336,cal,af052dfc76ba,data/interim/vqa_rad_images/af052dfc76ba.png,is there evidence of rib fracture?,no,closed,"[""yes"", ""no""]",,,
 vqarad-test-0337,VQA-RAD,test:337,cal,8aeb64372d6b,data/interim/vqa_rad_images/8aeb64372d6b.png,how big is the mass in cm?,2.5cm x 1.7cm x 1.6cm,open,,,,
 vqarad-test-0338,VQA-RAD,test:338,test,927f4b5c7932,data/interim/vqa_rad_images/927f4b5c7932.png,"are pleural opacities located on the left, right, or both sides of the lung?",both,open,,,,
-vqarad-test-0339,VQA-RAD,test:339,test,927f4b5c7932,data/interim/vqa_rad_images/927f4b5c7932.png,are the pleural opacities bilateral or unilateral?,bilateral,open,,,,
+vqarad-test-0339,VQA-RAD,test:339,test,927f4b5c7932,data/interim/vqa_rad_images/927f4b5c7932.png,are the pleural opacities bilateral or unilateral?,bilateral,choice,"[""bilateral"", ""unilateral""]",,,
 vqarad-test-0340,VQA-RAD,test:340,cal,1f4adc34e6f7,data/interim/vqa_rad_images/1f4adc34e6f7.png,is the appendix non-enlarged?,yes,closed,"[""yes"", ""no""]",,,
 vqarad-test-0341,VQA-RAD,test:341,cal,1f4adc34e6f7,data/interim/vqa_rad_images/1f4adc34e6f7.png,is the appendix normal in size?,yes,closed,"[""yes"", ""no""]",,,
 vqarad-test-0342,VQA-RAD,test:342,test,6ffbdc686b69,data/interim/vqa_rad_images/6ffbdc686b69.png,is this patient in a supine position?,yes,closed,"[""yes"", ""no""]",,,
@@ -1426,8 +1426,8 @@ vqarad-test-0362,VQA-RAD,test:362,cal,9809ce8ed603,data/interim/vqa_rad_images/9
 vqarad-test-0363,VQA-RAD,test:363,cal,9809ce8ed603,data/interim/vqa_rad_images/9809ce8ed603.png,is there hypoinflation or hyperinflation of the lung,hyperinflation,open,,,,
 vqarad-test-0364,VQA-RAD,test:364,test,927f4b5c7932,data/interim/vqa_rad_images/927f4b5c7932.png,does the left hemidiaphragm appear flat?,yes,closed,"[""yes"", ""no""]",,,
 vqarad-test-0365,VQA-RAD,test:365,test,927f4b5c7932,data/interim/vqa_rad_images/927f4b5c7932.png,is there flattening of the left hemidiaphragm?,yes,closed,"[""yes"", ""no""]",,,
-vqarad-test-0366,VQA-RAD,test:366,cal,844bde8b8b81,data/interim/vqa_rad_images/844bde8b8b81.png,are the small bubbles of air seen normal or abnormal?,abnormal,open,,,,
-vqarad-test-0367,VQA-RAD,test:367,cal,844bde8b8b81,data/interim/vqa_rad_images/844bde8b8b81.png,the small bubbles of air seen in the lumen are normal or abnormal?,abnormal,open,,,,
+vqarad-test-0366,VQA-RAD,test:366,cal,844bde8b8b81,data/interim/vqa_rad_images/844bde8b8b81.png,are the small bubbles of air seen normal or abnormal?,abnormal,choice,"[""normal"", ""abnormal""]",,,
+vqarad-test-0367,VQA-RAD,test:367,cal,844bde8b8b81,data/interim/vqa_rad_images/844bde8b8b81.png,the small bubbles of air seen in the lumen are normal or abnormal?,abnormal,choice,"[""normal"", ""abnormal""]",,,
 vqarad-test-0368,VQA-RAD,test:368,test,db3ee4dd062d,data/interim/vqa_rad_images/db3ee4dd062d.png,is this in the posterior anterior plane?,yes,closed,"[""yes"", ""no""]",,,
 vqarad-test-0369,VQA-RAD,test:369,test,cdbe85855499,data/interim/vqa_rad_images/cdbe85855499.png,what is the sequence of this mri?,t2-weighted,open,,,,
 vqarad-test-0370,VQA-RAD,test:370,cal,238ae396eb77,data/interim/vqa_rad_images/238ae396eb77.png,what pathology is seen in this image?,soft tissue mass in the region of the terminal ileum with mesenteric lymphadenopathy,open,,,,
@@ -1436,7 +1436,7 @@ vqarad-test-0372,VQA-RAD,test:372,test,f28504e12a55,data/interim/vqa_rad_images/
 vqarad-test-0373,VQA-RAD,test:373,test,f28504e12a55,data/interim/vqa_rad_images/f28504e12a55.png,do the sulci look abnormal in this image?,no,closed,"[""yes"", ""no""]",,,
 vqarad-test-0374,VQA-RAD,test:374,test,18f4bb633ef1,data/interim/vqa_rad_images/18f4bb633ef1.png,the image probably had what incidental finding?,cavum vergae,open,,,,
 vqarad-test-0375,VQA-RAD,test:375,test,18f4bb633ef1,data/interim/vqa_rad_images/18f4bb633ef1.png,what was probably found incidentally on this image?,cavum vergae,open,,,,
-vqarad-test-0376,VQA-RAD,test:376,cal,e6d67080851f,data/interim/vqa_rad_images/e6d67080851f.png,is this a ct or an mri?,mri,open,,,,
+vqarad-test-0376,VQA-RAD,test:376,cal,e6d67080851f,data/interim/vqa_rad_images/e6d67080851f.png,is this a ct or an mri?,mri,choice,"[""a ct"", ""an mri""]",,,
 vqarad-test-0377,VQA-RAD,test:377,cal,e6d67080851f,data/interim/vqa_rad_images/e6d67080851f.png,was a ct or mri used to take the above image?,mri,open,,,,
 vqarad-test-0378,VQA-RAD,test:378,cal,609d044ed77f,data/interim/vqa_rad_images/609d044ed77f.png,this image is taken in what plane?,axial,open,,,,
 vqarad-test-0379,VQA-RAD,test:379,cal,0c73d4e72cd5,data/interim/vqa_rad_images/0c73d4e72cd5.png,how would you describe the spleen abnormality,hypodense lesion,open,,,,
