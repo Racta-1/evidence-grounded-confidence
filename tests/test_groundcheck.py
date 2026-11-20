@@ -83,6 +83,10 @@ def test_answer_matching():
     assert PR.parse_choice("Yes, it is.", "closed", ["yes", "no"]) == "yes"
     assert PR.is_correct("the liver", "Liver", "open")
     assert not PR.is_correct("lung", "Liver", "open")
+    assert PR.is_correct("Lungs.", "Lung", "open")              # plural alone is not an error
+    assert PR.is_correct("the right lung", "Right Lung", "open")
+    assert not PR.is_correct("lung", "Right Lung, Lower Left", "open")
+    assert PR.is_correct("pancreas", "Pancreas", "open")
     assert PR.parse_verbal_conf("B\nConfidence: 85") == 0.85
 
 

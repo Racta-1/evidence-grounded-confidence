@@ -54,10 +54,17 @@ def parse_choice(text: str, answer_type: str, options: list[str]) -> str:
     return norm(first_line)
 
 
+def _sing(text: str) -> str:
+    """Drop a simple plural 's' from each word ("lungs" -> "lung"), so number alone
+    never decides right or wrong. Words ending in 'ss' or 'us' are left alone."""
+    return " ".join(w[:-1] if len(w) > 3 and w.endswith("s") and not w.endswith(("ss", "us")) else w
+                    for w in text.split())
+
+
 def is_correct(pred: str, gold: str, answer_type: str) -> bool:
     if answer_type in ("closed", "mcq"):
         return norm(pred) == norm(gold)
-    p, g = norm(pred), norm(gold)
+    p, g = _sing(norm(pred)), _sing(norm(gold))
     if not p:
         return False
     return p == g or (len(g) > 0 and re.search(rf"\b{re.escape(g)}\b", p) is not None)

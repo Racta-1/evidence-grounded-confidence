@@ -1,0 +1,196 @@
+ANSWER CHECK for pilot_smolvlm256m_cpu: 90 questions
+
+Accuracy by dataset and question type (n, accuracy):
+                      size  mean
+dataset       type              
+MedXpertQA-MM mcq       30  0.13
+SLAKE         closed    14  0.43
+              open      16  0.00
+VQA-RAD       closed    19  0.53
+              open      11  0.18
+
+--- MedXpertQA-MM: sample answers ---
+[wrong] (mcq) mxq-MM-503
+    Q: A 63-year-old woman with diabetes presents with complaints of pain in her left shoulder an...
+    correct answer: 'A'
+    model said: 'probs D=0.44, E=0.31, C=0.10, B=0.10, A=0.06'
+    marked as: 'D'
+    stated confidence text: 'Answer: E.'
+[wrong] (mcq) mxq-MM-1252
+    Q: What is the most likely diagnosis in a male patient presenting with constitutional symptom...
+    correct answer: 'A'
+    model said: 'probs E=0.93, A=0.03, D=0.02, C=0.01, B=0.00'
+    marked as: 'E'
+    stated confidence text: 'Answer: E'
+[wrong] (mcq) mxq-MM-1386
+    Q: A 37-year-old male presents with a 4-month history of persistent abdominal pain. He descri...
+    correct answer: 'B'
+    model said: 'probs E=0.54, D=0.23, C=0.09, A=0.09, B=0.04'
+    marked as: 'E'
+    stated confidence text: 'Answer: E'
+[wrong] (mcq) mxq-MM-575
+    Q: A 36-year-old woman develops uncontrolled hypertension following an emergency cesarean sec...
+    correct answer: 'A'
+    model said: 'probs E=0.80, D=0.08, C=0.08, A=0.03, B=0.02'
+    marked as: 'E'
+    stated confidence text: 'D'
+[wrong] (mcq) mxq-MM-1964
+    Q: An 18-year-old male with a history of sickle cell disease presents with progressive left l...
+    correct answer: 'B'
+    model said: 'probs E=0.53, B=0.22, D=0.13, C=0.07, A=0.05'
+    marked as: 'E'
+    stated confidence text: 'Answer: D'
+[wrong] (mcq) mxq-MM-1013
+    Q: Which condition corresponds to the findings observed in this case? Answer Choices: (A) Lea...
+    correct answer: 'A'
+    model said: 'probs E=0.61, B=0.16, D=0.11, A=0.08, C=0.04'
+    marked as: 'E'
+    stated confidence text: 'Answer: D'
+
+--- SLAKE: sample answers ---
+[wrong] (closed) slake-12054
+    Q: Which organ is abnormal, heart or lung?
+    correct answer: 'Lung'
+    model said: 'probs no=0.70, yes=0.30'
+    marked as: 'no'
+    stated confidence text: 'Heart.'
+[wrong] (closed) slake-12101
+    Q: Is the liver healthy?
+    correct answer: 'Yes'
+    model said: 'probs no=0.71, yes=0.29'
+    marked as: 'no'
+    stated confidence text: 'No.'
+[RIGHT] (closed) slake-12348
+    Q: Can cardiomegaly be observed on the heart in this picture?
+    correct answer: 'Yes'
+    model said: 'probs yes=0.98, no=0.02'
+    marked as: 'yes'
+    stated confidence text: 'No.'
+[wrong] (closed) slake-12150
+    Q: Which is bigger in this image, liver or spleen?
+    correct answer: 'Spleen'
+    model said: 'probs yes=0.74, no=0.26'
+    marked as: 'yes'
+    stated confidence text: '90.'
+[RIGHT] (closed) slake-12003
+    Q: Are there abnormalities in this image?
+    correct answer: 'Yes'
+    model said: 'probs yes=0.82, no=0.18'
+    marked as: 'yes'
+    stated confidence text: 'No.'
+[wrong] (closed) slake-12498
+    Q: Can infiltration be observed on the lower left lung in this picture?
+    correct answer: 'Yes'
+    model said: 'probs no=0.89, yes=0.11'
+    marked as: 'no'
+    stated confidence text: 'No.'
+[wrong] (open) slake-12044
+    Q: Where is/are the abnormality located?
+    correct answer: 'Right Lung, Lower Left'
+    model said: 'Lungs.'
+    marked as: 'lungs'
+    stated confidence text: 'Right lung.'
+[wrong] (open) slake-12814
+    Q: What organ is the gray part on the right of the image?
+    correct answer: 'Small Bowel'
+    model said: 'Stomach.'
+    marked as: 'stomach'
+    stated confidence text: 'Right kidney.'
+[wrong] (open) slake-12050
+    Q: What diseases are included in the picture?
+    correct answer: 'Pneumonia'
+    model said: 'Cancer.'
+    marked as: 'cancer'
+    stated confidence text: '0\nThe answer is: 0'
+[wrong] (open) slake-12322
+    Q: How to treat the disease located on the left of lung in this image?
+    correct answer: 'Physical therapy, surgical treatment'
+    model said: 'Lung cancer.'
+    marked as: 'lung cancer'
+    stated confidence text: 'N: 0\n\nThe answer is: N'
+[wrong] (open) slake-12152
+    Q: What is the organ on the top of the body in this image?
+    correct answer: 'Liver'
+    model said: 'Pancreas.'
+    marked as: 'pancreas'
+    stated confidence text: '90.'
+[wrong] (open) slake-12301
+    Q: What disease is/are shown on the left of lung?
+    correct answer: 'Pulmonary Mass'
+    model said: 'Portal vein thrombosis.'
+    marked as: 'portal vein thrombosis'
+    stated confidence text: 'None.'
+
+--- VQA-RAD: sample answers ---
+[wrong] (closed) vqarad-test-0135
+    Q: is the cardiac silhouette within normal size limits?
+    correct answer: 'yes'
+    model said: 'probs no=0.81, yes=0.19'
+    marked as: 'no'
+    stated confidence text: 'No.'
+[RIGHT] (closed) vqarad-test-0199
+    Q: does this image show a pneumothorax?
+    correct answer: 'no'
+    model said: 'probs no=0.84, yes=0.16'
+    marked as: 'no'
+    stated confidence text: 'No.'
+[wrong] (closed) vqarad-test-0188
+    Q: can a patient with a metal implant get a cxr?
+    correct answer: 'yes'
+    model said: 'probs no=1.00, yes=0.00'
+    marked as: 'no'
+    stated confidence text: 'No.'
+[RIGHT] (closed) vqarad-test-0297
+    Q: is there an air-fluid level?
+    correct answer: 'no'
+    model said: 'probs no=0.99, yes=0.01'
+    marked as: 'no'
+    stated confidence text: 'No.'
+[RIGHT] (closed) vqarad-test-0057
+    Q: is the small bowel appropriately identified with gi contrast?
+    correct answer: 'yes'
+    model said: 'probs yes=0.83, no=0.17'
+    marked as: 'yes'
+    stated confidence text: 'Yes.'
+[RIGHT] (closed) vqarad-test-0151
+    Q: is the heart abnormally large?
+    correct answer: 'no'
+    model said: 'probs no=1.00, yes=0.00'
+    marked as: 'no'
+    stated confidence text: 'No.'
+[wrong] (open) vqarad-test-0295
+    Q: where is the location of the mass?
+    correct answer: 'anterior mediastinum'
+    model said: 'Right lung.'
+    marked as: 'right lung'
+    stated confidence text: 'L1'
+[wrong] (open) vqarad-test-0322
+    Q: what type of mri modality is used?
+    correct answer: 'dwi diffusion weighted'
+    model said: 'Mri.'
+    marked as: 'mri'
+    stated confidence text: 'Mri (multivariate MRI)'
+[wrong] (open) vqarad-test-0333
+    Q: where is the opacity located?
+    correct answer: 'right of the midline, superior to the right hilum'
+    model said: 'Right lung.'
+    marked as: 'right lung'
+    stated confidence text: 'No doubt these are the results of a ct scan.'
+[wrong] (open) vqarad-test-0442
+    Q: where is the ascending colon?
+    correct answer: 'posterior to the appendix'
+    model said: 'Colid.'
+    marked as: 'colid'
+    stated confidence text: '95-100'
+[wrong] (open) vqarad-test-0041
+    Q: what is the dark structure underneath the skin?
+    correct answer: 'fat'
+    model said: 'Cola.'
+    marked as: 'cola'
+    stated confidence text: '54.'
+[wrong] (open) vqarad-test-0143
+    Q: in which brain area is the lesion located?
+    correct answer: 'right cerebellopontine angle'
+    model said: 'Right cerebellum.'
+    marked as: 'right cerebellum'
+    stated confidence text: '120\nThe lesion is located in the right occipital lobe.'
